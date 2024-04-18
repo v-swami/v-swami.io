@@ -1,0 +1,6 @@
+	status	data
+city	success	Los Angeles
+country	success	USA
+current	success	{'weather': {'ts': '2021-09-14T13:00:00.000Z', 'tp': 17, 'pr': 1013, 'hu': 42, 'ws': 2.06, 'wd': 140, 'ic': '50d'}, 'pollution': {'ts': '2021-09-14T14:00:00.000Z', 'aqius': 80, 'mainus': 'p2', 'aqicn': 37, 'maincn': 'p2'}}
+location	success	{'type': 'Point', 'coordinates': [-118.2417, 34.0669]}
+state	success	California

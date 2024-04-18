@@ -1,0 +1,9 @@
+"DateIssue","DateForecast","ReportingArea","StateCode","Latitude","Longitude","ParameterName","AQI","CategoryNumber","CategoryName","ActionDay","Discussion"
+2021-09-14,2021-09-14,"Metropolitan Washington","DC",38.919,-77.013,"O3",80,2,"Moderate",FALSE,NA
+2021-09-14,2021-09-14,"Metropolitan Washington","DC",38.919,-77.013,"PM2.5",55,2,"Moderate",FALSE,NA
+2021-09-14,2021-09-15,"Metropolitan Washington","DC",38.919,-77.013,"O3",58,2,"Moderate",FALSE,NA
+2021-09-14,2021-09-15,"Metropolitan Washington","DC",38.919,-77.013,"PM2.5",57,2,"Moderate",FALSE,NA
+2021-09-14,2021-09-16,"Metropolitan Washington","DC",38.919,-77.013,"O3",44,1,"Good",FALSE,NA
+2021-09-14,2021-09-16,"Metropolitan Washington","DC",38.919,-77.013,"PM2.5",42,1,"Good",FALSE,NA
+2021-09-14,2021-09-17,"Metropolitan Washington","DC",38.919,-77.013,"O3",43,1,"Good",FALSE,NA
+2021-09-14,2021-09-17,"Metropolitan Washington","DC",38.919,-77.013,"PM2.5",38,1,"Good",FALSE,NA
