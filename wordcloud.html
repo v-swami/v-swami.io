@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+
+<!-- 
+█▀ █░█░█ ▄▀█ █▀▄▀█ █   █░█ █▀▀ █▄░█ █▄▀ ▄▀█ ▀█▀
+▄█ ▀▄▀▄▀ █▀█ █░▀░█ █   ▀▄▀ ██▄ █░▀█ █░█ █▀█ ░█░
+
+
+ -->
+
+ <style>
+  @import url('https://fonts.googleapis.com/css?family=Urbanist');
+  </style>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Swami Venkat ANLY501 Website - Coming Soon</title>
+    <link rel="stylesheet" href="styles_r.css" />
+  </head>
+    <body >
+
+    <!-- About Section -->
+    <div class="paragraph" id="introduction">
+      <form>
+        <form>
+          <input type="button" class = button value="<-- Go Back" onclick="history.back()">
+         </form>       </form>
+      <div class="main__container">
+        <div class="main__content">
+            <xmp>
+
+                import pandas as pd # data processing
+import numpy as np # linear algebra
+import os
+from matplotlib import pyplot as plt
+from sklearn.feature_extraction.text import CountVectorizer
+from tqdm.auto import tqdm
+from IPython.display import display
+from wordcloud import WordCloud
+
+
+
+#############################################################
+##############   Generating Wordcloud    ##################
+##############################################################
+
+
+tweets = pd.read_csv("twittercleaned.csv")
+
+frequency = {}
+
+# group by meaning
+by_sentiment = tweets.groupby("meaning")
+
+for sentiment, group in by_sentiment:
+    count_v = CountVectorizer(stop_words="english")
+    words = count_v.fit_transform(group["lemmatized"])
+    
+    n_words = words.sum(axis=0)
+    word_freq = [(word, n_words[0, idx]) for word, idx in count_v.vocabulary_.items()]
+    word_freq = sorted(word_freq, key=lambda x: x[1], reverse=True)
+    
+    freq = pd.DataFrame(word_freq, columns=["word", "freq"])
+    
+    frequency[sentiment] = freq.head(n=50)
+
+to_view = pd.concat(frequency, axis=1).head(n=50)
+print(to_view)
+print("\n")
+
+
+neg = ''
+pos = ''
+neu = ''
+new = ''
+for i in range(0, len(to_view)):
+    neg += ('{} '.format(to_view["Negative"]["word"][i]))
+    pos += ('{} '.format(to_view["Positive"]["word"][i]))
+    neu += ('{} '.format(to_view["Neutral"]["word"][i]))
+    new += ('{} '.format(to_view["News"]["word"][i]))
+
+#print(neg)
+
+#creating word cloud
+def show_wordcloud(data, title = None):
+    wordcloud = WordCloud(
+        background_color='white',
+        max_words=100,
+        max_font_size=40, 
+        scale=3,
+        random_state=1
+    ).generate(str(data))
+
+    fig = plt.figure(1, figsize=(12, 12))
+    plt.axis('off')
+    if title: 
+        fig.suptitle(title, fontsize=20)
+        fig.subplots_adjust(top=2.3)
+
+    plt.imshow(wordcloud)
+    plt.show()
+
+
+# generate word clouds
+show_wordcloud(neg)
+
+show_wordcloud(pos)
+
+show_wordcloud(neu)
+
+show_wordcloud(new)
+
+
+
+# creating bar graph to show # of positive, negative, news, and netural tweets
+plt.bar(to_view["Positive"]["word"], to_view["Positive"]["freq"], color ='maroon',
+        width = 0.4)
+ 
+plt.xlabel("Words")
+plt.ylabel("Frequency (number)")
+plt.title("Twitter Positive Sentiment Frequency")
+plt.xticks(rotation=90)
+plt.show()
+
+
+plt.bar(to_view["Negative"]["word"], to_view["Negative"]["freq"], color ='blue',
+        width = 0.4)
+ 
+plt.xlabel("Words")
+plt.ylabel("Frequency (number)")
+plt.title("Twitter Negative Sentiment Frequency")
+plt.xticks(rotation=90)
+plt.show()
+
+
+
+plt.bar(to_view["Neutral"]["word"], to_view["Neutral"]["freq"], color ='orange',
+        width = 0.4)
+ 
+plt.xlabel("Words")
+plt.ylabel("Frequency (number)")
+plt.title("Twitter Neutral Sentiment Frequency")
+plt.xticks(rotation=90)
+plt.show()
+
+
+plt.bar(to_view["News"]["word"], to_view["News"]["freq"], color ='orange',
+        width = 0.4)
+ 
+plt.xlabel("Words")
+plt.ylabel("Frequency (number)")
+plt.title("Twitter News Sentiment Frequency")
+plt.xticks(rotation=90)
+plt.show()
+
+            </xmp>
+            <img style="max-width: 50%; height: auto;" class="center" src="night.gif" alt="weather gif">
+      </div>
+    </div>
+  </body>
+</html>

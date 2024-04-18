@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+
+<!-- 
+█▀ █░█░█ ▄▀█ █▀▄▀█ █   █░█ █▀▀ █▄░█ █▄▀ ▄▀█ ▀█▀
+▄█ ▀▄▀▄▀ █▀█ █░▀░█ █   ▀▄▀ ██▄ █░▀█ █░█ █▀█ ░█░
+
+
+ -->
+
+ <style>
+  @import url('https://fonts.googleapis.com/css?family=Urbanist');
+  </style>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Swami Venkat ANLY501 Website - Coming Soon</title>
+    <link rel="stylesheet" href="styles_r.css" />
+  </head>
+    <body >
+
+    <!-- About Section -->
+    <div class="paragraph" id="introduction">
+      <form>
+        <form>
+          <input type="button" class = button value="<-- Go Back" onclick="history.back()">
+         </form>       </form>
+      <div class="main__container">
+        <div class="main__content">
+            <xmp>
+        
+                #############################################################
+                ##############   Cleaning R Code    ##################
+                ##############################################################
+                
+                
+                # importing libraries.
+                library(ggplot2)
+                library(readr)
+                library(magrittr)
+                library(dplyr)
+                library(formattable)
+                
+                
+                
+                
+                
+                
+                #############################################################
+                ##############   Country = USA   ##################
+                ##############################################################
+                
+                
+                
+                # importing data_set
+                curr_data <-  read.csv('Country.csv');
+                head(curr_data)
+                
+                
+                # Input data files are available in the "../input/" directory.
+                # For example, running this (by clicking run or pressing Shift+Enter) will list the files in the input directory
+                
+                US_data <- curr_data[curr_data$Country == "United States",]
+                
+                #omit na value
+                US_data <- na.omit(US_data)
+                head(US_data)
+                tail(US_data)
+                
+                US_data <- US_data[10:2361,]
+                
+                #creat year col
+                US_data$Year <- as.numeric(substr(US_data$dt,1,4))
+                
+                US_data <- na.omit(US_data)
+                
+                
+                #month number to month name
+                US_data$month <- as.factor(month.abb[as.numeric(substr(US_data$dt,6,7))])
+                
+                head(US_data)
+                
+                # Feature generating 1:
+                # Creating a feature to determine if the weather was extremely cold, cold
+                # normal, or hot.
+                # This will be used later on for future data visualizing
+                US_data <- US_data %>% mutate(Category =
+                                                case_when(AverageTemperature <= 10 ~ "Extreme Cold", 
+                                                          AverageTemperature > 10 & AverageTemperature <= 20 ~ "Cold",
+                                                          AverageTemperature > 20 & AverageTemperature <= 28 ~ "Normal",
+                                                          AverageTemperature > 28 ~ "Hot"))
+                
+                # Feature generating 2:
+                # Convert the Celsius degrees to Fahrenheit
+                US_data <- US_data %>% mutate(Temp_F = (AverageTemperature * 9)/5 + 32)
+                
+                
+                
+                # setting scale
+                # get the minimum value of the temperature
+                ymin = min(US_data$AverageTemperature)
+                # get the maximum value of all the temperature
+                ymax = max(US_data$AverageTemperature)
+                
+                # plotting the x axis as months
+                # plotting the y axis as the average temperature
+                
+                g <- ggplot(US_data, aes(x= month, y= AverageTemperature, col=Year, group=Year)) + 
+                  
+                  # plotting it as a line
+                  geom_line() +
+                  
+                  # color graident frmo pink (1800) -> red (1900) -> blue (2000)
+                  scale_color_gradientn(colours=c("pink","red","blue")) + 
+                  
+                  # setting y limits
+                  scale_y_continuous(limits=c(ymin,ymax)) + 
+                  
+                  # theme
+                  theme_bw() 
+                
+                g + ggtitle("USA Temperatures from years 1800 - 2020") + xlab("Month of the year") + ylab("Temperature in Celsius")
+                
+                
+                # output as CSV
+                write.csv(x=US_data, file="USA_Climate.csv")
+                
+                # summary(US_data$AverageTemperature)
+                
+                formattable(US_data, 
+                            align =c("l","c","c","c","c", "c", "c", "c", "r"), 
+                            list(`Indicator Name` = formatter(
+                              "span", style = ~ style(color = "grey",font.weight = "bold")) 
+                            ))
+                
+                # boxplot
+                # no outliers
+                boxplot(US_data$Temp_F,
+                        main = "Checking Outliers for Temperatures",
+                        xlab = "Temperature in Farenheight",
+                        col = "orange",
+                        border = "brown",
+                        horizontal = TRUE
+                )
+                
+                
+                # Scatter plot of boxplots
+                
+                plot(US_data$month, US_data$Temp_F, main="USA Monthly Averages",
+                     xlab="Month", ylab="MTemperature in Farenheight", pch=19)
+                
+                # Density plot
+                
+                ggplot(US_data, aes(x = AverageTemperature)) + 
+                  geom_density(aes(color=AverageTemperature))
+                
+                
+                #############################################################
+                ##############   Country = India   ##################
+                ##############################################################
+                
+                IN_data <- curr_data[curr_data$Country == "India",]
+                
+                # remove NA values
+                IN_data <- na.omit(IN_data)
+                
+                # getting the top 10 values
+                head(IN_data)
+                # getting the bottom 10 values
+                tail(IN_data)
+                
+                # create a year col
+                # we get this by only getting the first 4 values in from the dt (date) column
+                IN_data$year <- as.numeric(substr(IN_data$dt,1,4))
+                
+                IN_data <- na.omit(IN_data)
+                
+                
+                # month number to month name
+                # we achieve this by getting the numbers and converting them to
+                # it's abbreviation via month.abb
+                IN_data$month <- as.factor(month.abb[as.numeric(substr(IN_data$dt,6,7))])
+                
+                # Feature generating 1:
+                # Creating a feature to determine if the weather was extremely cold, cold
+                # normal, or hot.
+                # This will be used later on for future data visualizing
+                IN_data <- IN_data %>% mutate(Category =
+                                                case_when(AverageTemperature <= 10 ~ "Extreme Cold", 
+                                                          AverageTemperature > 10 & AverageTemperature <= 20 ~ "Cold",
+                                                          AverageTemperature > 20 & AverageTemperature <= 28 ~ "Normal",
+                                                          AverageTemperature > 28 ~ "Hot"))
+                
+                # Feature generating 2:
+                # Convert the Celsius degrees to Fahrenheit
+                IN_data <- IN_data %>% mutate(Temp_F = (AverageTemperature * 9)/5 + 32)
+                
+                # setting scale
+                # get the minimum value of the temperature
+                ymin = min(IN_data$Temp_F)
+                # get the maximum value of all the temperature
+                ymax = max(IN_data$Temp_F)
+                
+                # plotting the x axis as months
+                # plotting the y axis as the average temperature
+                
+                g <- ggplot(IN_data, aes(x= month, y= Temp_F, col=year, group=year)) + 
+                  
+                  # plotting it as a line
+                  geom_line() +
+                  
+                  # color graident frmo pink (1800) -> red (1900) -> blue (2000)
+                  scale_color_gradientn(colours=c("green","red","black")) + 
+                  
+                  # setting y limits
+                  scale_y_continuous(limits=c(ymin,ymax)) + 
+                  
+                  # theme
+                  theme_bw() 
+                
+                g + ggtitle("INDIA Temperatures from 1800 - 2020") + xlab("Month of the year") + ylab("Temperature in Farenheight")
+                
+                # output as CSV
+                write.csv(x=IN_data, file="India_Climate.csv")
+                
+                
+            </xmp>
+            <img style="max-width: 50%; height: auto;" class="center" src="night.gif" alt="weather gif">
+      </div>
+    </div>
+  </body>
+</html>

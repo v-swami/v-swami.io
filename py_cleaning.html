@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+
+<!-- 
+█▀ █░█░█ ▄▀█ █▀▄▀█ █   █░█ █▀▀ █▄░█ █▄▀ ▄▀█ ▀█▀
+▄█ ▀▄▀▄▀ █▀█ █░▀░█ █   ▀▄▀ ██▄ █░▀█ █░█ █▀█ ░█░
+
+
+ -->
+
+ <style>
+  @import url('https://fonts.googleapis.com/css?family=Urbanist');
+  </style>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Swami Venkat ANLY501 Website - Coming Soon</title>
+    <link rel="stylesheet" href="styles_r.css" />
+  </head>
+    <body >
+
+    <!-- About Section -->
+    <div class="paragraph" id="introduction">
+      <form>
+        <form>
+          <input type="button" class = button value="<-- Go Back" onclick="history.back()">
+         </form>       </form>
+      <div class="main__container">
+        <div class="main__content">
+            <xmp>
+        
+                #############################################################
+##############   Cleaning Python Code    ##################
+##############################################################
+
+import pandas as pd # data processing
+import numpy as np # linear algebra
+import os
+
+import matplotlib.pyplot as plt
+
+import re
+import nltk
+import itertools
+
+from nltk.corpus import state_union
+from nltk.tokenize import PunktSentenceTokenizer
+from nltk.stem import WordNetLemmatizer
+
+
+from IPython.display import display
+
+from collections import Counter
+
+
+from nltk.corpus import stopwords
+
+
+from sklearn.feature_extraction.text import CountVectorizer
+
+
+import seaborn as sns
+
+'''
+
+TWITTER AUTHENTICATION
+
+import tweepy
+from tweepy.auth import OAuthHandler
+from twython import Twython
+import csv
+
+API_KEY = "9ZR36AfiJnk6NtqMhfXT9NSK3"
+API_SECRET = "ct0T7wsLPn0mWDCd5zq23SJBBcKYSZ18hy4HHetzxMvMBL8pPg"
+ACCESS_TOKEN = "1435440192345739264-iOXxmxwFxugyax7YlbgFTRthz5br12"
+ACCESS_TOKEN_SECRET = "WzAsqNbxTTHRUk4addWnTLRm51YrQvY7iC47PxOOiuDHf"
+
+auth = OAuthHandler(API_KEY, API_SECRET)
+auth.set_access_token(ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
+
+auth.set_access_token(ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
+api = tweepy.API(auth)
+print(api.me().name)
+'''
+
+
+tweets = pd.read_csv("twitter_sentiment_data.csv")
+# print(tweets.shape)
+
+
+sentiment_name = {
+    -1: "Negative",
+     0: "Neutral",
+     1: "Positive",
+     2: "News",
+}
+
+# adding a feature generation
+# this is to create a meaning of the sentiment analysis
+tweets["meaning"] = tweets["sentiment"].apply(lambda x: sentiment_name[x])
+#print(tweets.head())
+
+sentiment_count = tweets["sentiment"].value_counts()
+#print(sentiment_count)
+
+# pie chart
+# by sentiment number
+my_explode = [0.2, 0, 0, 0]
+labels = [r'1', r'2', r'0', r'-1']
+plt.pie(sentiment_count, labels = sentiment_count, explode = my_explode, shadow = True, startangle=80)
+plt.legend(labels, loc="best")
+plt.title('Percentage (%) Sentiment', bbox={'facecolor':'0.8', 'pad':5})
+plt.show() 
+
+# box plot
+# by meaning of sentiment
+tweets_meaning = pd.DataFrame({'lab':['Negative', 'Neutral', 'Positive', 'News'], 'value':[3990, 7715, 22962, 9276]})
+tweets_meaning.plot.bar()
+plt.show()
+# print(len(tweets))
+
+clean_tweets = []
+cachedStopWords = stopwords.words("english")
+len_tweet = []
+lemm = []
+
+for val in tweets["message"]:
+    curr_tweet = val
+    curr_tweet = ' '.join(re.sub("(@[A-Za-z0-9]+)|([^0-9A-Za-z \t])|(\w+:\/\/\S+)"," ",curr_tweet).split())
+    curr_tweet = curr_tweet.replace('RT','')
+    curr_tweet = curr_tweet.lstrip(" ")
+    curr_tweet = curr_tweet.lower()
+    curr_tweet = ' '.join([word for word in curr_tweet.split() if word not in cachedStopWords])
+    clean_tweets.append(curr_tweet)
+    len_str = len(list(curr_tweet))
+    len_tweet.append(len_str)
+
+
+    lemmatizer = WordNetLemmatizer()
+    lemmatizer = lemmatizer.lemmatize(curr_tweet)
+    lemm.append(lemmatizer)
+
+
+# print(len_tweet)
+def process():
+    POS = []
+    for tweet in clean_tweets:
+        custom_sent_tokenizer = PunktSentenceTokenizer(tweet)
+        tokenized = custom_sent_tokenizer.tokenize(tweet)
+
+        def process_content():
+            for i in tokenized:
+                words = nltk.word_tokenize(i)
+                tagged = nltk.pos_tag(words)
+                POS.append(tagged)
+
+        process_content()
+    return(POS)
+pos_tag = process()
+
+
+df = pd.DataFrame(clean_tweets, columns=["cleantweet"])
+df['tweetid'] = tweets['tweetid']
+df['len'] = len_tweet
+# adding meaning
+df['meaning'] = tweets['meaning']
+df['lemmatized'] = lemm
+
+# remove entire row with NA
+df.dropna()
+# remove entire row cleantweets where the size is 0
+df = df[df.cleantweet != '']
+
+df['pos'] = pos_tag
+
+
+plt.figure(figsize=(15, 15))
+sns.boxplot(x="meaning", y="len", data=df, palette=("Blues_d"))
+plt.title("Sentiment vs. Length")
+plt.show()
+
+print(df)
+df.to_csv("twittercleaned.csv")
+
+            </xmp>
+            <img style="max-width: 50%; height: auto;" class="center" src="night.gif" alt="weather gif">
+      </div>
+    </div>
+  </body>
+</html>

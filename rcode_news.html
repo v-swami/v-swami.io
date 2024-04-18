@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+
+<!-- 
+█▀ █░█░█ ▄▀█ █▀▄▀█ █   █░█ █▀▀ █▄░█ █▄▀ ▄▀█ ▀█▀
+▄█ ▀▄▀▄▀ █▀█ █░▀░█ █   ▀▄▀ ██▄ █░▀█ █░█ █▀█ ░█░
+
+
+ -->
+
+ <style>
+  @import url('https://fonts.googleapis.com/css?family=Urbanist');
+  </style>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Swami Venkat ANLY501 Website - Coming Soon</title>
+    <link rel="stylesheet" href="styles_r.css" />
+  </head>
+    <body >
+
+    <!-- About Section -->
+    <div class="paragraph" id="introduction">
+      <form>
+        <form>
+          <input type="button" class = button value="<-- Go Back" onclick="history.back()">
+         </form>       </form>
+      <div class="main__container">
+        <div class="main__content">
+            <xmp>
+        
+
+
+
+
+                #############################################################
+                ##############   Using the News API    ##################
+                ##############################################################
+                
+                
+                # importing libraries
+                library(httr)
+                library(jsonlite)
+                library(tidyverse)
+                library(plyr)
+                library(RJSONIO)
+                
+                
+                # use a get with our API to get the URL link
+                res = GET("https://newsapi.org/v2/everything?q=climate%20change&from=2021-08-15&sortBy=publishedAt&apiKey=f94cd7e9d6144f83b2e5637bf533421f")
+                # get the content of the request and print it 
+                rawToChar(res$content)
+                # save the content in a cont
+                cont <- res$content
+                # convert it to raw characters 
+                char <- rawToChar(res$content)
+                # use fromJSON to convert it into a JSON file
+                df <- jsonlite::fromJSON(char)
+                # convert it to a dataframe
+                json_data_frame <- as.data.frame(df)
+                
+                # output the csv
+                write.csv(x=df, file="news_climatechange.csv")
+                
+                  
+                
+                
+
+
+                #############################################################
+                ##############   END OF CODE    ##################
+                ##############################################################
+
+
+
+
+
+            
+            </xmp>
+            <img style="max-width: 50%; height: auto;" class="center" src="night.gif" alt="weather gif">
+      </div>
+    </div>
+  </body>
+</html>

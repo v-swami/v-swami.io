@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+
+<!-- 
+█▀ █░█░█ ▄▀█ █▀▄▀█ █   █░█ █▀▀ █▄░█ █▄▀ ▄▀█ ▀█▀
+▄█ ▀▄▀▄▀ █▀█ █░▀░█ █   ▀▄▀ ██▄ █░▀█ █░█ █▀█ ░█░
+
+
+ -->
+
+ <style>
+  @import url('https://fonts.googleapis.com/css?family=Urbanist');
+  </style>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Swami Venkat ANLY501 Website - Coming Soon</title>
+    <link rel="stylesheet" href="styles_r.css" />
+  </head>
+    <body >
+
+    <!-- About Section -->
+    <div class="paragraph" id="introduction">
+      <form>
+        <form>
+          <input type="button" class = button value="<-- Go Back" onclick="history.back()">
+         </form>       </form>
+      <div class="main__container">
+        <div class="main__content">
+            <xmp>
+                
+
+
+
+                #############################################################
+                ##############   Using the AirNow   API   ##################
+                ##############################################################
+                
+                library("httr")
+                library("jsonlite")
+                
+                ## Get the data
+                ## BUILD THE URL
+                base <- "http://www.airnowapi.org/aq/forecast/zipCode/"
+                
+                format<-"text/csv"
+                zipCode="20002"
+                date="2021-09-14"
+                API_KEY="6903AB7F-936C-4551-BAE1-D90419FB59B8"
+                distance="25"
+                
+                
+                call1 <- paste(base,"?",
+                               "format", "=", format, "&",
+                               "zipCode", "=", zipCode, "&",
+                               "date", "=", date,"&",
+                               "API_KEY", "=", API_KEY, "&",
+                               "distance", "=", distance, 
+                               sep="")
+                
+                (call1)
+                
+                AirNowAPI_Call<-httr::GET(call1)
+                (AirNowAPI_Call)
+                
+                (MYDF<-httr::content(AirNowAPI_Call))
+                ## Print to a file
+                AirName = "AirFileExample.csv"
+                ## Start the file
+                AirFile <- file(AirName)
+                ## Write Tweets to file
+                write.csv(MYDF,AirFile, row.names = FALSE)
+            
+
+
+                #############################################################
+                ##############   END OF CODE    ##################
+                ##############################################################
+
+
+
+
+
+
+
+            
+            </xmp>
+            <img style="max-width: 75%; height: auto;" class="center" src="night.gif" alt="weather gif">
+      </div>
+    </div>
+  </body>
+</html>

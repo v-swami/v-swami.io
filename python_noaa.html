@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+
+<!-- 
+█▀ █░█░█ ▄▀█ █▀▄▀█ █   █░█ █▀▀ █▄░█ █▄▀ ▄▀█ ▀█▀
+▄█ ▀▄▀▄▀ █▀█ █░▀░█ █   ▀▄▀ ██▄ █░▀█ █░█ █▀█ ░█░
+
+
+ -->
+
+ <style>
+  @import url('https://fonts.googleapis.com/css?family=Urbanist');
+  </style>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Swami Venkat ANLY501 Website - Coming Soon</title>
+    <link rel="stylesheet" href="styles_r.css" />
+  </head>
+    <body >
+
+    <!-- About Section -->
+    <div class="paragraph" id="introduction">
+      <form>
+        <form>
+          <input type="button" class = button value="<-- Go Back" onclick="history.back()">
+         </form>       </form>
+      <div class="main__container">
+        <div class="main__content">
+            <xmp>
+        
+
+
+                
+                  
+                #############################################################
+                ##############   Using NOAA API    ##################
+                ##############################################################
+
+
+
+
+                # import libraries
+                import requests
+                import json
+                import pandas as pd
+                import numpy as np
+                from datetime import datetime
+
+                # my token from NOAA API
+                token = 'AXTwhvtBTxygOMupAesvGqEUrhPIvmaw'
+                # using reuqests we're getting the data from the NOAA website
+                # CODE :US250014
+                # Start date: Jan 1 2020
+                # End ate: Dec 31 2020
+                r = requests.get('https://www.ncdc.noaa.gov/cdo-web/api/v2/data?datasetid=GHCND&locationid=CITY:US250014&startdate=2020-01-01&enddate=2020-12-31&limit=1000&datatypeid=TOBS', headers={'token':token})
+
+                # convert the request to a response
+                response = r.json()
+                # conver the response['results'] to a dataframe
+                df = pd.DataFrame(response['results'])
+                # output the csv to the folder
+                df.to_csv(r'weatheroutput.csv')
+                
+
+
+
+
+
+                #############################################################
+                ##############   END OF CODE    ##################
+                ##############################################################
+
+
+
+
+
+            
+            </xmp>
+            <img style="max-width: 50%; height: auto;" class="center" src="night.gif" alt="weather gif">
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+
+<!-- 
+█▀ █░█░█ ▄▀█ █▀▄▀█ █   █░█ █▀▀ █▄░█ █▄▀ ▄▀█ ▀█▀
+▄█ ▀▄▀▄▀ █▀█ █░▀░█ █   ▀▄▀ ██▄ █░▀█ █░█ █▀█ ░█░
+
+
+ -->
+
+ <style>
+  @import url('https://fonts.googleapis.com/css?family=Urbanist');
+  </style>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Swami Venkat ANLY501 Website - Coming Soon</title>
+    <link rel="stylesheet" href="styles_r.css" />
+  </head>
+    <body >
+
+    <!-- About Section -->
+    <div class="paragraph" id="introduction">
+      <form>
+        <form>
+          <input type="button" class = button value="<-- Go Back" onclick="history.back()">
+         </form>       </form>
+      <div class="main__container">
+        <div class="main__content">
+            <xmp>
+                ##############################
+                # Swaminathan Venkateswaran
+                # arm.r
+
+
+                ##########
+
+                # Getting twitter keys
+
+                ##########
+
+                consumerKey="9ZR36AfiJnk6NtqMhfXT9NSK3"
+                consumerSecret="ct0T7wsLPn0mWDCd5zq23SJBBcKYSZ18hy4HHetzxMvMBL8pPg"
+                access_Token="1435440192345739264-iOXxmxwFxugyax7YlbgFTRthz5br12"
+                access_Secret="WzAsqNbxTTHRUk4addWnTLRm51YrQvY7iC47PxOOiuDHf"
+
+
+                requestURL='https://api.twitter.com/oauth/request_token'
+                accessURL='https://api.twitter.com/oauth/access_token'
+                authURL='https://api.twitter.com/oauth/authorize'
+
+
+
+                ##########
+
+                # Importing Libraries
+
+                ##########
+
+
+
+                library(rlang)
+                library(usethis)
+                library(devtools)
+                library(base64enc)
+                library(RCurl)
+                library(httr)
+                library(twitteR)
+                library(ROAuth)
+                library(networkD3)
+                library(arules)
+                library(rtweet)
+                library(jsonlite)
+                library(streamR)
+                library(rjson)
+                library(tokenizers)
+                library(tidyverse)
+                library(plyr)
+                library(dplyr)
+                library(ggplot2)
+                library(syuzhet)
+                library(stringr)
+                library(arulesViz)
+                library(igraph)
+                library(httpuv)
+                library(openssl)
+                library(base64enc)
+
+
+                ##########
+
+                # Getting hashtags
+                # Storing the values into a csv
+
+                ##########
+
+
+
+                setup_twitter_oauth(consumer_key, consumer_secret, access_token , access_secret)
+
+                Search<-twitteR::searchTwitter("#climatechange + #globalwarming", n=100, lang="en")
+                Search_DF <- twitteR::twListToDF(Search)
+                TransactionTweetsFile="TweetResults.csv"
+                Search_DF$text[3]
+                #it works 
+
+                #tokenize tweets 
+                tokenize_tweets(Search_DF$text[1],stopwords = stopwords::stopwords("en"), 
+                                lowercase = TRUE,  strip_punct = TRUE, 
+                                strip_url = TRUE, simplify = TRUE)
+
+                Trans <- file(TransactionTweetsFile)
+                #tokenize to words
+                Tokens<-tokenizers::tokenize_words(
+                  Search_DF$text[1],stopwords = stopwords::stopwords("en"), 
+                  lowercase = T,  strip_punct = T, strip_numeric = T,
+                  simplify = T)
+                #write tokens 
+                cat(unlist(Tokens), "\n", file=Trans, sep=",")
+                close(Trans)
+                #append remaining lists of tokens into file 
+                Trans <- file(TransactionTweetsFile, open="a")
+                for(i in 2:nrow(Search_DF)){
+                  Tokens<-tokenize_words(Search_DF$text[i],
+                                        stopwords = stopwords::stopwords("en"), 
+                                        lowercase = T,  
+                                        strip_punct = T, 
+                                        simplify = T)
+                  
+                  cat(unlist(Tokens), "\n", file=Trans, sep=",")
+                  cat(unlist(Tokens))
+                }
+
+                close(Trans)
+                #Read in the tweet transactions 
+                TweetTrans <- read.transactions(TransactionTweetsFile,
+                                                rm.duplicates=FALSE,
+                                                format="basket",
+                                                sep=",")
+                #inspect(TweetTrans)
+                #Sample_trans <- sample(TweetTrans,3)
+                #summary(Sample_trans)
+
+                #read the transactions data into a dataframe
+                TweetDF <- read.csv(TransactionTweetsFile,
+                                    header=FALSE,
+                                    sep=",")
+                #head(TweetDF)
+                str(TweetDF)
+                #convert all columns to char
+                TweetDF<-TweetDF %>%
+                  mutate_all(as.character)
+                #remove certain words 
+                TweetDF[TweetDF == "t.co"] <- ""
+                TweetDF[TweetDF == "rt"] <- ""
+                TweetDF[TweetDF == "http"] <- ""
+                TweetDF[TweetDF == "https"] <- ""
+                TweetDF[TweetDF == "hackernoon"] <- ""
+                TweetDF
+                #still needs a lot of cleaning 
+                #clean with grepl 
+                MyDF<-NULL
+                MyDF2<-NULL
+                for (i in 1:ncol(TweetDF)){
+                  MyList=c() 
+                  MyList2=c() # each list is a column of logicals ...
+                  MyList=c(MyList,grepl("[[:digit:]]", TweetDF[[i]]))
+                  MyDF<-cbind(MyDF,MyList)  ## create a logical DF
+                  MyList2=c(MyList2,(nchar(TweetDF[[i]])<4 | nchar(TweetDF[[i]])>11))
+                  MyDF2<-cbind(MyDF2,MyList2) 
+                  ## TRUE is when a cell has a word that contains digits
+                }
+                ## For all TRUE, replace with blank
+                TweetDF[MyDF] <- ""
+                TweetDF[MyDF2] <- ""
+                head(TweetDF,10) 
+
+                #save the dataframe using write table command
+                write.table(TweetDF, file = "UpdatedTweetFile.csv", col.names = FALSE, 
+                            row.names = FALSE, sep = ",")
+                TweetTrans <- read.transactions("UpdatedTweetFile.csv", sep =",", 
+                                                format("basket"),  rm.duplicates = FALSE)
+
+                #inspect(TweetTrans) -> looks good
+
+                #create the rules 
+                TweetTrans_rules = arules::apriori(TweetTrans,
+                                                  parameter=list(support=0.1, conf=1, minlen=2))
+                #168 rules created -> narrowed down the parameter to lower the list from 5k to 168 rules to be more specific results
+                #but then lift was lower so changed support from 0.2 back to 0.1 to get 2289 rules 
+
+
+                ##########
+
+                # Sort by Confidence
+
+                ##########
+
+
+                inspect(TweetTrans_rules[1:15])
+                #sort by conf
+                SortedRules_conf <- sort(TweetTrans_rules, by="confidence", decreasing=TRUE)
+                inspect(SortedRules_conf[1:15])
+                #sort by support
+
+
+                ##########
+
+                # Sort by support
+
+                ##########
+
+                SortedRules_sup <- sort(TweetTrans_rules, by="support", decreasing=TRUE)
+                inspect(SortedRules_sup[1:15])
+                #sort by lift 
+
+
+                ##########
+
+                # Sort by lift
+
+                ##########
+
+
+                SortedRules_lift <- sort(TweetTrans_rules, by="lift", decreasing=TRUE)
+                inspect(SortedRules_lift[1:15])  
+
+                #arules visuals
+                plot(SortedRules_lift[1:15], method="graph",engine="interactive",shading="confidence")
+
+                plot(SortedRules_sup[1:15],method="graph",engine="interactive",shading="confidence")
+                #affect which rules are used 
+                TweetTrans_rules <- SortedRules_lift[1:25]
+                inspect(TweetTrans_rules)
+
+                #Use NetworkD3 to view results 
+                Rules_DF <- DATAFRAME(TweetTrans_rules, separate=TRUE)
+                head(Rules_DF)
+                #str(Rules_DF)
+                #convert to char
+                Rules_DF$LHS<-as.character(Rules_DF$LHS)
+                Rules_DF$RHS<-as.character(Rules_DF$RHS)
+                #remove all {}
+                Rules_DF[] <- lapply(Rules_DF, gsub, pattern='[{]', replacement='')
+                Rules_DF[] <- lapply(Rules_DF, gsub, pattern='[}]', replacement='')
+                Rules_DF
+
+
+
+
+                #do for sup, conf, and lift 
+                #using lift 
+                Rules_L <- Rules_DF[c(1,2,6)]
+                names(Rules_L) <- c("SourceName","TargetName","Weight")
+                head(Rules_L,30)
+
+                #using sup
+                Rules_S <- Rules_DF[c(1,2,3)]
+                names(Rules_S) <- c("SourceName","TargetName","Weight")
+                head(Rules_S,30)
+
+                #using conf  
+                Rules_C <- Rules_DF[c(1,2,4)]
+                names(Rules_C) <- c("SourceName","TargetName","Weight")
+                head(Rules_C,30)
+
+                #chose and set 
+                Rules_Sup <- Rules_L
+                Rules_Sup <- Rules_S
+                Rules_Sup <- Rules_C
+
+                #build a networkD3 edgeList and nodeList
+                edgeList <- Rules_Sup
+                edgeList
+                #create graph 
+                MyGraph <- igraph::simplify(igraph::graph.data.frame(edgeList,directed=TRUE))
+                plot(MyGraph)
+
+                #build the nodes and edges 
+                edgeList<-Rules_Sup
+                MyGraph <- igraph::simplify(igraph::graph.data.frame(edgeList, directed=TRUE))
+
+                nodeList <- data.frame(ID = c(0:(igraph::vcount(MyGraph) - 1)), 
+                                      # because networkD3 library requires IDs to start at 0
+                                      nName = igraph::V(MyGraph)$name)
+                ## Node Degree
+                nodeList <- cbind(nodeList, nodeDegree=igraph::degree(MyGraph, 
+                                                                      v = igraph::V(MyGraph), mode = "all"))
+
+                ## Betweenness
+                BetweenNess <- igraph::betweenness(MyGraph, 
+                                                  v = igraph::V(MyGraph), 
+                                                  directed = TRUE) 
+
+                nodeList <- cbind(nodeList, nodeBetweenness=BetweenNess)
+                nodeList
+
+                #build edges 
+                getNodeID <- function(x){
+                  which(x == igraph::V(MyGraph)$name) - 1  #IDs start at 0
+                }
+                ## 
+                (getNodeID("mental")) 
+
+                edgeList <- plyr::ddply(
+                  Rules_Sup, .variables = c("SourceName", "TargetName" , "Weight"), 
+                  function (x) data.frame(SourceID = getNodeID(x$SourceName), 
+                                          TargetID = getNodeID(x$TargetName)))
+
+                head(edgeList)
+                #nrow(edgeList)
+
+                #dice sim
+                DiceSim <- igraph::similarity.dice(MyGraph, vids = igraph::V(MyGraph), mode = "all")
+                #head(DiceSim)
+
+                F1 <- function(x) {data.frame(diceSim = DiceSim[x$SourceID +1, x$TargetID + 1])}
+                #Place a new column in edgeList with the Dice Sim
+                head(edgeList)
+                edgeList <- plyr::ddply(edgeList,
+                                        .variables=c("SourceName", "TargetName", "Weight", 
+                                                    "SourceID", "TargetID"), 
+                                        function(x) data.frame(F1(x)))
+                head(edgeList)
+
+                #COLOR
+                COLOR_P <- colorRampPalette(c("#00FF00", "#FF0000"), 
+                                            bias = nrow(edgeList), space = "rgb", 
+                                            interpolate = "linear")
+                #COLOR_P
+                colCodes <- COLOR_P(length(unique(edgeList$diceSim)))
+                edges_col <- sapply(edgeList$diceSim, 
+                                    function(x) colCodes[which(sort(unique(edgeList$diceSim)) == x)])
+                nrow(edges_col)
+
+                #Network D3 Object
+                D3_network_Tweets <- networkD3::forceNetwork(
+                  Links = edgeList, # data frame that contains info about edges
+                  Nodes = nodeList, # data frame that contains info about nodes
+                  Source = "SourceID", # ID of source node 
+                  Target = "TargetID", # ID of target node
+                  Value = "Weight", # value from the edge list (data frame) that will be used to value/weight relationship amongst nodes
+                  NodeID = "nName", # value from the node list (data frame) that contains node description we want to use (e.g., node name)
+                  Nodesize = "nodeBetweenness",  # value from the node list (data frame) that contains value we want to use for a node size
+                  Group = "nodeDegree",  # value from the node list (data frame) that contains value we want to use for node color
+                  height = 1500, # Size of the plot (vertical)
+                  width = 1500,  # Size of the plot (horizontal)
+                  fontSize = 16, # Font size
+                  linkDistance = networkD3::JS("function(d) { return d.value*1000; }"), # Function to determine distance between any two nodes, uses variables already defined in forceNetwork function (not variables from a data frame)
+                  linkWidth = networkD3::JS("function(d) { return d.value*5; }"),# Function to determine link/edge thickness, uses variables already defined in forceNetwork function (not variables from a data frame)
+                  opacity = 5, # opacity
+                  zoom = TRUE, # ability to zoom when click on the node
+                  opacityNoHover = 5, # opacity of labels when static
+                  linkColour = "maroon"   ###"edges_col"red"# edge colors
+                ) 
+                D3_network_Tweets
+                #save as html file
+                networkD3::saveNetwork(D3_network_Tweets, 
+                                      "NetD3_tweets.html", selfcontained = TRUE)
+
+                #visnetwork 
+                library(visNetwork)
+                nodes <- nodeList
+                edges <- edgeList
+                head(edges)
+                head(nodes)
+
+
+                visNetwork(nodes,edges,layout="layout_with_fr",arrows="middle")
+                edges
+                edges <- mutate(edges, width = Weight, length=20)
+                edges
+
+                visNetwork(nodes, edges) %>% 
+                  visIgraphLayout(layout = "layout_with_fr") %>% 
+                  visEdges(arrows = "middle")
+
+                edges2 <- data.frame(
+                  from = edges$SourceName, 
+                  to = edges$TargetName,
+                  # add labels on edges                  
+                  label = edges$Weight,
+                  # length
+                  length = c(100,500),
+                  # width
+                  width = edges$Weight,
+                  arrows=c("to","from","middle","middle:to"),
+                  dashes=c(TRUE,FALSE)
+                )
+                edges2 
+
+                nodes2 <- data.frame(id = nodes$ID, label = nodes[1])
+                nodes2
+
+                MyVis<-visNetwork(nodes2, edges2, height = "500px", width = "100%")
+                MyVis %>% visNodes(color = list(background = "pink", 
+                                                border = "black"))
+ 
+                
+
+            </xmp>
+            <img style="max-width: 50%; height: auto;" class="center" src="night.gif" alt="weather gif">
+      </div>
+    </div>
+  </body>
+</html>

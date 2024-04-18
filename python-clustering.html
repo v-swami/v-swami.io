@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+
+<!-- 
+█▀ █░█░█ ▄▀█ █▀▄▀█ █   █░█ █▀▀ █▄░█ █▄▀ ▄▀█ ▀█▀
+▄█ ▀▄▀▄▀ █▀█ █░▀░█ █   ▀▄▀ ██▄ █░▀█ █░█ █▀█ ░█░
+
+
+ -->
+
+ <style>
+  @import url('https://fonts.googleapis.com/css?family=Urbanist');
+  </style>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Swami Venkat ANLY501 Website - Coming Soon</title>
+    <link rel="stylesheet" href="styles_r.css" />
+  </head>
+    <body >
+
+    <!-- About Section -->
+    <div class="paragraph" id="introduction">
+      <form>
+        <form>
+          <input type="button" class = button value="<-- Go Back" onclick="history.back()">
+         </form>       </form>
+      <div class="main__container">
+        <div class="main__content">
+            <xmp>
+
+        
+
+              ##############################
+              # Importing Libraries
+              ##############################
+              
+              
+              mport csv
+              import pandas as pd
+              from sklearn.feature_extraction.text import CountVectorizer
+              from sklearn.decomposition import TruncatedSVD
+              from scipy.sparse import csr_matrix
+              import numpy as np
+              from sklearn.feature_extraction.text import TfidfVectorizer
+              import matplotlib.pyplot as plt
+              import seaborn as sns
+              import re
+              from sklearn.model_selection import train_test_split
+              import nltk
+              from nltk.tokenize import RegexpTokenizer, WhitespaceTokenizer
+              from nltk.stem import WordNetLemmatizer
+              from nltk.corpus import stopwords
+              import string
+              from string import punctuation
+              import collections
+              from collections import Counter
+              from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
+              from sklearn import metrics
+              from sklearn.cluster import DBSCAN
+              from sklearn.decomposition import PCA
+              import warnings
+              warnings.filterwarnings('ignore')
+              
+              
+              
+              ##############################
+              # Importing CSV
+              ##############################
+              
+              
+              
+              tweet = pd.read_csv('twittercleaned_sample.csv')
+              text = []
+              
+              for val in tweet['lemmatized']:
+                  text.append(val)
+              #print(text)
+              
+              
+              
+              ##############################
+              # Count Vectorizer
+              ##############################
+              
+              
+              coun_vect = CountVectorizer()
+              count_matrix = coun_vect.fit_transform(text)
+              count_array = count_matrix.toarray()
+              df = pd.DataFrame(data=count_array,columns = coun_vect.get_feature_names())
+              #print(df)
+              
+              
+              
+              
+              ##############################
+              # Eblow Method
+              ##############################
+              
+              
+              
+              from sklearn.cluster import KMeans
+              wcss = []
+              for i in range(1, 11):
+                  kmeans = KMeans(n_clusters=i, init='k-means++', n_init=10, max_iter=300, random_state=0)
+                  kmeans.fit(df)
+                  wcss.append(kmeans.inertia_)
+              plt.plot(range(1,11), wcss, 'bx-')
+              plt.title('Elbow Method')
+              plt.xlabel('Number of Clusters')
+              plt.ylabel('wcss')
+              plt.show()
+              
+              
+              
+              
+              ##############################
+              # PCA
+              ##############################
+              
+              
+              
+              svd = TruncatedSVD(n_components=4, random_state=42)
+              df_pca = svd.fit_transform(df) 
+              
+              df_pca_x = []
+              df_pca_y = []
+              
+              for val in df_pca:
+                  df_pca_x.append(val[0])
+                  df_pca_y.append(val[1])
+              #print(len(df_pca_x),len(df_pca_y))
+              
+              
+              
+              ##############################
+              # KMEANS - K = 4
+              ##############################
+              
+              
+              # fitting kmeans to dataset
+              kmeans = KMeans(n_clusters=4, init='k-means++', n_init=10, max_iter=300, random_state=0)
+              Y_kmeans = kmeans.fit_predict(df)
+              Y_kmeans_pca = kmeans.fit_predict(df_pca)
+              
+              plt.scatter(df_pca_x, df_pca_y, c=Y_kmeans_pca, marker='o', label=Y_kmeans_pca)
+              plt.title("KMeans Analaysis of Climate Change Twitter Data after PCA | K = 4")
+              plt.xlabel("x-label")
+              plt.ylabel("y-label")
+              plt.show()
+              #df.to_csv("twitter_cv.csv")
+              
+              ##############################
+              # KMEANS - K = 6
+              ##############################
+              
+              
+              # fitting kmeans to dataset
+              kmeans = KMeans(n_clusters=6, init='k-means++', n_init=10, max_iter=300, random_state=0)
+              Y_kmeans = kmeans.fit_predict(df)
+              Y_kmeans_pca = kmeans.fit_predict(df_pca)
+              
+              plt.scatter(df_pca_x, df_pca_y, c=Y_kmeans_pca, marker='o', label=Y_kmeans_pca)
+              plt.title("KMeans Analaysis of Climate Change Twitter Data after PCA | K = 6")
+              plt.xlabel("x-label")
+              plt.ylabel("y-label")
+              plt.show()
+              
+              ##############################
+              # KMEANS - K = 8
+              ##############################
+              
+              
+              
+              # fitting kmeans to dataset
+              kmeans = KMeans(n_clusters=8, init='k-means++', n_init=10, max_iter=300, random_state=0)
+              Y_kmeans = kmeans.fit_predict(df)
+              Y_kmeans_pca = kmeans.fit_predict(df_pca)
+              
+              plt.scatter(df_pca_x, df_pca_y, c=Y_kmeans_pca, marker='o', label=Y_kmeans_pca)
+              plt.title("KMeans Analaysis of Climate Change Twitter Data after PCA | K = 8")
+              plt.xlabel("x-label")
+              plt.ylabel("y-label")
+              plt.show()
+              
+              
+              
+              ##############################
+              # AgglomerativeClustering
+              # Dendrogram
+              ##############################
+              
+              
+              
+              from sklearn.cluster import AgglomerativeClustering
+              import scipy.cluster.hierarchy as hc
+              
+              
+              #Heirarchical 
+              MyHC = AgglomerativeClustering(n_clusters=3, affinity='euclidean', linkage='ward')
+              FIT=MyHC.fit(df)
+              HC_labels = MyHC.labels_
+              print(HC_labels)
+              
+              plt.figure(figsize =(12, 12))
+              plt.title('Hierarchical Clustering')
+              dendro = hc.dendrogram((hc.linkage(df, method ='ward')))
+              plt.show()
+              
+              
+              
+              
+              ##############################
+              # DBSCAN
+              ##############################
+              
+              
+              My_pca = PCA(n_components=2) 
+              
+              data_normalized=np.transpose(df)
+              My_pca.fit(df)
+              
+              X = My_pca.fit_transform(df) #2 columns 
+              X = pd.DataFrame(X)
+              X.columns = ["PC1", "PC2"]
+              
+              MyDBSCAN = DBSCAN(eps=3, min_samples=2).fit(X)
+              
+              #MyDBSCAN.fit_predict(data)
+              #print(MyDBSCAN.labels_)
+              labels = MyDBSCAN.labels_
+              #labels
+              
+              colors = {}
+              colors[0] = 'r'
+              colors[1] = 'g'
+              colors[2] = 'b'
+              
+                  
+              cvec = [colors[label] for label in labels]
+                
+                
+              plt.figure(figsize =(12, 12))
+              plt.scatter(X['PC1'], X['PC2'], c = cvec)
+              plt.title("DBSCAN Visual")
+              plt.show()
+
+
+
+
+
+
+
+
+
+            </xmp>
+            <img style="max-width: 50%; height: auto;" class="center" src="night.gif" alt="weather gif">
+      </div>
+    </div>
+  </body>
+</html>
