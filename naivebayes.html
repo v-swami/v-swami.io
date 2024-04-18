@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+
+<!-- 
+█▀ █░█░█ ▄▀█ █▀▄▀█ █   █░█ █▀▀ █▄░█ █▄▀ ▄▀█ ▀█▀
+▄█ ▀▄▀▄▀ █▀█ █░▀░█ █   ▀▄▀ ██▄ █░▀█ █░█ █▀█ ░█░
+ -->
+
+ <style>
+  @import url('https://fonts.googleapis.com/css?family=Urbanist');
+  </style>
+  
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Swami Venkat ANLY501 Website</title>
+    <link rel="stylesheet" href="styles_NB.css" />
+  </head>
+  <body>
+
+
+
+
+    <!-- Navigation Bar Section -->
+    <nav class="navigation">
+      <div class="navigation__container">
+        <a href="index.html" id="navigation__logo">SWAMI VENKAT</a>
+        <ul class="navigation__menu">
+          <ul class="navigation__item">
+            <a href="about_me.html" class="navigation__links" id="aboutme-page"> About Me</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="introduction.html" class="navigation__links" id="Introduction-page">Introduction</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="data_gathering.html" class="navigation__links" id="datagathering-page"
+              >Data Gathering</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="data_cleaning.html" class="navigation__links" id="datacleaning-page"
+              >Data Cleaning</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="exploring_data.html" class="navigation__links" id="exploring-page"
+              >Exploring Data</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="clustering.html" class="navigation__links" id="clustering-page"
+              >Clustering</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="armnetwork.html" class="navigation__links" id="armandnetworking-page"
+              >ARM and Networking</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="decisiontree.html" class="navigation__links" id="decision-page"
+              >Decision Tree</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="naivebayes.html" class="navigation__links" id="naivebayes-page"
+              >Naïve Bayes</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="svm.html" class="navigation__links" id="svm-page"
+              >SVM</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="conclusion.html" class="navigation__links" id="conclusion-page"
+              >Conclusion</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="infogrpahic.html" class="navigation__links" id="infographic-page"
+              >Infographic</a>
+          </ul>
+        </ul>
+      </div>
+    </nav>
+
+        <!-- NB Section -->
+          <div class="paragraph" id="NB">
+            <div class="main__container">
+              <div class="main__content">
+                <h1>NAIVE BAYES (NB).</h1>
+
+                <h2>What is Naive Bayes (NB)?</h2>
+
+                <p>
+                  The naive bayes classifier is an machine learning algorithm that is based on probabilsitic methodologies. The underlying formila based on this classification model is bayes theorem. The therom essentially states that the probability of A happening given that B already occured. In other words, we're trying to prove the evidence of B based on A, with the assumption that the two events are independent.
+                </span></p>
+                <br>
+
+                <img style="max-width: 100%; height: auto;" src="NB.jpeg" class="center2">
+            
+                <h4>Source: Chris Alben
+                </a></h4>
+
+
+
+                <br>
+                <h2>NAIVE BAYES WITH PYTHON</h2>
+                <br>
+
+                <br>
+
+                <h2>Python - NB Code</h2>
+
+                <p>
+                  The code for performing Naive Bayes in Python can be found below (incldues both NB and SVM; commented out the NB portion):
+                </p>
+  
+  
+                <br>
+                <a href="svm_python.html" class="button2" id="rcode">CODE: Python - NB</a>
+                <br>
+                <br>
+
+                <h2>Python - NB Data</h2>
+                <p>
+                
+                The raw data collected can be found below. The news articles are labeled by the key word used to generate the articles (labels).
+              </span></p>
+              <br>
+
+
+              <img style="max-width: 100%; height: auto;" src="python_uncleaned.png" class="center2">
+            
+              <h4>This is a screenshot of the raw data gathered from the NewsAPI.</a></h4>
+
+              <a href="python_uncleaned.csv" class="button2" download="python_uncleaned.csv">Download python_uncleaned.csv</a>
+              <br>
+
+              <p>
+                
+                The cleaning has been done via removing stop words and any meaningless words. Then using Count Vectorizer, a cleaned csv file was created created with relevant words as the variables (columns) and the topics as the labels (first column for each row).
+
+              </span></p>
+              <br>
+
+              <img style="max-width: 100%; height: auto;" src="python_cleaned.png" class="center2">
+            
+              <h4>This is a screenshot of the cleaned NewsAPI data.</a></h4>
+
+              <a href="python_cleaned.csv" class="button2" download="python_cleaned.csv">Download python_cleaned.csv</a>
+              <br>
+              <br>
+
+              <p> 
+                The code for cleaning the dataset can be found below (first portion):
+              </p>
+
+              <br>
+              <a href="dt_python.html" class="button2" id="rcode">CODE: Python - NEWS API Cleaning</a>
+              <br>
+              <br>
+
+              <h2>Python - NB Results</h2>
+              <br>
+
+              <img style="max-width: 100%; height: auto;" src="P_NB_Gaussian.png" class="center2">
+            
+              <h4>This is a screenshot of confusion matrix for NB - Gaussian.</a></h4>
+
+
+              <img style="max-width: 100%; height: auto;" src="nb_linear.png" class="center2">
+            
+              <h4>This is a screenshot of the results for NB - Gaussian.</a></h4>
+
+              <br>
+
+              <img style="max-width: 100%; height: auto;" src="P_NB_B.png" class="center2">
+            
+              <h4>This is a screenshot of confusion matrix for NB - Bernoulli.</a></h4>
+
+              <img style="max-width: 100%; height: auto;" src="nb_b.png" class="center2">
+            
+              <h4>This is a screenshot of the results for NB - Bernoulli.</a></h4>
+              <br>
+
+
+
+              <img style="max-width: 100%; height: auto;" src="NB_Feature.png" class="center2">
+            
+              <h4>This is a screenshot of the most important features for NB.</a></h4>
+
+              <br>
+
+              <p>
+                Based on the two confusion matrix, we can see that the model did a fantastic job classifying the categroies based on the average temperature, with a 94% and 100%. However, with the Bernoulli NB classifer, we have to take it with a grain of salt that there's no way the model predicted it with 100%. The model was probably overfitted as well as another amalagmation of various things that make it seem that the classifier is 100%.
+              </p>
+
+              <p>
+                Looking at the top features, we can see the features with the 10 highest levels of importance in predicting the correct label. We can notice words such as "climate", "global", "oil", and "gas" as the words which are essential to predicting the lables. This makes sense, as the these worlds would be common when classfying terms based on temperature from global warming and climate change.
+              </p>
+              <br>
+
+              <h2>Python - NB Conclusion</h2>
+
+              <p>
+                It can be said that Naive Bayes is a very powerful classifer when predicting labels, which can be seen pervasively here. Specifically for text data, it was seen that labeling text based on news headlines for global warming and climate change that it has a 90%+ accuracy when predicting the model. the text data used in this section is short, and there's always scope for improvement. We can also note that there are some crucial words which are used to predict these classifictions, based on the feature importance bar graph. High accuracy can be reached, however not at 100% as the accuracy predicted by the Bernoulli. Overall, we can confidently say that there is a high accuracy between the realtionship of the words we use within a news headline and the specific topic of the word.
+              </p>
+
+              <br>
+              
+              <br>
+              <hr style="height:2px;border-width:0;color:gray;background-color:blue">
+              <br>
+
+                <h2>NAIVE BAYES WITH R</h2>
+                <br>
+
+                <h2>R - NB Code</h2>
+                <br>
+                <a href="R-NB.html" class="button2" id="rcode">CODE: R - NB</a>
+                <br>
+                <br>
+
+
+
+                <h2>R - NB Data</h2>
+
+                    <p>
+
+                      The data for creating the decision trees in R was gathered from the data cleaining tab, specifically the numeric section. This raw data showcases the global land temperature by country. The dataset spans across over a hundred countries as well as weather points dating back from the 1750's. The temperature data presented here is in Celsius. Feature extraction was performed to get the data of countries USA and India. To accomplish this in R, the data was read in by getting the country code 'USA' and 'India'. Next, the date data was converted to months and years as features in the dataset along with the month number correlating to the abbreviation. Then, applying another feature extraction, the celsius data was converted to fahrenheit (by the formula 9/5*C + 32). Next, using a simple key of very cold to very hot, based on the fahrenheit scale, a feature was made to determine the "sense" of the weather. Finally, this transform was outputted as a csv.
+                    </p>
+      
+      
+                    <p>
+      
+                      USA and India climate dataset.
+      
+                    </span></p>
+                    <br>
+
+                    <img style="max-width: 100%; height: auto;" src="small_sample.png" class="center2">
+                    <h4>This is a screenshot of the raw data which includes both USA and India.</a></h4>
+
+                    <br>
+      
+                    <a href="small_sample.csv" class="button2" download="small_sample.csv">Download small_sample.csv</a>
+                    <br>
+                    <br>
+
+                    <h2>R - NB Results</h2>
+                    <br>
+
+                    <img style="max-width: 100%; height: auto;" src="NB_R.png" class="center2">
+                    <h4>R - NB Confusion Matrix.</a></h4>
+                    <br>
+
+                    <img style="max-width: 100%; height: auto;" src="NB_Classify.png" class="center2">
+                    <h4>R - Accuracy.</a></h4>
+
+
+                    <img style="max-width: 100%; height: auto;" src="NB_1.png" class="center2">
+                    <h4>R - Category features based on AverageTemperature.</a></h4>
+
+
+                    <img style="max-width: 100%; height: auto;" src="NB_2.png" class="center2">
+                    <h4>R - Category features based on AverageTemperature Uncetaintity.</a></h4>
+
+
+
+                    <img style="max-width: 100%; height: auto;" src="NB_3.png" class="center2">
+                    <h4>R - Category features based on year.</a></h4>
+
+
+                    <br>
+                    <br>
+
+
+                    <h2>R - NB Conclusion</h2>
+                    <br>
+                    <p>
+                      After looking at the confusion matrix, we can infer that there is a strong correlation between the average temperature and the category. Looking at the classificaiton reported generated by R, we can see that there was a accuracy of 1. Although the value is perfect, it can infered that there is a strong correlation between the category of the temperature and the avergate temperature. The high accuracy rate is most probably due to overfitting, and a way around this is to tune the model less so that this problem doesn't occur again. And, looking at the features as well as the PDF of the Naive Bayes, we can notice how the density ranges acorss all the vairous elements of the dataset. We can conclude that the highest variance in the data is based on teh AverageTemperatureUncertainty as each country would have a different temperature change based on the different climate regions. Finally, another conclusion we can gathere from this data is how closely linkd the data we used to perform NB. In essence, the Naive Bayes classifier is used to perform probabilistic classifiers, which is applying Bayes Therom. Due to the high accuracy, both independent events can be correlated coupled with the kernal desnity esimtation, to achieve high accuracy results.
+                    </p>
+      
+              </div>
+        
+      </div>
+    </div>
+
+
+
+
+
+      </section>
+    </div>
+  </body>
+</html>

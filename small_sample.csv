@@ -1,0 +1,83 @@
+﻿AverageTemperature,AverageTemperatureUncertainty,year,Category,Temp_F,Country
+17.044,2.044,1796,Cold,62.6792,India
+19.193,1.359,1796,Cold,66.5474,India
+22.319,2.125,1796,Normal,72.1742,India
+27.233,1.51,1796,Normal,81.0194,India
+30.035,1.338,1796,Hot,86.063,India
+29.261,2.953,1796,Hot,84.6698,India
+26.8,2.19,1796,Normal,80.24,India
+26.558,2.866,1796,Normal,79.8044,India
+25.958,3.275,1796,Normal,78.7244,India
+24.031,1.352,1796,Normal,75.2558,India
+20.186,2.787,1796,Normal,68.3348,India
+15.485,3.734,1796,Cold,59.873,India
+22.879,1.73,1797,Normal,73.1822,India
+26.502,2.614,1797,Normal,79.7036,India
+29.364,2.11,1797,Hot,84.8552,India
+29.88,1.936,1797,Hot,85.784,India
+26.891,2.181,1797,Normal,80.4038,India
+26.716,2.072,1797,Normal,80.0888,India
+26.072,2.842,1797,Normal,78.9296,India
+15.42,2.88,1768,Cold,59.756,United States
+8.162,3.386,1768,Extreme Cold,46.6916,United States
+1.591,3.783,1768,Extreme Cold,34.8638,United States
+-2.882,4.979,1768,Extreme Cold,26.8124,United States
+-3.952,4.856,1768,Extreme Cold,24.8864,United States
+-2.684,3.311,1769,Extreme Cold,27.1688,United States
+1.828,3.884,1769,Extreme Cold,35.2904,United States
+8.843,3.482,1769,Extreme Cold,47.9174,United States
+15.724,4.795,1769,Cold,60.3032,United States
+20.933,2.613,1769,Normal,69.6794,United States
+22.093,3.277,1769,Normal,71.7674,United States
+20.787,3.329,1769,Normal,69.4166,United States
+9.244,2.865,1769,Extreme Cold,48.6392,United States
+0.522,4.556,1774,Extreme Cold,32.9396,United States
+-4.957,3.477,1774,Extreme Cold,23.0774,United States
+-1.551,3.978,1774,Extreme Cold,29.2082,United States
+1.506,3.715,1775,Extreme Cold,34.7108,United States
+5.02,2.57,1775,Extreme Cold,41.036,United States
+7.663,1.987,1775,Extreme Cold,45.7934,United States
+14.452,2.497,1775,Cold,58.0136,United States
+17.684,3.441,1775,Cold,63.8312,United States
+21.601,1.732,1775,Normal,70.8818,United States
+20.844,1.882,1775,Normal,69.5192,United States
+15.081,2.335,1775,Cold,59.1458,United States
+10.256,2.23,1775,Cold,50.4608,United States
+5.371,3.829,1775,Extreme Cold,41.6678,United States
+-3.937,2.865,1775,Extreme Cold,24.9134,United States
+-6.358,4.738,1775,Extreme Cold,20.5556,United States
+-0.54,3.577,1776,Extreme Cold,31.028,United States
+1.541,2.805,1776,Extreme Cold,34.7738,United States
+7.254,2.047,1776,Extreme Cold,45.0572,United States
+19.836,2.202,1776,Cold,67.7048,United States
+20.94,2.279,1776,Normal,69.692,United States
+21.476,2.825,1776,Normal,70.6568,United States
+14.999,2.23,1776,Cold,58.9982,United States
+8.351,2.533,1776,Extreme Cold,47.0318,United States
+2.703,4.143,1776,Extreme Cold,36.8654,United States
+-0.992,3.204,1776,Extreme Cold,30.2144,United States
+0.174,3.441,1776,Extreme Cold,32.3132,United States
+-0.186,3.867,1777,Extreme Cold,31.6652,United States
+2.504,2.607,1777,Extreme Cold,36.5072,United States
+5.836,2.194,1777,Extreme Cold,42.5048,United States
+13.739,2.465,1777,Cold,56.7302,United States
+17.463,2.314,1777,Cold,63.4334,United States
+19.176,1.97,1777,Cold,66.5168,United States
+19.398,1.943,1777,Cold,66.9164,United States
+15.27,2.806,1777,Cold,59.486,United States
+7.042,3.095,1777,Extreme Cold,44.6756,United States
+1.882,2.461,1777,Extreme Cold,35.3876,United States
+-2.641,2.878,1777,Extreme Cold,27.2462,United States
+-3.402,3.08,1777,Extreme Cold,25.8764,United States
+13.835,2.419,1778,Cold,56.903,United States
+16.855,3.351,1778,Cold,62.339,United States
+8.203,3.882,1778,Extreme Cold,46.7654,United States
+0.63,3.141,1778,Extreme Cold,33.134,United States
+-3.949,3.169,1778,Extreme Cold,24.8918,United States
+-5.338,3.316,1778,Extreme Cold,22.3916,United States
+-0.293,4.464,1779,Extreme Cold,31.4726,United States
+3.49,3.214,1779,Extreme Cold,38.282,United States
+14.316,3.361,1779,Cold,57.7688,United States
+9.031,2.064,1781,Extreme Cold,48.2558,United States
+3.832,2.626,1781,Extreme Cold,38.8976,United States
+-2.166,3.985,1781,Extreme Cold,28.1012,United States

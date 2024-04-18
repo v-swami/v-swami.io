@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+
+<!-- 
+█▀ █░█░█ ▄▀█ █▀▄▀█ █   █░█ █▀▀ █▄░█ █▄▀ ▄▀█ ▀█▀
+▄█ ▀▄▀▄▀ █▀█ █░▀░█ █   ▀▄▀ ██▄ █░▀█ █░█ █▀█ ░█░
+
+
+ -->
+
+ <style>
+  @import url('https://fonts.googleapis.com/css?family=Urbanist');
+  </style>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Swami Venkat ANLY501 Website - Coming Soon</title>
+    <link rel="stylesheet" href="styles_r.css" />
+  </head>
+    <body >
+
+    <!-- About Section -->
+    <div class="paragraph" id="introduction">
+      <form>
+        <form>
+          <input type="button" class = button value="<-- Go Back" onclick="history.back()">
+         </form>       </form>
+      <div class="main__container">
+        <div class="main__content">
+            <xmp>
+
+                ########## 
+
+                DT_CATEGORY.r
+
+                ########
+
+
+                library(rpart)   ## FOR Decision Trees
+library(rattle)  ## FOR Decision Tree Vis
+library(rpart.plot)
+library(RColorBrewer)
+library(Cairo)
+library(network)
+library(ggplot2)
+library(wordcloud)
+library(slam)
+library(quanteda)
+library(proxy)
+library(stringr)
+library(textmineR)
+library(igraph)
+library(caret)
+
+data="small_sample.csv"
+df<-read.csv(data, stringsAsFactors=TRUE)
+head(df)
+str(df)
+
+##Some initial EDA
+GoPlot <- function(x) {
+  
+  G <-ggplot(data=DT_df, aes(.data[[x]], y="") ) +
+    geom_bar(stat="identity", aes(fill =.data[[x]])) 
+  
+  return(G)
+}
+
+## Use the function in lappy
+lapply(names(df), function(x) GoPlot(x))
+
+apply(df,2,table)
+
+DataSize = nrow(df)
+TrainingSet_Size <- floor(DataSize*0.70)
+TestSet_Size <- DataSize - TrainingSet_Size
+
+set.seed(28)
+
+MyTrainSample <- sample(nrow(df),
+                        TrainingSet_Size, replace=FALSE)
+MyTrainingSet <- df[MyTrainSample,]
+table(MyTrainingSet$Category)
+
+MyTestSet <- df[-MyTrainSample,]
+table(MyTestSet$Category)
+
+TestKnownLabels <- MyTestSet$Category
+MyTestSet <- MyTestSet[,-which(names(MyTestSet) %in% c("Category"))]
+
+#Decision Trees
+#MyTrainingSet
+str(MyTrainingSet)
+str(MyTestSet)
+
+DT <- rpart(MyTrainingSet$Category ~.,data=MyTrainingSet, method="class")
+summary(DT)
+
+DT2 <- rpart(MyTrainingSet$Category ~., data=MyTrainingSet, cp=0.27,method="class")
+summary(DT2)
+
+#plotcp(DT)
+
+DT3 <- rpart(MyTrainingSet$Category ~.,
+             data=MyTrainingSet, cp=0, method="class",
+             parms=list(split="information"), minsplit=2)
+
+summary(DT3)
+
+DT_Prediction = predict(DT3, MyTestSet, type="class")
+table(DT_Prediction, TestKnownLabels)
+fancyRpartPlot(DT3)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+########## 
+
+DT_YEAR.r
+
+########
+
+
+
+library(rpart)   ## FOR Decision Trees
+library(rattle)  ## FOR Decision Tree Vis
+library(rpart.plot)
+library(RColorBrewer)
+library(Cairo)
+library(network)
+library(ggplot2)
+library(wordcloud)
+library(slam)
+library(quanteda)
+library(proxy)
+library(stringr)
+library(textmineR)
+library(igraph)
+library(caret)
+
+data="small_sample.csv"
+df<-read.csv(data, stringsAsFactors=TRUE)
+head(df)
+str(df)
+
+##Some initial EDA
+GoPlot <- function(x) {
+  
+  G <-ggplot(data=df, aes(.data[[x]], y="") ) +
+    geom_bar(stat="identity", aes(fill =.data[[x]])) 
+  
+  return(G)
+}
+
+## Use the function in lappy
+lapply(names(df), function(x) GoPlot(x))
+
+apply(df,2,table)
+
+DataSize = nrow(df)
+TrainingSet_Size <- floor(DataSize*0.70)
+TestSet_Size <- DataSize - TrainingSet_Size
+
+set.seed(28)
+
+MyTrainSample <- sample(nrow(df),
+                        TrainingSet_Size, replace=FALSE)
+MyTrainingSet <- df[MyTrainSample,]
+table(MyTrainingSet$year)
+
+MyTestSet <- df[-MyTrainSample,]
+table(MyTestSet$year)
+
+TestKnownLabels <- MyTestSet$year
+MyTestSet <- MyTestSet[,-which(names(MyTestSet) %in% c("year"))]
+
+#Decision Trees
+#MyTrainingSet
+str(MyTrainingSet)
+str(MyTestSet)
+
+DT <- rpart(MyTrainingSet$year ~.,data=MyTrainingSet, method="class")
+summary(DT)
+
+DT2 <- rpart(MyTrainingSet$year ~., data=MyTrainingSet, cp=0.27,method="class")
+summary(DT2)
+
+#plotcp(DT)
+
+DT3 <- rpart(MyTrainingSet$year ~.,
+             data=MyTrainingSet, cp=0, method="class",
+             parms=list(split="information"), minsplit=2)
+
+summary(DT3)
+
+DT_Prediction = predict(DT3, MyTestSet, type="class")
+confusionMatrix(DT_Prediction, TestKnownLabels)
+fancyRpartPlot(DT3)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+########## 
+
+DT_COUNTRY.r
+
+########
+
+
+library(rpart)   ## FOR Decision Trees
+library(rattle)  ## FOR Decision Tree Vis
+library(rpart.plot)
+library(RColorBrewer)
+library(Cairo)
+library(network)
+library(ggplot2)
+library(wordcloud)
+library(slam)
+library(quanteda)
+library(proxy)
+library(stringr)
+library(textmineR)
+library(igraph)
+library(caret)
+
+data="small_sample.csv"
+df<-read.csv(data, stringsAsFactors=TRUE)
+head(df)
+str(df)
+
+##Some initial EDA
+GoPlot <- function(x) {
+  
+  G <-ggplot(data=df, aes(.data[[x]], y="") ) +
+    geom_bar(stat="identity", aes(fill =.data[[x]])) 
+  
+  return(G)
+}
+
+## Use the function in lappy
+lapply(names(df), function(x) GoPlot(x))
+
+apply(df,2,table)
+
+DataSize = nrow(df)
+TrainingSet_Size <- floor(DataSize*0.70)
+TestSet_Size <- DataSize - TrainingSet_Size
+
+set.seed(28)
+
+MyTrainSample <- sample(nrow(df),
+                        TrainingSet_Size, replace=FALSE)
+MyTrainingSet <- df[MyTrainSample,]
+table(MyTrainingSet$Country)
+
+MyTestSet <- df[-MyTrainSample,]
+table(MyTestSet$year)
+
+TestKnownLabels <- MyTestSet$Country
+MyTestSet <- MyTestSet[,-which(names(MyTestSet) %in% c("Country"))]
+
+#Decision Trees
+#MyTrainingSet
+str(MyTrainingSet)
+str(MyTestSet)
+
+DT <- rpart(Country ~.,data=MyTrainingSet, method="class")
+summary(DT)
+
+DT2 <- rpart(MyTrainingSet$Country ~., data=MyTrainingSet, cp=0.27,method="class")
+summary(DT2)
+
+#plotcp(DT)
+
+DT3 <- rpart(MyTrainingSet$Country ~.,
+             data=MyTrainingSet, cp=0, method="class",
+             parms=list(split="information"), minsplit=2)
+
+summary(DT3)
+
+DT_Prediction = predict(DT3, MyTestSet, type="class")
+confusionMatrix(DT_Prediction, TestKnownLabels)
+fancyRpartPlot(DT3)
+
+
+
+
+
+            </xmp>
+            <img style="max-width: 50%; height: auto;" class="center" src="night.gif" alt="weather gif">
+      </div>
+    </div>
+  </body>
+</html>

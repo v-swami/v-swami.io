@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+
+<!-- 
+█▀ █░█░█ ▄▀█ █▀▄▀█ █   █░█ █▀▀ █▄░█ █▄▀ ▄▀█ ▀█▀
+▄█ ▀▄▀▄▀ █▀█ █░▀░█ █   ▀▄▀ ██▄ █░▀█ █░█ █▀█ ░█░
+ -->
+
+ <style>
+  @import url('https://fonts.googleapis.com/css?family=Urbanist');
+  </style>
+  
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Swami Venkat ANLY501 Website</title>
+    <link rel="stylesheet" href="styles_clustering.css" />
+  </head>
+  <body>
+
+
+
+    <!-- Navigation Bar Section -->
+    <nav class="navigation">
+      <div class="navigation__container">
+        <a href="index.html" id="navigation__logo">SWAMI VENKAT</a>
+        <ul class="navigation__menu">
+          <ul class="navigation__item">
+            <a href="about_me.html" class="navigation__links" id="aboutme-page"> About Me</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="introduction.html" class="navigation__links" id="Introduction-page">Introduction</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="data_gathering.html" class="navigation__links" id="datagathering-page"
+              >Data Gathering</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="data_cleaning.html" class="navigation__links" id="datacleaning-page"
+              >Data Cleaning</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="exploring_data.html" class="navigation__links" id="exploring-page"
+              >Exploring Data</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="clustering.html" class="navigation__links" id="clustering-page"
+              >Clustering</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="armnetwork.html" class="navigation__links" id="armandnetworking-page"
+              >ARM and Networking</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="decisiontree.html" class="navigation__links" id="decision-page"
+              >Decision Tree</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="naivebayes.html" class="navigation__links" id="naivebayes-page"
+              >Naïve Bayes</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="svm.html" class="navigation__links" id="svm-page"
+              >SVM</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="conclusion.html" class="navigation__links" id="conclusion-page"
+              >Conclusion</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="infogrpahic.html" class="navigation__links" id="infographic-page"
+              >Infographic</a>
+          </ul>
+        </ul>
+      </div>
+    </nav>
+                
+           <!-- CLUSTERING Section -->
+           <div class="paragraph" id="clustering">
+            <div class="main__container">
+              <div class="main__content">
+                <h1>CLUSTERING.</h1>
+    
+                <br>
+                <h2>Clustering with R - The Data</h2>
+                <p>
+                  
+                  The data used for clustering in this section was gathered from Kaggle. More information can be see in the 'Data Gathering' portion. Too quickly summarize, the data was gathered by the World Bank. And, the exact subset of the data used was the “Country_TemperatureCRU.” This dataset contains the mean monthly and annual temperatures by country for the period 1961-1999. An advantage of using this dataset is that it's already been cleaned and stripped of any N/A values. An image of it can be seen and downloaded below. Note: all the values are in degrees Celsius. 
+                </span></p>
+                
+
+                <p>
+                  There are 1 label + 13 columns and 178 observations in total.
+                </span></p>
+                <br>
+
+
+
+                <img style="max-width: 100%; height: auto;" src="country_average.png" alt="country_average Screenshot" class="center2">
+              
+                <h4>This is a screenshot of 'country_average'.</a></h4>
+  
+                <a href="country_average.csv" class="button2" download="country_average.csv">Download country_average.csv</a>
+                <br>
+                <br>
+
+                <h2>Clustering with R - Numeric Data</h2>
+
+                <p>
+                  
+                  The data used for clustering in this section was gathered from Kaggle. More information can be see in the 'Data Gathering' portion. Too quickly summarize, the data was gathered by the World Bank. And, the exact subset of the data used was the “Country_TemperatureCRU.” This dataset contains the mean monthly and annual temperatures by country for the period 1961-1999. An advantage of using this dataset is that it's already been cleaned and stripped of any N/A values. An image of it can be seen and downloaded below. Note: all the values are in degrees Celsius. 
+                </span></p>
+                <br>
+                
+
+                <h2>Code</h2>
+
+                <p>
+                  The code for all the images and processes can be found below:
+                </span></p>
+                <br>
+
+                <a href="r_clustering.html" class="button2" id="rcode">CODE: R - Clustering</a>
+                <br>
+                <br>
+
+
+
+                <h2>STEP 1: Libraries</h2>
+
+                <p>
+                  The first step was importing all the necessary libraries for the visualizations needed for clustering.
+                </span></p>
+                <br>
+
+
+
+
+                <h2>STEP 2:  Removing Label</h2>
+
+                <p>
+                  The second step was removing the labels, which were the ISO 3-letter abbreviations of the countries. This was done by saving the labels. Note: the data was/is clean and doesn't need any more pruning.
+                </span></p>
+                <br>
+                
+
+
+                <h2>STEP 3:  Distance Metric Matrices (Dendrogram)</h2>
+
+                <p>
+                  The third step was getting the 3 distance matrices. The distance calculations used in this step are: (1) Euclidean, (2) Manhattan, (3) Cosine Similarities, and (4) a normal cluster. The purpose of this step is to determine a measure of similarity between two non-zero vectors of an inner product space; this same methodology is being implemented over 3 distance calculations to get a wide perspective of results. The results were then visualized via Dendrogram. Dendrogram are useful to determine a hierarchical relationship between objects. 
+                  
+                  Note: Due to the sheer number of countries the scaling of the image can't be seen on the website, but when running it on RStudio the results can be seen clearer.
+                </span></p>
+                
+
+                <p>
+                  Note: Due to the sheer number of countries the scaling of the image can't be seen on the website, but when running it on RStudio the results can be seen clearer.
+                </span></p>
+                <br>
+
+                <img style="max-width: 100%; height: auto;" src="euc_1.png"  
+                class="center2">
+              
+                <h4>This is a screenshot of the Eucledian Distance Dendrogram.</a></h4>
+                
+                <img style="max-width: 100%; height: auto;" src="man_1.png" class="center2">
+
+                <h4>This is a screenshot of the Eucledian Distance Dendrogram.</a></h4>
+                  
+                <img style="max-width: 100%; height: auto;" src="cosine.png" class="center2">
+
+                <h4>This is a screenshot of the Cosine Similarity Dendrogram.</a></h4>
+              
+                <img style="max-width: 100%; height: auto;" src="clust_1.png" class="center2">
+
+                <h4>This is a screenshot of the Cluster Dendrogram.</a></h4>
+              
+                <br>
+                
+                <h2>STEP 4: K-Means / Elbow Chart</h2>
+
+                <p>
+                  The next step in the clustering process is implementing K-means clustering. K-means clustering is a method of grouping with an aim to partition n observations into k clusters with the nearest mean. To determine the ‘k’ value, we deploy an elbow graph. The elbow graph showcases the k values along with a heuristic used to determine the number of clusters in the data. It is often said that the steeper the ‘k’ value is, the more apt it is to use in the K-Means clustering.
+                </span></p>
+                <br>
+
+                <img style="max-width: 100%; height: auto;" src="elbow.png" alt="country_average Screenshot" class="center2">
+
+                <h4>This is a screenshot of the Elbow Graph.</a></h4>
+
+
+                <p>
+                  In the elbow chart above, we can see that K=2,5,8 are the best K-values to use for Means clustering.
+                </span></p>
+
+                <br>
+                <h2>STEP 5: K-Means Clustering </h2>
+
+                <p>
+                  We can see below the K-Means clustering for various K groups. The graph is also accompanied by a ‘fviz_cluster’, which is a more elegant way to depict K-Means clustering.
+                </span></p>
+                <br>
+
+                <img style="max-width: 100%; height: auto;" src="3_1.png" class="center2">
+
+                <br>
+                <br>
+
+                <img style="max-width: 100%; height: auto;" src="3_2.png" class="center2">
+
+                <h4>This is a screenshot of KMeans Clustering where K = 3</a></h4>
+
+                <br>
+                <br>
+
+
+
+                <img style="max-width: 100%; height: auto;" src="2_1.png" class="center2">
+
+                <br>
+                <br>
+
+                <img style="max-width: 100%; height: auto;" src="2_2.png" class="center2">
+
+                <h4>This is a screenshot of KMeans Clustering where K = 2</a></h4>
+
+                <br>
+                <br>
+
+
+
+
+                <img style="max-width: 100%; height: auto;" src="5_1.png" class="center2">
+
+                <br>
+                <br>
+
+                <img style="max-width: 100%; height: auto;" src="5_2.png"  class="center2">
+
+                <h4>This is a screenshot of KMeans Clustering where K = 5</a></h4>
+
+
+
+
+
+                <img style="max-width: 100%; height: auto;" src="8_1.png" class="center2">
+
+                <br>
+                <br>
+
+                <img style="max-width: 100%; height: auto;" src="8_2.png" class="center2">
+
+                <h4>This is a screenshot of KMeans Clustering where K = 8</a></h4>
+
+
+                <br>
+                <br>
+
+
+                <h2>STEP 6: Clustered Dendrogram</h2>
+
+                <p>
+                  The next step in the clustering process is implementing K-means clustering. K-means clustering is a method of grouping with an aim to partition n observations into k clusters with the nearest mean. To determine the ‘k’ value, we deploy an elbow graph. The elbow graph showcases the k values along with a heuristic used to determine the number of clusters in the data. It is often said that the steeper the ‘k’ value is, the more apt it is to use in the K-Means clustering.
+                </span></p>
+                <br>
+
+
+                <img style="max-width: 100%; height: auto;" src="dend_3.png"  class="center2">
+
+                <h4>This is a screenshot of the Clustered Dendrogram where K = 3</a></h4>
+
+
+
+                <img style="max-width: 100%; height: auto;" src="dend_2.png" class="center2">
+
+                <h4>This is a screenshot of the Clustered Dendrogram where K = 2</a></h4>
+
+
+
+
+                <img style="max-width: 100%; height: auto;" src="dend_5.png" class="center2">
+
+                <h4>This is a screenshot of the Clustered Dendrogram where K = 5</a></h4>
+
+
+
+
+
+                <img style="max-width: 100%; height: auto;" src="dend_8.png" class="center2">
+
+                <h4>This is a screenshot of the Clustered Dendrogram where K = 8</a></h4>
+
+
+
+
+
+                <h2>STEP 7: Hierarchical Clustering</h2>
+
+                <p>
+                  In the next step, we can identify the Hierarchical clusters. This is a process where groups of similar objects are bound together as clusters. Each cluster is a distinct to each other and the objects within the same cluster are similar to each other. Ultimately, we’re seeing the same results are the Dendrogram. We can now group the k values we determined with the Hierarchical cluster via boxes.
+                 </span></p>
+                <br>
+
+
+                <img style="max-width: 100%; height: auto;" src="h_3.png" class="center2">
+
+                <h4>This is a screenshot of the Hierarchical Cluster where K = 3</a></h4>
+
+                <img style="max-width: 100%; height: auto;" src="h_2.png" class="center2">
+
+                <h4>This is a screenshot of the Hierarchical Cluster where K = 2</a></h4>
+
+
+                <img style="max-width: 100%; height: auto;" src="h_5.png" class="center2">
+
+                <h4>This is a screenshot of the Hierarchical Cluster where K = 5</a></h4>
+
+
+                <img style="max-width: 100%; height: auto;" src="h_8.png" class="center2">
+
+                <h4>This is a screenshot of the Hierarchical Cluster where K = 8</a></h4>
+
+
+                <h2>R - SUMMARY</h2>
+
+                <p>
+                  All in all, these graphs were to showcase how countries would be categorized together based on their the mean monthly and annual temperatures by country for the period 1961-1999. The crux of the results were that, the countries can be grouped in either 2, 3, 5, or 8 clusters which would all make viable sense for a user to understand and correlate between. This was proven by performing K-Means clustering and determining the optimal K value via the elbow plot. Then, using the optimal k-values, Hierarchical Cluster and Dendrograms were generated showcasing the arial cluster amongst all countries.
+                 </span></p>
+                <br>
+
+                <img style="max-width: 100%; height: auto;" src="conclusion.png" class="center2">
+
+                <h4>Cluster Plot of the data where K = 5</a></h4>
+
+
+                <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+
+                <br>
+
+
+                <h2>BONUS: 3 New Vectors</h2>
+
+                <p>
+                  For this section, the question proposed was: by entering 3 vectors, would it be possible to tell what category/group they were in based on K-Means clustering. First, three ‘outlier’ vectors were added to the original country. The purpose of adding outlier vectors is to determine if both the clusters are working and noticing where the clusters are. If we can determine this case, we can ultimately generalize it by putting random values. In essence, we’re testing to see if the vectors we put would get categorized together and if they do, we can put three vectors “within” the dataset and be safely assured that they’ll be clustered properly.
+                 </span></p>
+                <br>
+
+                <p>
+                  The process was fairly simple. First, we add the three outlier vectors and repeat the whole code again. The code for this can be found above at the beginning of the 'Cluster' Tab.
+                 </span></p>
+                <br>
+
+
+
+                <img style="max-width: 100%; height: auto;" src="outlier1.png" class="center2">
+
+                <h4>This is a screenshot of the K-Means Clustering where K = 5</a></h4>
+
+                <img style="max-width: 100%; height: auto;" src="outlier2.png" class="center2">
+
+                <h4>This is a screenshot of the Hierarchical Clustering where K = 5</a></h4>
+
+                <p>
+                  Analysis:
+                 </span></p>
+
+                <p>
+                  As we can determine that the three outlier vectors induced in the dataset (X1, X2, X3) can be clearly depicted in both the K-Means and Hierarchical clustering with k = 5. This makes sense, as the three vectors introduced in the dataset were all outliers and were forced to be in a group together. This result can be generalized to any amount of new vectors, were our algorithm will shift automatically and cluster them regardless or not if they're part of the dataset. All in all, this example was purposefully done so that anyone can see that the three added vectors are indeed being clustered.
+                 </span></p>
+                <br>
+                <br>
+                <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+
+
+                <br>
+                <h2>Clustering with Python - The Data</h2>
+                <p>
+                  
+                  The data taken for text clustering was the result of the data cleaning done in the ‘Data Cleaning’ portion. To quickly overview, the raw data collected for Python data cleaning showcases various unfiltered Tweets, Tweet ID, and sentiment. There are approximately over 40,000 tweets.
+                  
+                </span></p>
+                <br>
+
+
+                <h2>Code</h2>
+
+                <p>
+                  The code for all the images and processes can be found below in Python:
+                </span></p>
+                <br>
+
+                <a href="python-clustering.html" class="button2" id="rcode">CODE: Python - Clustering</a>
+                <br>
+                <br>
+
+                <h2>WordCloud</h2>
+
+                <p>
+                  The data taken for text clustering was the result of the data cleaning done in the ‘Data Cleaning’ portion. To quickly overview, the raw data collected for Python data cleaning showcases various unfiltered Tweets, Tweet ID, and sentiment. There are approximately over 40,000 tweets.
+                </span></p>
+                <br>
+
+                <p>
+                  The text data was cleaned by first importing all the important libraries, such as numpy, pandas, nltk, etc. Next, the raw data is parsed through the tweet data and remove any unnecessary symbols (such as commas and '@') and strip it of any white space. Upon completion, using NLKT, the tweets are then abstracted by removing stop words such as and, like, etc. This gives a better representation of what the tweets are. Then, we continued to clean it and using PunktSentenceTokenizer, the tweets are broken down into sentences using a previously built in tool using the library NLKT. We then pass the tweets through the Tokenizer to get bite-sized sentences which can be parsed through. The cleaned data can be seen below for all 40,000+ tweets.
+                </span></p>
+                <br>
+
+                <p>
+                  For this portion, only the first ~200 rows were taken out of 40,000+ rows. The original dataset can be downloaded and viewed below as 'twittercleaned_sample.csv'.
+                </span></p>
+                <br>
+
+
+                <img style="max-width: 100%; height: auto;" src="Cleaned_Twitter.png" alt="Cleaned_Twitter.png" class="center2">
+                
+                <br>
+
+                <a href="twittercleaned_sample.csv" class="button2" download="twittercleaned_sample.csv"> Downloadtwittercleaned_sample.csv</a>
+
+
+                <p>
+                  Based on the data, were 4 word clouds were generated by the type of twitter sentiment: negative, positive, neutral, news.
+                </span></p>
+                <br>
+
+                
+                <img style="max-width: 75%; height: auto;" src="negative_wc.png" alt="negative_wc.png" 
+                class="center2">
+                <h4>Figure: Negative Sentiment Word Cloud</a></h4>
+
+                <img style="max-width: 75%; height: auto;" src="positive_wc.png" alt="positive_wc.png
+                " class="center2">
+                <h4>Figure: Positive Sentiment Word Cloud</a></h4>
+
+
+                <img style="max-width: 75%; height: auto;" src="neutral_wc.png" alt="positive_wc.png"
+                 class="center2">
+                <h4>Figure: Neutral Sentiment Word Cloud</a></h4>
+
+
+                <img style="max-width: 75%; height: auto;" src="news_wc.png" 
+                alt="news_wc.png" 
+                class="center2">
+                <h4>Figure: News Sentiment Word Cloud</a></h4>
+                <br>
+                
+
+
+                <h2>CountVectorize</h2>
+
+                <p>
+                  The next step of the process is generating the countvectorizer dataset. This is done by creating  using countvectorizer in python and removing the label. The columns represents the unique set of words and the rows represent the document id. Download the dataset below.
+                </span></p>
+                <br>
+
+
+
+
+                <img style="max-width: 100%; height: auto;" src="twitter-cv.png" alt="Cleaned_Twitter.png" class="center2">
+                
+                <br>
+
+                <a href="twitter_cv.csv" class="button2" download="twitter_cv.csv"> Download twitter_cv.csv</a>
+                <br>
+                <br>
+
+                <h2>K-Means: Elbow Plot </h2>
+
+                <p>
+                  The next step in the clustering process is implementing K-means clustering. K-means clustering is a method of grouping with an aim to partition n observations into k clusters with the nearest mean. To determine the ‘k’ value, we deploy an elbow graph. The elbow graph showcases the k values along with a heuristic used to determine the number of clusters in the data. It is often said that the steeper the ‘k’ value is, the more apt it is to use in the K-Means clustering.
+                </span></p>
+                <br>
+
+                <img style="max-width: 100%; height: auto;" src="py_elbow.png" alt="py_elbow.png" class="center2">
+                <h4>The Elbow plot for K-Means clustering</h4>
+                <br>
+
+                <p>
+                  By looking at the graph, we can notice that k = 4, 6, 8 are good K's to choose for our K-Means clustering.
+                </span></p>
+                <br>
+
+
+                <h2>2D clustering: PCA</h2>
+
+                <p>
+                  Now that we have our optimal ‘K’ values, the next thing to do is to plot the countvectorized data. However, since the dimension of the data are so big, we can use PCA or Principle Component Analysis to reduce the dimensionality and showcase the graph as a 2D vector. This is done by the python module ‘TruncatedSVD’. It acts as a PCA, however is more useful on larger and sparse datasets which cannot be optimally centered without increase the amount of memory. Another notable difference between TruncatedSVD and PCA is how the explained_variance is calculated.
+                </span></p>
+
+                <p>
+                  Once we have our 2D vector created via PCA on the countvectorized data, we can not plot it.
+                </span></p>
+                <br>
+
+
+
+                <h2>K-Means Clustering</h2>
+
+                <p>
+                  By determining that the optimal K to cluster the graphs are K = 4, 6, and 8, find below the graphs of each of the clusters.
+                </span></p>
+                <br>
+
+                <img style="max-width: 100%; height: auto;" src="py-4.png" alt="py_elbow.png" class="center2">
+                <h4>PCA: K-Means Clustering | K = 4</h4>
+                <br>
+
+                <img style="max-width: 100%; height: auto;" src="py-6.png" alt="py_elbow.png" class="center2">
+                <h4>PCA: K-Means Clustering | K = 6</h4>
+                <br>
+
+                <img style="max-width: 100%; height: auto;" src="py-8.png" alt="py_elbow.png" class="center2">
+                <h4>PCA: K-Means Clustering | K = 8</h4>
+                <br>
+
+
+                <h2>DBSCAN</h2>
+
+                <p>
+                  In this portion, we can perform a density-based spatial clustering of applications with noise (DBSCAN).  This method finds core samples of high density and expands clusters based around them. It’s highly effectual for data which contains similar clusters of density. The image can be seen below.
+                </span></p>
+                <br>
+
+                <img style="max-width: 100%; height: auto;" src="DBSCAN.png" alt="DBSCAN.png" class="center2">
+                <h4>DBSCAN plot</h4>
+                <br>
+
+                <p>
+                  As we can see, the clustering via DBSCAN isn't that optimal.
+
+                </span></p>
+                <br>
+
+
+
+
+                <h2>Hierarchical Clustering</h2>
+
+                <p>
+                  In the next step, we can identify the Hierarchical clusters. This is a process where groups of similar objects are bound together as clusters. Each cluster is a distinct to each other and the objects within the same cluster are similar to each other. Ultimately, we’re seeing the same results are the Dendrogram. The image can be viewed below.
+                </span></p>
+                <br>
+
+                <img style="max-width: 100%; height: auto;" src="py_h.png" alt="py_h.png" class="center2">
+                <h4>Hierarchical Cluster</h4>
+                <br>
+
+                <p>
+                  In this, we can see that the different document rows are being clustered via similarity in a Dendrogram. Although we can't see the x-axis labels that well due to the sheer number of data points, on the Python terminal it can be seen clearer.
+                </span></p>
+                <br>
+
+
+                <h2>PYTHON - SUMMARY</h2>
+
+                <p>
+                  What this section was for is to understand how text based data can be clustered and showcased in various graphs.
+                </span></p>
+
+                <p>
+                  We first started by getting the Tweets, cleaning them via regular expressions, and creating a count vectorized dataframe of all the unique words as columns and the rows being document id. We created a wordcloud to see the unique words in each label.
+                  </p>
+
+
+                  <p>
+                  We then removed the label. Next, we ran the elbow plot to determine the optimal 'K' for K-Means and performed a PCA to reduce the number of dimensionality of the dataframe to plot 2D Vectors. We noticed that K = 4,6, and 8 were the best K values and plotted the scattered plots respectively. 
+                </span></p>
+                
+
+                <p>
+                  Then, using, density-based spatial clustering of applications with noise (DBSCAN), we found core samples of high density and expands clusters based around them. It is very effective for data which contains similar clusters of density. We saw that the clusters weren't getting clustered properly with this method.
+                </span></p>
+
+                <p>
+                  Finally, upon seeing the results of the various K-Means and DBSCAN, we created a Dendrogram to see an ariel correlation amongst the various data nodes in the countvectorized dataframe.
+                </span></p>
+                <br> 
+                <br> 
+
+                <hr style="height:2px;border-width:0;color:gray;background-color:blue">
+
+                <br>
+                <br>
+
+      </section>
+    </div>
+  </body>
+</html>

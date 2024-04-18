@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+
+<!-- 
+█▀ █░█░█ ▄▀█ █▀▄▀█ █   █░█ █▀▀ █▄░█ █▄▀ ▄▀█ ▀█▀
+▄█ ▀▄▀▄▀ █▀█ █░▀░█ █   ▀▄▀ ██▄ █░▀█ █░█ █▀█ ░█░
+ -->
+
+ <style>
+  @import url('https://fonts.googleapis.com/css?family=Urbanist');
+  </style>
+  
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Swami Venkat ANLY501 Website</title>
+    <link rel="stylesheet" href="styles_ARM.css" />
+  </head>
+  <body>
+
+
+
+
+    <!-- Navigation Bar Section -->
+    <nav class="navigation">
+      <div class="navigation__container">
+        <a href="index.html" id="navigation__logo">SWAMI VENKAT</a>
+        <ul class="navigation__menu">
+          <ul class="navigation__item">
+            <a href="about_me.html" class="navigation__links" id="aboutme-page"> About Me</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="introduction.html" class="navigation__links" id="Introduction-page">Introduction</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="data_gathering.html" class="navigation__links" id="datagathering-page"
+              >Data Gathering</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="data_cleaning.html" class="navigation__links" id="datacleaning-page"
+              >Data Cleaning</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="exploring_data.html" class="navigation__links" id="exploring-page"
+              >Exploring Data</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="clustering.html" class="navigation__links" id="clustering-page"
+              >Clustering</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="armnetwork.html" class="navigation__links" id="armandnetworking-page"
+              >ARM and Networking</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="decisiontree.html" class="navigation__links" id="decision-page"
+              >Decision Tree</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="naivebayes.html" class="navigation__links" id="naivebayes-page"
+              >Naïve Bayes</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="svm.html" class="navigation__links" id="svm-page"
+              >SVM</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="conclusion.html" class="navigation__links" id="conclusion-page"
+              >Conclusion</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="infogrpahic.html" class="navigation__links" id="infographic-page"
+              >Infographic</a>
+          </ul>
+        </ul>
+      </div>
+    </nav>
+
+
+        <!-- ARM AND NETWORK Section -->
+           <div class="paragraph" id="arm">
+            <div class="main__container">
+              <div class="main__content">
+                <h1>ARM AND NETWORKING.</h1>
+    
+                <br>
+                <h2>Introduction</h2>
+                <p>
+                  
+                  In this section, we’ll be preparing “transaction data” that’ll be used to perform Association Rule Mining (ARM). We’ll gather tweets and format it as transaction data using only R. Next, we will get the top 15 rules for support, confidence, and lift (explained later) and take a deep dive into understand what it means in the scale of association. Finally, we will generate 3 network graphs (a few interactive) that’ll allow us to visualize how different words are associated to each other via a D3 Network in R.
+
+                </span></p>
+                <br>
+
+
+                <h2>Code</h2>
+                <p>
+                  
+                  The code in R for this section can be found below. Note: since the code takes in live tweets, the results may vary as the tweets and its contents change. These results are from: Oct 27 2021, 5:26:10PM.
+
+                </span></p>
+                <br>
+
+                <a href="arm.html" class="button2" id="rcode">CODE: R - ARM & Networks</a>
+                <br>
+                <br>
+
+
+                <h2>Twitter Data</h2>
+                <p>
+                  
+                  Twitter data was pulled using the two keywords: “climate change” and “global warming.” For each topic, 100 tweets were pulled via the Twitter api and 'twitteR::searchTwitter' (100 tweets = 100 rows). The uncleaned csv file can be seen/downloaded below:
+
+                </span></p>
+                <br>
+
+                <img style="max-width: 100%; height: auto;" src="ARM_Uncleaned.png" class="center2">
+              
+                <h4>This is a screenshot of ARM Twitter data before cleaning.</a></h4>
+  
+                <a href="arm_uncleaned.csv" class="button2" download="arm_uncleaned.csv">Download arm_uncleaned.csv</a>
+                <br>
+                <br>
+
+
+                <p>
+
+                  In order to create transaction data, the tweets were cleaned and placed in a csv file. The remaining relevant words of each tweet became a row in the dataset. The cleaning was done by tokenizing the tweets and iterating over the each tweets and lowercasing and removing stopwords. Next, the tweets were formatted into buckets and simplified to words which were in context with global warming and climate change. Once complete, the transactions were finally read and outputted a clean arm csv file of the tweets. The cleaned .csv file can be seen/downloaded below:
+
+                </span></p>
+                <br>
+
+                <img style="max-width: 100%; height: auto;" src="ARM_Cleaned.png" class="center2">
+              
+                <h4>This is a screenshot of ARM Twitter data after cleaning.</a></h4>
+  
+                <a href="arm_cleaned.csv" class="button2" download="arm_cleaned.csv">Download arm_cleaned.csv</a>
+                <br>
+                <br>
+
+
+
+                <br>
+
+                <h2>Association Rule Mining</h2>
+                <p>
+                  
+                  Association Rule Mining is a method that used to find frequent item sets, associations, correlation, or normal associations between items for objects. In essence, it’s a data mining technique that finds various and unique patters in data. 
+
+                </span></p>
+
+                <p>
+                  
+                  A rule is defined as building associations from frequent items generated between the datasets. There are three major common measures that are used to measure a rule: support, confidence, and lift.
+
+                </span></p>
+
+
+                <p>
+                  
+                  Support is the percentage of particular related item that occurs together in the whole dataset. Confidence is the conditional probability that a certain item, X, occurs given that item Y occurs. Lift is the increment ratio of the probability that certain items X, Y occurs together compared with the mutually independent case. Note: If the lift is above 1, then the set of items are associated with each other.
+                  
+                </span></p>
+
+
+                <p>
+                  Using the apriori algorithm, the rules were developed (as seen below). The algorithm is used to find items in a dataset based on the level-wise generation of frequent itemsets. The main application of this algorithm is to reduce the search space. Apriori uses two steps, “join” and “prune”, to reduce the search space. As a result, it uses an iterative approach to discover the most frequent itemsets. As a result, a set of items is called "frequent" if it satisfies a minimum threshold value (based on an user input) for support and confidence.
+                </span></p>
+
+
+                <br>
+
+                <h2>Top 15 Rules</h2>
+
+                <p>
+                  Top 15 Rules for Support
+                </span></p>
+                <br>
+
+                <img style="max-width: 100%; height: auto;" src="support_table.png" class="center2">
+              
+                <h4>This is a screenshot of a table that indicates the rules and ARM values for support.</a></h4>
+
+                <p>
+                  As we defined before, support is the percentage of particular related item that occurs together in the whole dataset. Based on the chart above, which showcases the top 15 rules for support, the highest probability of a particular related item that occurs frequently in the entire dataset is “closer”, “draws”, “closer”, “fossil”, “closer”, “reminding”, “closer”, “worth”, “draws”, “fossil”, “draws”, “alive”, and “draws.” All of these values have the same support, of 0.14, confidence, of 1, coverage of 0.14, lift of 7.14, and count of 14. This makes sense as all of these words are closely related to global warming and climate change. This means that all of these words with relationship to support are highly associated with one another.
+
+                </span></p>
+                <br>
+
+
+
+
+
+
+
+
+
+                <p>
+                  Top 15 Rules for Confidence
+                </span></p>
+                <br>
+
+                <img style="max-width: 100%; height: auto;" src="confidence_table.png" class="center2">
+              
+                <h4>This is a screenshot of a table that indicates the rules and ARM values for confidence.</a></h4>
+
+
+
+                <p>
+                  As we defined before, confidence is the conditional probability that a certain item, X, occurs given that item Y occurs. As we can see, the parameters for the rules whose confidence below 1 isn’t show. As a result, the highest confidence level for confidence based rules is 1. The highest conditional probability in the dataset is “nytimes”, “gain”, “global, nytimes”, “gain, global”, “gain, warming”, “global, nytimes, warming”, and “gain, global, warming.” Essentially, this means that all of these words with relationship to confidenc are highly associated with one another.
+
+                </span></p>
+                <br>
+
+
+
+
+
+                <p>
+                  Top 15 Rules for Lift
+                </span></p>
+                <br>
+
+                <img style="max-width: 100%; height: auto;" src="lift_table.png" class="center2">
+                
+              
+                <h4>This is a screenshot of a table that indicates the rules and ARM values for lift.</a></h4>
+
+                <p>
+                  As we defined before, lift is the increment ratio of the probability that certain items X, Y occurs together compared with the mutually independent case. Note: If the lift is above 1, then the set of items are associated with each other. As we can see, the parameters for the rules whose confidence below 1 isn’t show, much like the table generated from confidence. As a result, the highest confidence level for confidence based rules is 1. The highest lift between associations in the dataset is “nytimes”, “gain”, “global, nytimes”, “gain, global”, “gain, warming”, “global, nytimes, warming”, and “gain, global, warming” which is around 10. When two values lifts are greater than 1, two words are associated to each other. As a result, a lift of 10, shows a high level of associative relationship.
+                </span></p>
+                <br>
+
+
+
+
+
+
+
+
+                <br>
+
+                <h2>Networks</h2>
+                <p>
+                  Network D3 is a package in R that offers a simplistic way to generate illustrations of Networks and Sankey diagrams. This package doesn’t require the user to understand the full scope of the D3 javascript package.
+                </span></p>
+
+                <p>
+                  The igraph is a collection of various network analysis tools which are useful to understand the correlation of networks with a firm spotlight on efficiency and portability. It's an open source program which can be imported in various langauges such as R, Python, and C/C++.
+                </span></p>
+
+                <p>
+                  Click on the images below to interact with the D3 and igraph files.
+                </span></p>
+
+                <br>
+
+                <a href="D3.html" class="center3">
+                  <img style="max-width: 100%; height: auto;" src="D3.png" class="center2">
+                </a>
+              
+
+                <h4>This is a screenshot of the generated D3 graph. Click on it to interact with it.</a></h4>
+
+                <p>
+                  Using the top 25 lift rules, an interactive D3 network file was created for our tweets regarding climate change and global warming. The graph is an exhaustive command of lines which interact with words associated with one another. 
+                </span></p>
+
+                <br>
+                <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+
+                <br>
+
+
+                <a href="igraph.html" class="center2">
+                  <img style="max-width: 100%; height: auto;" src="igraph.png" class="center3">
+                </a>
+
+                <h4>This is a screenshot of the generated igraph. Click on it to interact with it.</a></h4>
+
+                <p>
+                  Looking at the igraph, the network was taken from the top lift rules from tweets based on climate change and global warming. As seen from the graph, mindfulness and Dr.Wizdom, a person who is an advocate of climate change awareness, were the two most prominent nodes. These points are correlated with news, live, talking, and spiral. What this means is that, the point in which I took the tweets about climate change and global waring were related to global warming awareness. We can predict that at different points of time, the tweets would be about different things, and as a result, the graphs would be very different.
+                </span></p>
+
+                <br>
+
+
+
+
+                
+
+                <h2>Arules Visual</h2>
+                <p>
+                  The arules package provides a holistic functionality for analyzing networks alongside their items, associations rules, frequently related items, and building association classification models.
+                </span></p>
+
+                <p>
+                  Top Lift Network
+                </span></p>
+                <br>
+
+                <img style="max-width: 50%; height: auto;" src="lift.png" class="center2">
+                <h4>This is a screenshot made via arulesViz for the top lift network.</a></h4>
+
+
+                <p>
+                  Using the top 15 lift rules, an arules network was created as seen from the graph above. From the graph, we can see it showcases “worth” and “reminding” as the popular centroids. The confidence for all the values is 1. As they are in the same graph, these words are highly associated with each other from the tweets pulled related to global warming and climate change.
+                </span></p>
+                
+
+                <p>
+                  Top Support Network
+                </span></p>
+                <br>
+
+                <img style="max-width: 50%; height: auto;" src="support.png" class="center2">
+                <h4>This is a screenshot made via arulesViz for the top support network.</a></h4>
+
+
+                <p>
+                  Using the top 15 support rules, an arules network was created as seen from the graph above. From the graph, we can see it showcases “worth”, “reminding”, "global", "warmining", as the popular centroids. The confidence for all the values is 1. There is a higher probability that these words are included together than others in the dataset.
+                </span></p>
+
+
+                <p>
+                  Top Confidence Network
+                </span></p>
+                <br>
+
+                <img style="max-width: 50%; height: auto;" src="confidence.png" class="center2">
+                <h4>This is a screenshot made via arulesViz for the top confidence network.</a></h4>
+
+
+                <p>
+                  Using the top 15 confidence rules, an arules network was created as seen from the graph above. From the graph, we can see it showcases “worth”, “reminding”, "alive", "warmining", as the popular centroids. The confidence for all the values is 1. There is a strong correlation (probability) that these words are included together than others in the dataset.</span></p>
+
+                <br>
+
+
+
+
+
+
+
+                <h2>Conclusion</h2>
+                <p>
+                  
+                  A lot of interesting discoveries were made throughout the ARM (association rule mining) process. We started off with getting the tweets of two hashtags: #climatechange and #globalwarmining. The hashtags are used to classify categories in Twitter and we’re using it to get data to transform the text to associations and understand how closely kit they are.
+
+                </span></p>
+
+
+                <p>
+                  
+                  The first step of achieving this goal, was getting the transaction data using R. A hundred tweets were used with the hashtags mentioned above and cleaning was done on the tokenized tweets. This was achieved by iterating over the tweets and removing stop words (common words). Once the process was completed, the results were saved into a data file (csv).
+
+                </span></p>
+
+
+
+                <p>
+                  
+                  The next step was to generate the various interactive graphs based on various association metrics from the transaction data (lift, support, and confidence). Once this was done, we were able to visualize the results in network 3D and igraphs showing the cluster of associations between the common words.
+
+                </span></p>
+
+
+
+                <p>
+                  
+                  A conclusion can be made that these words presented in the results of each of the graphs are only the current/modern results when talking about climate change and global warming. Twitter, being a very convoluted social media, can showcase tweets about a particular hashtag in a rather odd way. Therefore, it is not suprising that there are words, such as “mindfulness” and “talking”, in the dataset. This just represents what people are talking about currently, and not at the issue at large.
+
+                </span></p>
+
+                <p>
+                  
+                  A further study could be done by getting the transaction data over a long period of time and looking at key words related to global warming/climate change, such as fossil fuels, etc, along with other hashtags. This will yield a more strong and a holistic perspective on what people are talking about on Twitter for climate change related issues.
+
+                </span></p>
+                <br>
+                <br>
+
+
+
+                <hr style="height:2px;border-width:0;color:gray;background-color:blue">
+
+
+
+              </div>
+              <br>
+              <br>
+            </div>
+          </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </section>
+    </div>
+  </body>
+</html>

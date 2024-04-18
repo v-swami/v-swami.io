@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+
+<!-- 
+█▀ █░█░█ ▄▀█ █▀▄▀█ █   █░█ █▀▀ █▄░█ █▄▀ ▄▀█ ▀█▀
+▄█ ▀▄▀▄▀ █▀█ █░▀░█ █   ▀▄▀ ██▄ █░▀█ █░█ █▀█ ░█░
+
+
+ -->
+
+ <style>
+  @import url('https://fonts.googleapis.com/css?family=Urbanist');
+  </style>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Swami Venkat ANLY501 Website - Coming Soon</title>
+    <link rel="stylesheet" href="styles_r.css" />
+  </head>
+    <body >
+
+    <!-- About Section -->
+    <div class="paragraph" id="introduction">
+      <form>
+        <form>
+          <input type="button" class = button value="<-- Go Back" onclick="history.back()">
+         </form>       </form>
+      <div class="main__container">
+        <div class="main__content">
+            <xmp>
+
+
+                library(ggplot2)
+                library(cvms)
+                library(caret)
+                library(dplyr)
+                library(psych)
+                library(e1071)
+                library(viridis)
+                
+                ### Clean data and prepare test and train data sets
+                DF <- read.csv("climate.csv", header = T, stringsAsFactors = T)
+                str(DF)
+                DF$label <- as.factor(DF$Category)
+                DF <- subset(DF, select=-c(Category))
+                
+                (Size <- (as.integer(nrow(DF)/4)))  ## Test will be 1/4 of the data
+                (SAMPLE <- sample(nrow(DF), Size, replace = FALSE))
+                
+                (DF_Test <- DF[SAMPLE, ])
+                (DF_Train <- DF[-SAMPLE, ])
+                
+                #### REMOVE AND SAVE LABELS
+                ## Copy the Labels
+                (DF_Test_Labels <- DF_Test$label)
+                ## Remove the labels
+                DF_Test_NL<-DF_Test[ , -which(names(DF_Test) %in% c("label"))]
+                (DF_Test_NL[1:4, 1:4])
+                ## Check size
+                (ncol(DF_Test_NL))
+                ## Copy the Labels
+                (DF_Train_Labels <- DF_Train$label)
+                ## Remove the labels
+                DF_Train_NL<-DF_Train[ , -which(names(DF_Train) %in% c("label"))]
+                (DF_Train_NL[1:4, 1:4])
+                ## Check size
+                (ncol(DF_Train_NL))
+                
+                ##################SVM classification using Linear Kernel
+                SVM_Linear_model = e1071::svm(formula = label ~ .,
+                                              data = DF_Train,
+                                              kernel = "linear",
+                                              cost = 0.2,
+                                              scale = FALSE)
+                
+                summary(SVM_Linear_model)
+                
+                
+                
+                
+                
+                
+                
+                
+                ## Predict the Test set
+                SVM_Linear_prediction = predict(SVM_Linear_model, DF_Test_NL, type = "class")
+                
+                Linear_Conf_Matrix = confusion_matrix(targets = DF_Test_Labels, 
+                                                      predictions = SVM_Linear_prediction)
+                plot_confusion_matrix(Linear_Conf_Matrix, palette="Blues", rm_zero_percentages = F,
+                                      rm_zero_text = F)
+                
+                ## Create visual of SVM
+                plot(SVM_Linear_model, data=DF_Train, AverageTemperature~Country, 
+                     slice=list(Last_Sold_Price=mean(DF$AverageTemperature), 
+                                Appraised_Value=mean(DF$Country)),
+                     symbolPalette = c("red", "blue", "green", "black"),
+                     color.palette = cm.colors)
+                legend("topleft", bg='lightblue',
+                       legend = c(SVM_Linear_model$levels), 
+                       fill = c("red", "blue", "green", "black"), cex=0.4)
+                
+                
+                
+                
+                
+                
+                
+                #################SVM classification using Polynomail Kernel
+                SVM_Poly_model = e1071::svm(formula = label ~ .,
+                                            data = DF_Train,
+                                            kernel = "polynomial",
+                                            degree = 2,
+                                            cost = 0.2,
+                                            scale = FALSE)
+                
+                summary(SVM_Poly_model)
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                ## Predict the Test set
+                SVM_Poly_prediction = predict(SVM_Poly_model, DF_Test_NL, type = "class")
+                
+                Poly_Conf_Matrix = confusion_matrix(targets = DF_Test_Labels, 
+                                                    predictions = SVM_Poly_prediction)
+                plot_confusion_matrix(Poly_Conf_Matrix, palette="Blues", rm_zero_percentages = F,
+                                      rm_zero_text = F)
+                
+                
+                
+                
+                
+                
+                ## Create visual of SVM
+                plot(SVM_Poly_model, data=DF_Train, Last_Sold_Price~Appraised_Value, 
+                     slice=list(Last_Sold_Price=mean(DF$Last_Sold_Price), 
+                                Appraised_Value=mean(DF$Appraised_Value)),
+                     symbolPalette = c("red", "blue", "green", "black"),
+                     color.palette = cm.colors)
+                legend("topleft", bg='lightblue',
+                       legend = c(SVM_Poly_model$levels), 
+                       fill = c("red", "blue", "green", "black"), cex=0.4)
+                
+                
+                
+                
+                #################SVM classification using Radial Basis Function (RBF) Kernel
+                SVM_RBF_model = e1071::svm(formula = label ~ .,
+                                           data = DF_Train,
+                                           kernel = "radial",
+                                           gamma = 0.1,
+                                           cost = 0.2,
+                                           scale = FALSE)
+                
+                summary(SVM_RBF_model)
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                ## Predict the Test set
+                SVM_RBF_prediction = predict(SVM_RBF_model, DF_Test_NL, type = "class")
+                
+                RBF_Conf_Matrix = confusion_matrix(targets = DF_Test_Labels, 
+                                                   predictions = SVM_RBF_prediction)
+                plot_confusion_matrix(RBF_Conf_Matrix, palette="Blues", rm_zero_percentages = F,
+                                      rm_zero_text = F)
+                
+                
+                
+                
+                
+                
+                ## Create visual of SVM
+                plot(SVM_RBF_model, data=DF_Train, Last_Sold_Price~Appraised_Value, 
+                     slice=list(Last_Sold_Price=mean(DF$Last_Sold_Price), 
+                                Appraised_Value=mean(DF$Appraised_Value)),
+                     symbolPalette = c("red", "blue", "green", "black"),
+                     color.palette = cm.colors)
+                legend("topleft", bg='lightblue',
+                       legend = c(SVM_RBF_model$levels), 
+                       fill = c("red", "blue", "green", "black"), cex=0.4)
+
+
+        
+            </xmp>
+            <img style="max-width: 50%; height: auto;" class="center" src="night.gif" alt="weather gif">
+      </div>
+    </div>
+  </body>
+</html>

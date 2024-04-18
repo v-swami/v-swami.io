@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+
+<!-- 
+█▀ █░█░█ ▄▀█ █▀▄▀█ █   █░█ █▀▀ █▄░█ █▄▀ ▄▀█ ▀█▀
+▄█ ▀▄▀▄▀ █▀█ █░▀░█ █   ▀▄▀ ██▄ █░▀█ █░█ █▀█ ░█░
+
+
+ -->
+
+ <style>
+  @import url('https://fonts.googleapis.com/css?family=Urbanist');
+  </style>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Swami Venkat ANLY501 Website - Coming Soon</title>
+    <link rel="stylesheet" href="styles_r.css" />
+  </head>
+    <body >
+
+    <!-- About Section -->
+    <div class="paragraph" id="introduction">
+      <form>
+        <form>
+          <input type="button" class = button value="<-- Go Back" onclick="history.back()">
+         </form>       </form>
+      <div class="main__container">
+        <div class="main__content">
+            <xmp>
+
+                #!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+@author: Swami Venkateswaran
+"""
+
+import requests 
+import re 
+import pandas as pd 
+from pandas import DataFrame
+
+
+from sklearn.feature_extraction.text import CountVectorizer
+import numpy as np 
+import PIL
+import wordcloud
+from wordcloud import WordCloud, STOPWORDS
+import matplotlib.pyplot as plt
+
+from sklearn.model_selection import train_test_split
+import random as rd
+from sklearn.naive_bayes import MultinomialNB
+from sklearn.metrics import confusion_matrix
+from sklearn.tree import DecisionTreeClassifier, plot_tree
+from sklearn import tree
+from six import StringIO
+import pydotplus
+
+from sklearn.decomposition import LatentDirichletAllocation
+import sklearn
+from sklearn.metrics import silhouette_samples, silhouette_score
+from sklearn.cluster import KMeans
+from sklearn import preprocessing
+import seaborn as sns
+from sklearn.metrics.pairwise import euclidean_distances
+from sklearn.metrics.pairwise import cosine_similarity
+from sklearn.manifold import MDS
+from mpl_toolkits.mplot3d import Axes3D
+from scipy.cluster.hierarchy import ward, dendrogram
+import graphviz
+
+import sys
+print(sys.executable)
+
+
+
+#Connect to server 
+topics = ["climate+change","global+warming","renewable+energy"]
+
+#create a new csv file 
+filename = "NewHeadlines.csv"
+MyFile = open(filename,"w")
+WriteThis = "LABEL,Data,Source,Title,Headline\n"
+MyFile.write(WriteThis)
+MyFile.close()
+
+#enter for loop to collect data on three topics 
+endpoint="https://newsapi.org/v2/everything"
+
+for topic in topics: 
+     URLPost = {'apiKey':'f94cd7e9d6144f83b2e5637bf533421f',
+               'q':topic} 
+     
+     response = requests.get(endpoint,URLPost)
+     print(response)
+     jsontxt = response.json()
+     print(jsontxt)
+
+     MyFile = open(filename,"a")
+     LABEL = topic 
+     for items in jsontxt["articles"]:
+       print(items,"\n\n\n")
+       Source = items["source"]["id"]
+       print(Source)
+       Date=items["publishedAt"]
+        ##clean up the date
+       NewDate=Date.split("T")
+       Date=NewDate[0]
+       print(Date)
+       #clean the title 
+       Title=items["title"]
+       Title=str(Title)
+       #print(Title)
+       Title=re.sub(r'[,.;@#?!&$\-\']+', ' ', str(Title), flags=re.IGNORECASE)
+       Title=re.sub(' +', ' ', str(Title), flags=re.IGNORECASE)
+       Title=re.sub(r'\"', ' ', str(Title), flags=re.IGNORECASE)
+       print(Title)
+    
+       Title=re.sub(r'[^a-zA-Z]', " ", str(Title), flags=re.VERBOSE)
+       Title=Title.replace(',', '')
+       Title=' '.join(Title.split())
+       Title=re.sub("\n|\r", "", Title)
+       #headline
+       Headline=items["description"]
+       Headline=str(Headline)
+       Headline=re.sub(r'[,.;@#?!&$\-\']+', ' ', Headline, flags=re.IGNORECASE)
+       Headline=re.sub(' +', ' ', Headline, flags=re.IGNORECASE)
+       Headline=re.sub(r'\"', ' ', Headline, flags=re.IGNORECASE)
+       Headline=re.sub(r'[^a-zA-Z]', " ", Headline, flags=re.VERBOSE)
+        ## Be sure there are no commas in the headlines or it will
+        ## write poorly to a csv file....
+       Headline=Headline.replace(',', '')
+       Headline=' '.join(Headline.split())
+       Headline=re.sub("\n|\r", "", Headline)
+    
+       print(Title)
+       print(Headline)
+       WriteThis=str(LABEL)+","+str(Date)+","+str(Source)+","+ str(Title) + "," + str(Headline)+ "\n"
+    
+       MyFile.write(WriteThis)
+
+MyFile.close()
+
+df = pd.read_csv(filename, error_bad_lines=False)
+print(df.head())
+
+for col in df.columns:
+    print(col)
+    
+print(df["Headline"])   
+df = df.dropna()
+print(df["Headline"])
+
+HeadlineLIST = []
+LabelLIST = []
+
+for nexthead, nextlabel in zip(df["Headline"], df["LABEL"]):
+    HeadlineLIST.append(nexthead)
+    LabelLIST.append(nextlabel)
+
+print("The headline list is:\n")
+print(HeadlineLIST)
+
+print("The label list is:\n")
+print(LabelLIST)
+
+#remove all words that match the topics exactly 
+NewHeadlineLIST=[]
+
+for element in HeadlineLIST:
+    print(element)
+    print(type(element))
+    ## make into list
+    AllWords=element.split(" ")
+    print(AllWords)
+    
+    ## Now remove words that are in your topics
+    NewWordsList=[]
+    for word in AllWords:
+        print(word)
+        word=word.lower()
+        if word in topics:
+            print(word)
+        else:
+            NewWordsList.append(word)
+            
+    ##turn back to string
+    NewWords=" ".join(NewWordsList)
+    ## Place into NewHeadlineLIST
+    NewHeadlineLIST.append(NewWords)
+
+
+## Set the HeadlineLIST to the new one
+HeadlineLIST=NewHeadlineLIST
+print(HeadlineLIST)     
+
+## build the labeled dataframe 
+#instantiate your cv 
+MyCountV=CountVectorizer(
+        input="content",  ## because we have a csv file
+        lowercase=True, 
+        stop_words = "english",
+        max_features=50
+        )
+
+## Use your CV 
+MyDTM = MyCountV.fit_transform(HeadlineLIST)  # create a sparse matrix
+print(type(MyDTM))
+    
+ColumnNames = MyCountV.get_feature_names()
+#print(type(ColumnNames))
+
+#build the data frame
+MyDTM_DF=pd.DataFrame(MyDTM.toarray(),columns=ColumnNames)
+Labels_DF = DataFrame(LabelLIST,columns=['LABEL'])
+
+#print("Labels\n")
+print(Labels_DF)
+#print("News df\n")
+print(MyDTM_DF.iloc[:,0:6])
+
+#save original df without the labels 
+My_Orig_DF = MyDTM_DF
+print(My_Orig_DF)
+
+dfs = [Labels_DF,MyDTM_DF]
+Final_News_DF_Labeled = pd.concat(dfs,axis=1, join='inner')
+## DF with labels
+print(Final_News_DF_Labeled)
+
+#save csv file to computer 
+Final_News_DF_Labeled.to_csv("Final_Labeled.csv")
+#Create Training and Testing Data 
+#Then model and test the Decision Tree 
+
+#see wordclouds for each of the topics first 
+List_of_WC = []
+
+for mytopic in topics:
+
+    tempdf = Final_News_DF_Labeled[Final_News_DF_Labeled['LABEL'] == mytopic]
+    print(tempdf)
+    
+    tempdf =tempdf.sum(axis=0,numeric_only=True)
+    #print(tempdf)
+    
+    #Make var name
+    NextVarName=str("wc"+str(mytopic))
+    #print( NextVarName)
+    
+    
+    ###########
+    ## Create and store in a list the wordcloud OBJECTS
+    #########
+    NextVarName = WordCloud(width=1000, height=600, background_color="white",
+                   min_word_length=4, #mask=next_image,
+                   max_words=200).generate_from_frequencies(tempdf)
+    
+    ## Here, this list holds all three wordclouds I am building
+    List_of_WC.append(NextVarName)
+    
+
+
+
+
+
+##------------------------------------------------------------------
+print(List_of_WC)
+##########
+########## Create the wordclouds
+##########
+fig=plt.figure(figsize=(25, 25))
+#figure, axes = plt.subplots(nrows=2, ncols=2)
+NumTopics=len(topics)
+for i in range(NumTopics):
+    print(i)
+    ax = fig.add_subplot(NumTopics,1,i+1)
+    plt.imshow(List_of_WC[i], interpolation='bilinear')
+    plt.axis("off")
+    plt.savefig("NewClouds.pdf")
+
+#DT 
+#STEP 1: Create training and testing data 
+#write the dataframe to csv 
+Final_News_DF_Labeled.to_csv("Labeled_News_Data_from_API.csv")
+TrainDF, TestDF = train_test_split(Final_News_DF_Labeled, test_size=0.3)
+print(TrainDF)
+print(TestDF)
+
+#STEP 2: Separate Labels 
+### TEST ---------------------
+TestLabels=TestDF["LABEL"]
+print(TestLabels)
+TestDF = TestDF.drop(["LABEL"], axis=1)
+print(TestDF)
+### TRAIN----------------------
+TrainLabels=TrainDF["LABEL"]
+print(TrainLabels)
+## remove labels
+TrainDF = TrainDF.drop(["LABEL"], axis=1)
+
+#step 3: Run MNB (multinomial nb)
+#instantiate 
+MyModelNB = MultinomialNB()
+#FIT
+MyNB = MyModelNB.fit(TrainDF,TrainLabels)
+#print(MyNB.classes_)
+#print(MyNB.class_count_)
+#print(MyNB.feature_log_prob_)
+
+Prediction = MyModelNB.predict(TestDF)
+print(np.round(MyModelNB.predict_proba(TestDF),2))
+
+#confusion matrix accuracies 
+cnf_matrix = confusion_matrix(TestLabels, Prediction)
+print("\nThe confusion matrix is:")
+print(cnf_matrix)
+
+#STEP 3: Run DT
+#instantiate 
+MyDT=DecisionTreeClassifier(criterion='entropy', ##"entropy" or "gini"
+                            splitter='best',  ## or "random" or "best"
+                            max_depth=None, 
+                            min_samples_split=2, 
+                            min_samples_leaf=1, 
+                            min_weight_fraction_leaf=0.0, 
+                            max_features=None, 
+                            random_state=None, 
+                            max_leaf_nodes=None, 
+                            min_impurity_decrease=0.0, 
+                            class_weight=None)
+
+model = MyDT.fit(TrainDF, TrainLabels)
+
+print(tree.export_text(MyDT))
+
+#feature names 
+feature_names=TrainDF.columns
+
+tree1 = tree.plot_tree(MyDT, 
+                       feature_names=feature_names,
+                       filled=True)
+plt.savefig("Tree1.pdf")
+
+
+#confusion matrix 
+print("Prediction\n")
+DT_pred = MyDT.predict(TestDF)
+print(DT_pred)
+
+bn_matrix = confusion_matrix(TestLabels,DT_pred)
+print(bn_matrix)
+
+TP = 4
+TN = (3+0+0+2)
+FP = (1+1)
+FN = (4+3)
+Accuracy1 = (TP+TN)/(TP+TN+FP+FN)
+print(Accuracy1)
+
+MyDT2=DecisionTreeClassifier(criterion='gini', ##"entropy" or "gini"
+                            splitter='best',  ## or "random" or "best"
+                            max_depth=None, 
+                            min_samples_split=2, 
+                            min_samples_leaf=1, 
+                            min_weight_fraction_leaf=0.0, 
+                            max_features=None, 
+                            random_state=None, 
+                            max_leaf_nodes=None, 
+                            min_impurity_decrease=0.0, 
+                            class_weight=None)
+
+model = MyDT2.fit(TrainDF, TrainLabels)
+
+print(tree.export_text(MyDT2))
+
+#feature names 
+feature_names=TrainDF.columns
+
+tree2 = tree.plot_tree(MyDT2, 
+                       feature_names=feature_names,
+                       filled=True)
+plt.savefig("Tree2.pdf")
+#confusion matrix 
+print("Prediction\n")
+DT_pred2 = MyDT2.predict(TestDF)
+print(DT_pred2)
+
+bn_matrix2 = confusion_matrix(TestLabels,DT_pred2)
+print(bn_matrix2)
+
+TP = 4
+TN = (3+0+0+2)
+FP = (1+1)
+FN = (4+3)
+Accuracy2 = (TP+TN)/(TP+TN+FP+FN)
+print(Accuracy2)
+
+MyDT3=DecisionTreeClassifier(criterion='gini', ##"entropy" or "gini"
+                            splitter='random',  ## or "random" or "best"
+                            max_depth=None, 
+                            min_samples_split=2, 
+                            min_samples_leaf=1, 
+                            min_weight_fraction_leaf=0.0, 
+                            max_features=None, 
+                            random_state=None, 
+                            max_leaf_nodes=None, 
+                            min_impurity_decrease=0.0, 
+                            class_weight=None)
+
+model = MyDT3.fit(TrainDF, TrainLabels)
+
+print(tree.export_text(MyDT3))
+
+#feature names 
+feature_names=TrainDF.columns
+
+tree3 = tree.plot_tree(MyDT3, 
+                       feature_names=feature_names,
+                       filled=True)
+plt.savefig("Tree3.pdf")
+#confusion matrix 
+print("Prediction\n")
+DT_pred3 = MyDT3.predict(TestDF)
+print(DT_pred3)
+
+bn_matrix3 = confusion_matrix(TestLabels,DT_pred3)
+print(bn_matrix3)
+
+TP1 = 4
+TN1 = (2+1+0+3)
+FP1 = (1+1)
+FN1 = (4+2)
+Accuracy3 = (TP1+TN1)/(TP1+TN1+FP1+FN1)
+print(Accuracy3)
+
+
+FeatureImp = MyDT.feature_importances_
+indices=np.argsort(FeatureImp)[::-1]
+for f in range(TrainDF.shape[1]):
+    if FeatureImp[indices[f]] > 0:
+        print("%d. feature %d (%f)" % (f + 1, indices[f], FeatureImp[indices[f]]))
+        print ("feature name: ", feature_names[indices[f]])
+        
+            </xmp>
+            <img style="max-width: 50%; height: auto;" class="center" src="night.gif" alt="weather gif">
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,2875 @@
+<!DOCTYPE html>
+
+<!-- 
+█▀ █░█░█ ▄▀█ █▀▄▀█ █   █░█ █▀▀ █▄░█ █▄▀ ▄▀█ ▀█▀
+▄█ ▀▄▀▄▀ █▀█ █░▀░█ █   ▀▄▀ ██▄ █░▀█ █░█ █▀█ ░█░
+ -->
+
+ <style>
+  @import url('https://fonts.googleapis.com/css?family=Urbanist');
+  </style>
+  
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Swami Venkat ANLY501 Website</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+
+
+
+
+    <!-- Navigation Bar Section -->
+    <nav class="navigation">
+      <div class="navigation__container">
+        <a href="#home" id="navigation__logo">SWAMI VENKAT</a>
+        <ul class="navigation__menu">
+          <ul class="navigation__item">
+            <a href="#aboutme" class="navigation__links" id="aboutme-page"> About Me</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="#introduction" class="navigation__links" id="Introduction-page">Introduction</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="#datagathering" class="navigation__links" id="datagathering-page"
+              >Data Gathering</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="#datacleaning" class="navigation__links" id="datacleaning-page"
+              >Data Cleaning</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="#exploringdata" class="navigation__links" id="exploring-page"
+              >Exploring Data</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="#clustering" class="navigation__links" id="clustering-page"
+              >Clustering</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="#arm" class="navigation__links" id="armandnetworking-page"
+              >ARM and Networking</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="#decisiontree" class="navigation__links" id="decision-page"
+              >Decision Tree</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="#NB" class="navigation__links" id="naivebayes-page"
+              >Naïve Bayes</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="#SVM" class="navigation__links" id="svm-page"
+              >SVM</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="#conclusion" class="navigation__links" id="conclusion-page"
+              >Conclusion</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="#infogrpahic" class="navigation__links" id="infographic-page"
+              >Infographic</a>
+          </ul>
+        </ul>
+      </div>
+    </nav>
+
+
+
+
+    <!-- Langing Page Section -->
+    <!-- Big Name Section -->
+
+    <div class="landing" id="home">
+      <div class="landing__container">
+        <h1 class="landing__heading">Swaminathan Venkateswaran</h1>
+        <p class="landing__description">"Swami Venkat"<br></p>
+        <p class="landing__description"><br>sv526<br></p>
+        <p class="landing__description"><br>ANLY501 Project</p>
+      </div>
+    </div>
+
+    
+
+
+    <!-- About me Section -->
+    <div class="paragraph" id="aboutme">
+      <div class="main__container">
+        <div class="main__content">
+          <h1>ABOUT ME.</h1>
+          <img style="max-width: 40%; height: auto;" src="Swami1.jpeg" alt="Swami Venkat" class="center">
+
+          <h3><a href="https://www.columbusmuseum.org/" class="caption">Taken here</a> and standing in front of <a href="https://commons.wikimedia.org/wiki/File:The_Mediterranean_(Cap_d%27Antibes)_by_Claude_Monet,_Columbus_Museum_of_Art_.JPG">this painting</a></h3>
+          <h2>Who's Swami Venkat?</h2>
+          <p> Swaminathan Venkateswaran, or Swami Venkat, is a first-year graduate student at Georgetown University studying Data Science & Analytics. </p>
+          <p> He is someone who enjoys connecting the dots be it ideas from dissimilar fields, people from different teams, or applications in divergent sectors. He has a well-equipped  technical background, studying computer science and engineering in his undergrad at Vellore Institute of Technology (VIT). He is also well versed in business acumen, serving as the Vice President of Marketing & Publicity (2019) in VIT’s entrepreneurship club, where he was tasked with leading a team of ~30 students while working with a wide variety of startups to develop product and marketing plans. </p>
+          <p> His passion, simply put, lies in levering data to help solve business-related problems. He is able to jump across verticals, tailor structured algorithms, and communicate composite designs to deliver high-efficient [AI] solutions. </p>
+          <p> His other interests include writing for his art blog, listening to music, and playing the mridangam. </p>
+        </div>
+      </div>
+    </div>
+
+
+
+
+    
+
+    <!-- Introduction Section -->
+    <div class="paragraph" id="introduction">
+      <div class="main__container">
+        <div class="main__content">
+          <h1>INTRODUCTION.</h1>
+          <div class="row">
+            <div class="column">
+              <img src="coal.jpeg" alt="coal mining" style="width: 100%">
+            </div>
+            <div class="column">
+              <img src="artic.jpeg" alt="snow melting" style="width:100%">
+            </div>
+            <div class="column">
+              <img src="tree.jpg" alt="tree depletion" style="width:100%">
+            </div>
+            <img style="max-width: 40%; height: auto;" src="climate.gif" alt="Temperature Change" class="center">
+            <h3><a href="https://www.reddit.com/r/environment/comments/n37mc7/dramatic_photos_from_around_the_globe_record/" class="caption">Image source</a> and <a href="https://svs.gsfc.nasa.gov/4419"> gif source</a></h3>
+
+          </div>
+          <br>
+          <h2>Understanding climate change with data</h2>
+          <p>Climate change is one of the most hard pressing issues that  modern society faces. From the advent of transport automation via coal, the environment that we know know is slowly becoming perilous. This coupled with the fact that corporations are diminishing and ruining natural resources on our planet; there is an influx of smog, CO2 emissions, and so much more other harmful pollutant in the ozone of the Earth.</span></p>
+
+          <p>With the help of apt data and visualizations, the aim of this project is to take a serious and data-driven look into understanding how climate change and global warming have affected the worldwide ecosystems over the past decade.
+          </span></p>
+
+          <p>The focus of this project is split into four parts: (1) understanding the science and how humans have contributed to global warming, (2) knowing how climate change played a key role in various natural calamities that occurred over the globe in the past decade, (3) understanding the political reforms that are being done to reduce these effects and are they effective, and (4), what does the future hold for the biodiversity on Earth?</span></p>
+          <br><br>
+          <h2>Why this topic?</h2>
+          <p>Growing up in California, the author has see many stories in the news on how wildfires are erupting in the forests during the summers. And, obtaining his undergraduate degree in a diverse community in India, he has heard many other similar events happening to his friends there, about how other various natural disasters, such as the Chennai/Kerala floods to the inhumane increases of smog in Delhi, have affected their families back home. His deep dismay after hearing these tragic incidients lead him to develop this data science project into understanding how and why this happened. </span></p>
+          <br>
+          <br>
+          <h2>Questions to answer along the way: </span></h2>
+
+          <ol>
+              <li>What is the difference between climate change and global warming?</li>
+              <li>Has Earth continued to get warmer in the past 4 decades?</li>
+              <li>Does global warming exist?</li>
+              <li>What is the greenhouse effect?&nbsp;</li>
+              <li>What are the factors that affect global warming?</li>
+              <li>How have humans affected the rise of climate change?</li>
+              <li>How badly is the ozone depleting?</li>
+              <li>What&apos;s happening to the ocean?</li>
+              <li>How has global warming affected natural disasters?</li>
+              <li>Understanding any political ramifications that are being done to reduce global warming? Is it working</li>
+              <li>What does the future hold? What&apos;ll happen in 2050?</li>
+              <li>Where do we get reliable data about climate change?</li>
+              <li>How can we visualize climate change?</li>
+              <li>Do cows actually contribute to global warming?</li>
+              <br>
+              <br>
+              <br>
+              <hr style="height:2px;border-width:0;color:gray;background-color:blue">
+          </ol>
+          <br>
+          <br>
+          <br>
+        </div>
+        
+      </div>
+    </div>
+
+
+
+
+
+
+    <!-- Data Gathering Section -->
+    <div class="paragraph" id="datagathering">
+        <div class="main__container">
+          <div class="main__content">
+
+            <h1>DATA GATHERING.</h1>
+
+            <h2>Where and how?</h2>
+            <p>
+              In the R portion of this project, the data was gathered via two R programs which used APIs to collect data from <a href="https://docs.airnowapi.org/">AirNow.com</a> and <a href="https://newsapi.org/"> NewsAPI.org.</a>
+              <p>
+                In the Python portion of this project, the data was gathered via a Python program which used an API to collect data from <a href="https://www.ncdc.noaa.gov/cdo-web/webservices/v2">ncdc.noaa.gov</a> (climate data online: web services).
+            </p>
+            <p>
+              All the APIs used in codes below are the author's.
+            </p>
+
+
+
+
+
+            <br>
+            <br>
+
+            <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+
+            <h2><br>R - AirNow</h2>
+              <p>
+                The AirNow API was used to gather the air quality index (AQI) of Washington DC (show in the code). AQI essentially refers to how the government uses a index to communicate to the public about how polluted the air is. The aim of this data is to view the trend of how the air quality in different U.S cities have changed. A cool analysis which will be added late to this portfolio, is a visualization on vehicle sales vs. the AQI over a period of time, in a paricular city.
+              </p><br>
+              <a href="rcode_aqi.html" class="button2" id="rcode">AirNow API - VIEW CODE</a>
+              <p>
+                Note: The current code only represents gatering data from one city.
+              </p>
+              <img style="max-width: 100%; height: auto;" src="aqiscreenshot.png" alt="AQI Data Screenshot" class="center2">
+              
+              <h4>This is a screenshot of the sample data collected from the AirNow API.</a></h4>
+
+              <a href="AirNowExample.csv" class="button2" download="AirNowAPI.csv">Download R - AirNow.csv</a>
+
+
+
+
+
+
+
+
+              <br>
+              <br>
+              <br>
+              <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+
+              <h2><br>R - NewsAPI</h2>
+
+              <p>
+                The NewsAPI was used to gather various qualitative data regarding the keyword 'climate change'. 
+              </p>
+              <p>
+                This data will be useful in parsing through various legislative news, to identify current data about what legislations are being passed about climate change (and their history). The result of this data collection will be used to analyze if its impact is benificial to our society. In other words, we're determining if the necessary steps are being done to save the enviornment.
+              </p>
+              </p>
+              <a href="rcode_news.html" class="button2" id="rcode">NewsAPI - VIEW CODE</a>
+              <p>
+                Note: There is a limit in the amount of news articles that can be retrieved from the API.
+              </p>
+              <img style="max-width: 100%; height: auto;" src="NewsAPI_Screenshot.png" alt="AQI Data Screenshot" class="center2">
+              
+              <h4>This is a screenshot of the sample data colleceted from the NewsAPI.</a></h4>
+
+              <a href="news_climatechange.csv" class="button2" download="NewsAPI.csv">Download R - NewsAPI.csv</a>
+
+
+
+
+
+
+
+
+              <br>
+              <br>
+              <br>
+              <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+
+              <h2><br>Python - NOAA API</h2>
+              <p>
+                The NOAA API was used to gather numeric data regarding temperature changes over the past year in a particular city. 
+              </p>
+              <p>
+                The gathered data is the range of temperatures from a particular city over a year. This data is crucial to understanding the degree of effect of climate change in major cities. An intersting analysis would be to compare this data alongside the carbon dioxide values of the same city and correlating their trends. The result of this would serve as key indicators to determine the effects of climate change (and even answer if it exits).
+              </p>
+              </p>
+              <a href="python_noaa.html" class="button2" id="rcode">NOAA API - VIEW CODE</a>
+              <p>
+                The temperature data is shown from Jan 2020 to Dec 2020 to the city code for Buffumville Lake (GHCND:USC00190998). Note: The 'value' column represents the "tenth of the Celcius".
+              </p>
+              <img style="max-width: 100%; height: auto;" src="NOAA_APIScreenshot.png" alt="NOAA API Screenshot" class="center2">
+              
+              <h4>This is a screenshot of the sample data colleceted from the NewsAPI.</a></h4>
+
+              <a href="NOAA.csv" class="button2" download="NOAA.csv">Download Python - NOAA.csv</a>
+
+
+
+
+
+              <br>
+              <br>
+              <br>
+
+              <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+
+              <h2><br>Data found online</h2>
+              <p>
+                There are also alot of interesting corpus of climate change data publicly available on the internet. This project also aims to collect useful data from these open data sets to aid in answering the various questions mentioned in the focus of this project.
+              </p>
+              <br>
+
+              <br>
+              <h2>Countries.csv</h2>
+            <p>This data showcases the global land temperature by country (actual title GlobalLandTemperaturesByCountry). The dataset spans across over a hundred countries as well as weather points dating back from the 1750's. The temperature data presented here is in Celsius. </span></p>
+            <p>
+              The data was gathered from <a href="https://www.kaggle.com/berkeleyearth/climate-change-earth-surface-temperature-data?select=GlobalLandTemperaturesByCountry.csv">Kaggle</a>.
+              <p>
+            
+            <img style="max-width: 100%; height: auto;" src="R_dataset.png" alt="R Dataset - Not Cleaned" class="center2">
+              
+            <h4>This is a screenshot of the raw country.csv data.</a></h4>
+
+            <a href="Country.csv" class="button2" download="Country.csv">Download Country.csv</a>
+
+
+
+            <br><br><br>
+            <h2>Twitter.csv</h2>
+
+            <p>The raw data shown below showcases various unfiltered Tweets, Tweet ID, and sentiment. There are approximately over 40,000 tweets.</span></p>
+          
+            <p>
+              The data was gathered from <a href="https://www.kaggle.com/edqian/twitter-climate-change-sentiment-dataset">Kaggle</a>.
+              <p>
+
+            <img style="max-width: 100%; height: auto;" src="Twitter_Unclean.png" alt="Twitter_Unclean.png" class="center2">
+              
+            <h4>This is a screenshot of the raw twitter_sentiment.csv data.</a></h4>
+
+            <a href="twitter_sentiment_data.csv" class="button2" download="twitter_sentiment_data.csv">Download Twitter Data.csv</a>
+
+
+
+
+            <br><br>
+            <h2>Countries_Average.csv</h2>
+
+            <p>
+              The data was gathered from <a href="https://www.kaggle.com/theworldbank/world-bank-climate-change-data?select=historical-data-excel-380-kb-.xls">Kaggle</a>.
+              <p>
+
+            <p>                  
+             The data was gathered by the World Bank. And, the exact subset of the data used was the “Country_TemperatureCRU.” This dataset contains the mean monthly and annual temperatures by country for the period 1961-1999. An advantage of using this dataset is that it's already been cleaned and stripped of any N/A values. An image of it can be seen and downloaded below. Note: all the values are in degrees Celsius. </span></p>
+          
+            <br>
+            <img style="max-width: 100%; height: auto;" src="country_average.png" alt="country_average Screenshot" class="center2">
+              
+            <h4>This is a screenshot of 'country_average'.</a></h4>
+
+            <a href="country_average.csv" class="button2" download="country_average.csv">Download country_average.csv</a>
+            
+
+            <br>
+            <br>
+            <br>
+            <hr style="height:2px;border-width:0;color:gray;background-color:blue">
+            <br>
+            <br>
+          </div>
+        </div>
+      </div>
+    
+
+
+
+
+
+
+
+
+      
+
+
+      <br>
+      <br>
+      <br>
+      <br>
+      <!-- DATA CLEANING Section -->
+      <div class="paragraph" id="datacleaning">
+        <div class="main__container">
+          <div class="main__content">
+            <h1>DATA CLEANING.</h1>
+
+            <br>
+            <h2>1. Cleaning with R - Numeric</h2>
+            <p>The R code demonstrated here cleans numeric data (quantitative data).</span></p>
+  
+            <p>This raw data showcases the global land temperature by country. The dataset spans across over a hundred countries as well as weather points dating back from the 1750's. The temperature data presented here is in Celsius. </span></p>
+            <br>
+            <img style="max-width: 100%; height: auto;" src="R_dataset.png" alt="R Dataset - Not Cleaned" class="center2">
+              
+            <h4>This is a screenshot of the raw country.csv data.</a></h4>
+
+            <a href="Country.csv" class="button2" download="Country.csv">Download Country (Unclean).csv</a>
+
+            <p>
+              The main aim of this dataset is to get the cleaned data of two countries: USA and India. The dataset should compose of the dates (both month and year) and the average temperature of each. This data will be useful to identify overall and holistic trends involving the various temperatures across the years.
+            </span></p>
+
+            <br>
+            <a href="r_clean_country.html" class="button2" id="rcode">CODE: R Cleaning - Country</a>
+
+            <p>
+              To accomplish this in R, the data was read in by getting the country code 'USA' and 'India'. Next, the date data was converted to months and years as features in the dataset along with the month number correlating to the abbreviation. Then, applying another feature extraction, the celsius data was converted to fahrenheit (by the formula 9/5*C + 32). Next, using a simple key of very cold to very hot, based on the fahrenheit scale, a feature was made to determine the "sense" of the weather. Finally, this transform was outputted as a csv. To view the final USA csv, click on the link below.
+            </span></p>
+
+            <img style="max-width: 100%; height: auto;" src="R_Cleaning_Final.png" alt="R Dataset - Not Cleaned" class="center2">
+            <h4>This is a screenshot of the final csv of USA countries. Output generated by library formattable.</a></h4>
+            <a href="USA_Climate.csv" class="button2" download="USA_Climate.csv">Download USA_Climate.csv</a>
+            <br>
+            <br>
+
+
+
+            <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+
+
+
+            <img style="max-width: 100%; height: auto;" src="India_Cleaned.png" alt="R Dataset - Not Cleaned" class="center2">
+            <h4>This is a screenshot of the final csv of India countries. Output generated by library formattable.</a></h4>
+
+            <a href="India_Climate.csv" class="button2" download="India_Climate.csv">Download India_Climate.csv</a>
+
+
+            <p>
+              The cleaning involved with this dataset was all: checking for missing values, N/A values, as well as outlier detection. Both the countries have ~ 2000 data points (from the 577,000 in the total dataset) and upon cleaning only lost less than 5% of the data. This indicates that most of the data was clean.
+            </span></p>
+
+            <p>
+              To speak upon outliers, since the dataset was already the average there wasn't any outliers. This was confirmed by plotting a histogram.
+            </span></p>
+
+            <img style="max-width: 45%; height: auto;" src="Temp_Outlier.png" alt="R Dataset - Not Cleaned" class="center2">
+            <br>
+  
+            <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+
+
+            <br><br>
+            <h2>2. Cleaning with Python - Text (CSV)</h2>
+            <p>The Python code demonstrated here cleans text data (qualitative) via .csv.</span></p>
+
+            <p>The raw data collected for Python data cleaning showcases various unfiltered Tweets, Tweet ID, and sentiment. There are approximately over 40,000 tweets.</span></p>
+            <br>
+            <img style="max-width: 100%; height: auto;" src="Twitter_Unclean.png" alt="Twitter_Unclean.png" class="center2">
+              
+            <h4>This is a screenshot of the raw twitter_sentiment.csv data.</a></h4>
+
+            <a href="twitter_sentiment_data.csv" class="button2" download="twitter_sentiment_data.csv">Download Twitter Data.csv</a>
+
+            <p>
+              The main aim of this dataset is to gather the text data and analyze the contents of the text. The analysis is both understanding the sentiment (how positive or negative the tweet is) as well as figure out how many people believe in climate change. This analysis will be proven vital when looking furthered to modern day solutions to help stop global warming. The code can be seen below.
+            </span></p>
+
+            <br>
+            <a href="py_cleaning.html" class="button2" id="rcode">CODE: Python Cleaning - Tweets</a>
+            
+            <p>
+              The text data was cleaned by first importing all the important libraries, such as numpy, pandas, nltk, etc. Next, the raw data is parsed through the tweet data and remove any unnecessary symbols (such as commas and '@') and strip it of any white space. Upon completion, using NLKT, the tweets are then abstracted by removing stop words such as and, like, etc. This gives a better representation of what the tweets are (i.e the crux of the tweets. Then, we continue to clean it and using PunktSentenceTokenizer, the tweets are broken down into sentences using a previously built in tool using the library NLKT. We then pass the tweets through the Tokenizer to get bite-sized sentences which can be parsed through. The cleaned data can be seen below for all 40,000+ tweets.
+            </span></p>
+            <br>
+
+            <img style="max-width: 100%; height: auto;" src="Cleaned_Twitter.png" alt="Cleaned_Twitter.png" class="center2">
+              
+            <h4>This is a screenshot of the cleaned twitter_sentiment.csv data.</a></h4>
+            
+            <a href="twittercleaned.csv" class="button2" download="twittercleaned.csv">Download Cleaned Twitter Data.csv</a>
+            <br>
+            <br>
+            
+            <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+
+
+
+
+
+
+            <br><br>
+            <h2>3. Cleaning with Python - Text (JSON - extra)</h2>
+            <p>The Python code demonstrated here cleans text data (qualitative) via .JSON.</span></p>
+
+            <p>The raw data collected here for this project is in JSON. The source of this data is from NewsAPI, where news articles are generated around keywords related to climate change. The data gathered can be found in the "Data Gathering" section.</span></p>
+            <br>
+
+            <img style="max-width: 100%; height: auto;" src="news_api_clean.png" alt="news_api_clean.png" class="center2">
+              
+            <h4>This is a screenshot of the cleaned news_API.csv data.</a></h4>
+
+            <a href="ClimateChange_NewsAPI.csv" class="button2" download="ClimateChange_NewsAPI.csv">Climate Change _ NEWS API.csv</a>
+
+            <p>
+              The main aim of this dataset is to gather the text data and analyze the contents of the headlines and the first lines of the text. The news gathered from the NewsAPI can prove vital when looking at current day legislative policies that are being passed to help reduce the drastic effects of climate change.
+            </span></p>
+
+            <br>
+            <a href="newsapi_clean.html" class="button2" id="rcode">CODE: Python Cleaning - NEWS API</a>
+            
+            <p>
+              The text data was cleaned by first importing all the important libraries, such as numpy, pandas, nltk, etc. Next, the data was parsed via JSON and gathered all the key attributes such as title, url, etc. This was then further more cleaned by removing unnecessary stop words. Finally, all the required elements were stored into a dataframe and outputted as a .csv.
+            </span></p>
+            <br>
+
+            <br><br>
+  
+            <br>
+            <br>
+            <br>
+            <br>
+            <hr style="height:2px;border-width:0;color:gray;background-color:blue">
+            
+            
+
+            
+  
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+           <!-- DATA EXPLORING Section -->
+           <div class="paragraph" id="exploringdata">
+            <div class="main__container">
+              <div class="main__content">
+                <h1>EXPLORING DATA.</h1>
+    
+                <br>
+                <h2>1. Data Exploring with R - Numeric</h2>
+                <p>
+                  
+                  Upon getting the clean datasets for both India and USA temperatures over the past two hundred years, a simple visualization can be performed by noticing the trends of the high and low temperatures over the years and cross the month. The style of the x axis are the months in alphabetical order. The plots are showcased in different temperatures (Y axis) to showcase that both the datasets work.
+
+                </span></p>
+                <br>
+
+                <img style="max-width: 100%; height: auto;" src="USA_Chart.png" alt="USA_Chart.png" class="center2">
+                <h4>Figure: USA_Chart.png | Note: Temperature in C | Code: Shown in Data Cleaning ("CODE: R Cleaning - Country")</a></h4>
+
+                <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+
+
+                <img style="max-width: 100%; height: auto;" src="India_Chart.png" alt="India_Chart.png" class="center2">
+                <h4>Figure: India_Chart.png | Note: Temperature in F | Code: Shown in Data Cleaning ("CODE: R Cleaning - Country")</a></h4>
+
+                <p>
+                  
+                  These plots was coded in R using the library ggplot. The overall aim of these graphs of showcasing the various trends of USA temperatures over 200 years. Please make a note that the lows are during January (winters) and the highs are during July (summers) and May (only for India).
+                  
+                </span></p>
+
+                <br>
+                <br>
+
+                <h2>2. Data Exploring with Python - Text (CSV)</h2>
+
+                <p> Upon cleaning the data there are many interesting plots that can be plotted to understand the relationship between sentiment and the message of the tweets. </span></p>
+                <br>
+
+
+                <p> First is a pie char depicting the % of positive, negative, neutral, and news tweets. </span></p>
+                <br>
+
+                <img style="max-width: 100%; height: auto;" src="Percent_Sentiment.png" alt="Percent_Sentiment.png" class="center2">
+                <h4>Figure: Percent_Sentiment.png | Code: Shown in Data Cleaning ("CODE: Python Cleaning - Tweets")</a></h4>
+
+
+                <p> The same information above can be showcased in a bargraph. With this, the number of tweets by sentiment category can be shown below.</span></p>
+                <br>
+
+                <img style="max-width: 100%; height: auto;" src="Sentiment_Vaues.png" alt="Sentiment_Vaues.png" class="center2">
+                <h4>Figure: Sentiment_Vaues.png | Code: Shown in Data Cleaning ("CODE: Python Cleaning - Tweets")</a></h4>
+
+
+                <p> Next, a histogram can be produced, showcasing the different length of tweets vs. the sentiment category. The result of this graph showcases any outliers that may be in the dataset. </span></p>
+
+
+                <img style="max-width: 100%; height: auto;" src="Sentiment_Histo.png" alt="Sentiment_Histo.png" class="center2">
+                <h4>Figure: Sentiment_Histo.png | Code: Shown in Data Cleaning ("CODE: Python Cleaning - Tweets")</a></h4>
+
+                <br>
+
+                <p> Finally, with the the twitter text (after cleaning), a word cloud can be implemented with the help of CountVectorization (CV). CV outputs the frequency of the words and using the the wordcloud library, the tweets without stopwords can generate the top most words used in each sentiment category. The code to generate the wordclouds can be viewed below. </span></p>
+
+                <br>
+                <a href="wordcloud.html" class="button2" id="rcode">CODE: Python WordCloud</a>
+
+                <br>
+
+                <img style="max-width: 75%; height: auto;" src="negative_wc.png" alt="negative_wc.png" 
+                class="center2">
+                <h4>Figure: Negative Sentiment Word Cloud</a></h4>
+
+                <img style="max-width: 75%; height: auto;" src="positive_wc.png" alt="positive_wc.png
+                " class="center2">
+                <h4>Figure: Positive Sentiment Word Cloud</a></h4>
+
+
+                <img style="max-width: 75%; height: auto;" src="neutral_wc.png" alt="positive_wc.png"
+                 class="center2">
+                <h4>Figure: Neutral Sentiment Word Cloud</a></h4>
+
+
+                <img style="max-width: 75%; height: auto;" src="news_wc.png" 
+                alt="news_wc.png" 
+                class="center2">
+                <h4>Figure: News Sentiment Word Cloud</a></h4>
+                <br>
+
+                <h2>3. Data Exploring with Python - Text (JSON)</h2>
+
+                <p> Much like the python code used to gather the tweets, similar word clouds can be built for understanding the various News. The wordcloud represents the various weighted frequency within the headlines and first sentence of each headline.</span></p>
+
+
+                <img style="max-width: 80%; height: auto;" src="news_apiwc.png" 
+                alt="news_apiwc.png" 
+                class="center2">
+                <h4>Figure: News API Word Cloud</a></h4>
+              </div>
+              <br>
+              <br>
+              <hr style="height:2px;border-width:0;color:gray;background-color:blue">
+            </div>
+          </div>
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+           <!-- CLUSTERING Section -->
+           <div class="paragraph" id="clustering">
+            <div class="main__container">
+              <div class="main__content">
+                <h1>CLUSTERING.</h1>
+    
+                <br>
+                <h2>Clustering with R - The Data</h2>
+                <p>
+                  
+                  The data used for clustering in this section was gathered from Kaggle. More information can be see in the 'Data Gathering' portion. Too quickly summarize, the data was gathered by the World Bank. And, the exact subset of the data used was the “Country_TemperatureCRU.” This dataset contains the mean monthly and annual temperatures by country for the period 1961-1999. An advantage of using this dataset is that it's already been cleaned and stripped of any N/A values. An image of it can be seen and downloaded below. Note: all the values are in degrees Celsius. 
+                </span></p>
+                
+
+                <p>
+                  There are 1 label + 13 columns and 178 observations in total.
+                </span></p>
+                <br>
+
+
+
+                <img style="max-width: 100%; height: auto;" src="country_average.png" alt="country_average Screenshot" class="center2">
+              
+                <h4>This is a screenshot of 'country_average'.</a></h4>
+  
+                <a href="country_average.csv" class="button2" download="country_average.csv">Download country_average.csv</a>
+                <br>
+                <br>
+
+                <h2>Clustering with R - Numeric Data</h2>
+
+                <p>
+                  
+                  The data used for clustering in this section was gathered from Kaggle. More information can be see in the 'Data Gathering' portion. Too quickly summarize, the data was gathered by the World Bank. And, the exact subset of the data used was the “Country_TemperatureCRU.” This dataset contains the mean monthly and annual temperatures by country for the period 1961-1999. An advantage of using this dataset is that it's already been cleaned and stripped of any N/A values. An image of it can be seen and downloaded below. Note: all the values are in degrees Celsius. 
+                </span></p>
+                <br>
+                
+
+                <h2>Code</h2>
+
+                <p>
+                  The code for all the images and processes can be found below:
+                </span></p>
+                <br>
+
+                <a href="r_clustering.html" class="button2" id="rcode">CODE: R - Clustering</a>
+                <br>
+                <br>
+
+
+
+                <h2>STEP 1: Libraries</h2>
+
+                <p>
+                  The first step was importing all the necessary libraries for the visualizations needed for clustering.
+                </span></p>
+                <br>
+
+
+
+
+                <h2>STEP 2:  Removing Label</h2>
+
+                <p>
+                  The second step was removing the labels, which were the ISO 3-letter abbreviations of the countries. This was done by saving the labels. Note: the data was/is clean and doesn't need any more pruning.
+                </span></p>
+                <br>
+                
+
+
+                <h2>STEP 3:  Distance Metric Matrices (Dendrogram)</h2>
+
+                <p>
+                  The third step was getting the 3 distance matrices. The distance calculations used in this step are: (1) Euclidean, (2) Manhattan, (3) Cosine Similarities, and (4) a normal cluster. The purpose of this step is to determine a measure of similarity between two non-zero vectors of an inner product space; this same methodology is being implemented over 3 distance calculations to get a wide perspective of results. The results were then visualized via Dendrogram. Dendrogram are useful to determine a hierarchical relationship between objects. 
+                  
+                  Note: Due to the sheer number of countries the scaling of the image can't be seen on the website, but when running it on RStudio the results can be seen clearer.
+                </span></p>
+                
+
+                <p>
+                  Note: Due to the sheer number of countries the scaling of the image can't be seen on the website, but when running it on RStudio the results can be seen clearer.
+                </span></p>
+                <br>
+
+                <img style="max-width: 100%; height: auto;" src="euc_1.png"  
+                class="center2">
+              
+                <h4>This is a screenshot of the Eucledian Distance Dendrogram.</a></h4>
+                
+                <img style="max-width: 100%; height: auto;" src="man_1.png" class="center2">
+
+                <h4>This is a screenshot of the Eucledian Distance Dendrogram.</a></h4>
+                  
+                <img style="max-width: 100%; height: auto;" src="cosine.png" class="center2">
+
+                <h4>This is a screenshot of the Cosine Similarity Dendrogram.</a></h4>
+              
+                <img style="max-width: 100%; height: auto;" src="clust_1.png" class="center2">
+
+                <h4>This is a screenshot of the Cluster Dendrogram.</a></h4>
+              
+                <br>
+                
+                <h2>STEP 4: K-Means / Elbow Chart</h2>
+
+                <p>
+                  The next step in the clustering process is implementing K-means clustering. K-means clustering is a method of grouping with an aim to partition n observations into k clusters with the nearest mean. To determine the ‘k’ value, we deploy an elbow graph. The elbow graph showcases the k values along with a heuristic used to determine the number of clusters in the data. It is often said that the steeper the ‘k’ value is, the more apt it is to use in the K-Means clustering.
+                </span></p>
+                <br>
+
+                <img style="max-width: 100%; height: auto;" src="elbow.png" alt="country_average Screenshot" class="center2">
+
+                <h4>This is a screenshot of the Elbow Graph.</a></h4>
+
+
+                <p>
+                  In the elbow chart above, we can see that K=2,5,8 are the best K-values to use for Means clustering.
+                </span></p>
+
+                <br>
+                <h2>STEP 5: K-Means Clustering </h2>
+
+                <p>
+                  We can see below the K-Means clustering for various K groups. The graph is also accompanied by a ‘fviz_cluster’, which is a more elegant way to depict K-Means clustering.
+                </span></p>
+                <br>
+
+                <img style="max-width: 100%; height: auto;" src="3_1.png" class="center2">
+
+                <br>
+                <br>
+
+                <img style="max-width: 100%; height: auto;" src="3_2.png" class="center2">
+
+                <h4>This is a screenshot of KMeans Clustering where K = 3</a></h4>
+
+                <br>
+                <br>
+
+
+
+                <img style="max-width: 100%; height: auto;" src="2_1.png" class="center2">
+
+                <br>
+                <br>
+
+                <img style="max-width: 100%; height: auto;" src="2_2.png" class="center2">
+
+                <h4>This is a screenshot of KMeans Clustering where K = 2</a></h4>
+
+                <br>
+                <br>
+
+
+
+
+                <img style="max-width: 100%; height: auto;" src="5_1.png" class="center2">
+
+                <br>
+                <br>
+
+                <img style="max-width: 100%; height: auto;" src="5_2.png"  class="center2">
+
+                <h4>This is a screenshot of KMeans Clustering where K = 5</a></h4>
+
+
+
+
+
+                <img style="max-width: 100%; height: auto;" src="8_1.png" class="center2">
+
+                <br>
+                <br>
+
+                <img style="max-width: 100%; height: auto;" src="8_2.png" class="center2">
+
+                <h4>This is a screenshot of KMeans Clustering where K = 8</a></h4>
+
+
+                <br>
+                <br>
+
+
+                <h2>STEP 6: Clustered Dendrogram</h2>
+
+                <p>
+                  The next step in the clustering process is implementing K-means clustering. K-means clustering is a method of grouping with an aim to partition n observations into k clusters with the nearest mean. To determine the ‘k’ value, we deploy an elbow graph. The elbow graph showcases the k values along with a heuristic used to determine the number of clusters in the data. It is often said that the steeper the ‘k’ value is, the more apt it is to use in the K-Means clustering.
+                </span></p>
+                <br>
+
+
+                <img style="max-width: 100%; height: auto;" src="dend_3.png"  class="center2">
+
+                <h4>This is a screenshot of the Clustered Dendrogram where K = 3</a></h4>
+
+
+
+                <img style="max-width: 100%; height: auto;" src="dend_2.png" class="center2">
+
+                <h4>This is a screenshot of the Clustered Dendrogram where K = 2</a></h4>
+
+
+
+
+                <img style="max-width: 100%; height: auto;" src="dend_5.png" class="center2">
+
+                <h4>This is a screenshot of the Clustered Dendrogram where K = 5</a></h4>
+
+
+
+
+
+                <img style="max-width: 100%; height: auto;" src="dend_8.png" class="center2">
+
+                <h4>This is a screenshot of the Clustered Dendrogram where K = 8</a></h4>
+
+
+
+
+
+                <h2>STEP 7: Hierarchical Clustering</h2>
+
+                <p>
+                  In the next step, we can identify the Hierarchical clusters. This is a process where groups of similar objects are bound together as clusters. Each cluster is a distinct to each other and the objects within the same cluster are similar to each other. Ultimately, we’re seeing the same results are the Dendrogram. We can now group the k values we determined with the Hierarchical cluster via boxes.
+                 </span></p>
+                <br>
+
+
+                <img style="max-width: 100%; height: auto;" src="h_3.png" class="center2">
+
+                <h4>This is a screenshot of the Hierarchical Cluster where K = 3</a></h4>
+
+                <img style="max-width: 100%; height: auto;" src="h_2.png" class="center2">
+
+                <h4>This is a screenshot of the Hierarchical Cluster where K = 2</a></h4>
+
+
+                <img style="max-width: 100%; height: auto;" src="h_5.png" class="center2">
+
+                <h4>This is a screenshot of the Hierarchical Cluster where K = 5</a></h4>
+
+
+                <img style="max-width: 100%; height: auto;" src="h_8.png" class="center2">
+
+                <h4>This is a screenshot of the Hierarchical Cluster where K = 8</a></h4>
+
+
+                <h2>R - SUMMARY</h2>
+
+                <p>
+                  All in all, these graphs were to showcase how countries would be categorized together based on their the mean monthly and annual temperatures by country for the period 1961-1999. The crux of the results were that, the countries can be grouped in either 2, 3, 5, or 8 clusters which would all make viable sense for a user to understand and correlate between. This was proven by performing K-Means clustering and determining the optimal K value via the elbow plot. Then, using the optimal k-values, Hierarchical Cluster and Dendrograms were generated showcasing the arial cluster amongst all countries.
+                 </span></p>
+                <br>
+
+                <img style="max-width: 100%; height: auto;" src="conclusion.png" class="center2">
+
+                <h4>Cluster Plot of the data where K = 5</a></h4>
+
+
+                <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+
+                <br>
+
+
+                <h2>BONUS: 3 New Vectors</h2>
+
+                <p>
+                  For this section, the question proposed was: by entering 3 vectors, would it be possible to tell what category/group they were in based on K-Means clustering. First, three ‘outlier’ vectors were added to the original country. The purpose of adding outlier vectors is to determine if both the clusters are working and noticing where the clusters are. If we can determine this case, we can ultimately generalize it by putting random values. In essence, we’re testing to see if the vectors we put would get categorized together and if they do, we can put three vectors “within” the dataset and be safely assured that they’ll be clustered properly.
+                 </span></p>
+                <br>
+
+                <p>
+                  The process was fairly simple. First, we add the three outlier vectors and repeat the whole code again. The code for this can be found above at the beginning of the 'Cluster' Tab.
+                 </span></p>
+                <br>
+
+
+
+                <img style="max-width: 100%; height: auto;" src="outlier1.png" class="center2">
+
+                <h4>This is a screenshot of the K-Means Clustering where K = 5</a></h4>
+
+                <img style="max-width: 100%; height: auto;" src="outlier2.png" class="center2">
+
+                <h4>This is a screenshot of the Hierarchical Clustering where K = 5</a></h4>
+
+                <p>
+                  Analysis:
+                 </span></p>
+
+                <p>
+                  As we can determine that the three outlier vectors induced in the dataset (X1, X2, X3) can be clearly depicted in both the K-Means and Hierarchical clustering with k = 5. This makes sense, as the three vectors introduced in the dataset were all outliers and were forced to be in a group together. This result can be generalized to any amount of new vectors, were our algorithm will shift automatically and cluster them regardless or not if they're part of the dataset. All in all, this example was purposefully done so that anyone can see that the three added vectors are indeed being clustered.
+                 </span></p>
+                <br>
+                <br>
+                <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+
+
+                <br>
+                <h2>Clustering with Python - The Data</h2>
+                <p>
+                  
+                  The data taken for text clustering was the result of the data cleaning done in the ‘Data Cleaning’ portion. To quickly overview, the raw data collected for Python data cleaning showcases various unfiltered Tweets, Tweet ID, and sentiment. There are approximately over 40,000 tweets.
+                  
+                </span></p>
+                <br>
+
+
+                <h2>Code</h2>
+
+                <p>
+                  The code for all the images and processes can be found below in Python:
+                </span></p>
+                <br>
+
+                <a href="python-clustering.html" class="button2" id="rcode">CODE: Python - Clustering</a>
+                <br>
+                <br>
+
+                <h2>WordCloud</h2>
+
+                <p>
+                  The data taken for text clustering was the result of the data cleaning done in the ‘Data Cleaning’ portion. To quickly overview, the raw data collected for Python data cleaning showcases various unfiltered Tweets, Tweet ID, and sentiment. There are approximately over 40,000 tweets.
+                </span></p>
+                <br>
+
+                <p>
+                  The text data was cleaned by first importing all the important libraries, such as numpy, pandas, nltk, etc. Next, the raw data is parsed through the tweet data and remove any unnecessary symbols (such as commas and '@') and strip it of any white space. Upon completion, using NLKT, the tweets are then abstracted by removing stop words such as and, like, etc. This gives a better representation of what the tweets are. Then, we continued to clean it and using PunktSentenceTokenizer, the tweets are broken down into sentences using a previously built in tool using the library NLKT. We then pass the tweets through the Tokenizer to get bite-sized sentences which can be parsed through. The cleaned data can be seen below for all 40,000+ tweets.
+                </span></p>
+                <br>
+
+                <p>
+                  For this portion, only the first ~200 rows were taken out of 40,000+ rows. The original dataset can be downloaded and viewed below as 'twittercleaned_sample.csv'.
+                </span></p>
+                <br>
+
+
+                <img style="max-width: 100%; height: auto;" src="Cleaned_Twitter.png" alt="Cleaned_Twitter.png" class="center2">
+                
+                <br>
+
+                <a href="twittercleaned_sample.csv" class="button2" download="twittercleaned_sample.csv"> Downloadtwittercleaned_sample.csv</a>
+
+
+                <p>
+                  Based on the data, were 4 word clouds were generated by the type of twitter sentiment: negative, positive, neutral, news.
+                </span></p>
+                <br>
+
+                
+                <img style="max-width: 75%; height: auto;" src="negative_wc.png" alt="negative_wc.png" 
+                class="center2">
+                <h4>Figure: Negative Sentiment Word Cloud</a></h4>
+
+                <img style="max-width: 75%; height: auto;" src="positive_wc.png" alt="positive_wc.png
+                " class="center2">
+                <h4>Figure: Positive Sentiment Word Cloud</a></h4>
+
+
+                <img style="max-width: 75%; height: auto;" src="neutral_wc.png" alt="positive_wc.png"
+                 class="center2">
+                <h4>Figure: Neutral Sentiment Word Cloud</a></h4>
+
+
+                <img style="max-width: 75%; height: auto;" src="news_wc.png" 
+                alt="news_wc.png" 
+                class="center2">
+                <h4>Figure: News Sentiment Word Cloud</a></h4>
+                <br>
+                
+
+
+                <h2>CountVectorize</h2>
+
+                <p>
+                  The next step of the process is generating the countvectorizer dataset. This is done by creating  using countvectorizer in python and removing the label. The columns represents the unique set of words and the rows represent the document id. Download the dataset below.
+                </span></p>
+                <br>
+
+
+
+
+                <img style="max-width: 100%; height: auto;" src="twitter-cv.png" alt="Cleaned_Twitter.png" class="center2">
+                
+                <br>
+
+                <a href="twitter_cv.csv" class="button2" download="twitter_cv.csv"> Download twitter_cv.csv</a>
+                <br>
+                <br>
+
+                <h2>K-Means: Elbow Plot </h2>
+
+                <p>
+                  The next step in the clustering process is implementing K-means clustering. K-means clustering is a method of grouping with an aim to partition n observations into k clusters with the nearest mean. To determine the ‘k’ value, we deploy an elbow graph. The elbow graph showcases the k values along with a heuristic used to determine the number of clusters in the data. It is often said that the steeper the ‘k’ value is, the more apt it is to use in the K-Means clustering.
+                </span></p>
+                <br>
+
+                <img style="max-width: 100%; height: auto;" src="py_elbow.png" alt="py_elbow.png" class="center2">
+                <h4>The Elbow plot for K-Means clustering</h4>
+                <br>
+
+                <p>
+                  By looking at the graph, we can notice that k = 4, 6, 8 are good K's to choose for our K-Means clustering.
+                </span></p>
+                <br>
+
+
+                <h2>2D clustering: PCA</h2>
+
+                <p>
+                  Now that we have our optimal ‘K’ values, the next thing to do is to plot the countvectorized data. However, since the dimension of the data are so big, we can use PCA or Principle Component Analysis to reduce the dimensionality and showcase the graph as a 2D vector. This is done by the python module ‘TruncatedSVD’. It acts as a PCA, however is more useful on larger and sparse datasets which cannot be optimally centered without increase the amount of memory. Another notable difference between TruncatedSVD and PCA is how the explained_variance is calculated.
+                </span></p>
+
+                <p>
+                  Once we have our 2D vector created via PCA on the countvectorized data, we can not plot it.
+                </span></p>
+                <br>
+
+
+
+                <h2>K-Means Clustering</h2>
+
+                <p>
+                  By determining that the optimal K to cluster the graphs are K = 4, 6, and 8, find below the graphs of each of the clusters.
+                </span></p>
+                <br>
+
+                <img style="max-width: 100%; height: auto;" src="py-4.png" alt="py_elbow.png" class="center2">
+                <h4>PCA: K-Means Clustering | K = 4</h4>
+                <br>
+
+                <img style="max-width: 100%; height: auto;" src="py-6.png" alt="py_elbow.png" class="center2">
+                <h4>PCA: K-Means Clustering | K = 6</h4>
+                <br>
+
+                <img style="max-width: 100%; height: auto;" src="py-8.png" alt="py_elbow.png" class="center2">
+                <h4>PCA: K-Means Clustering | K = 8</h4>
+                <br>
+
+
+                <h2>DBSCAN</h2>
+
+                <p>
+                  In this portion, we can perform a density-based spatial clustering of applications with noise (DBSCAN).  This method finds core samples of high density and expands clusters based around them. It’s highly effectual for data which contains similar clusters of density. The image can be seen below.
+                </span></p>
+                <br>
+
+                <img style="max-width: 100%; height: auto;" src="DBSCAN.png" alt="DBSCAN.png" class="center2">
+                <h4>DBSCAN plot</h4>
+                <br>
+
+                <p>
+                  As we can see, the clustering via DBSCAN isn't that optimal.
+
+                </span></p>
+                <br>
+
+
+
+
+                <h2>Hierarchical Clustering</h2>
+
+                <p>
+                  In the next step, we can identify the Hierarchical clusters. This is a process where groups of similar objects are bound together as clusters. Each cluster is a distinct to each other and the objects within the same cluster are similar to each other. Ultimately, we’re seeing the same results are the Dendrogram. The image can be viewed below.
+                </span></p>
+                <br>
+
+                <img style="max-width: 100%; height: auto;" src="py_h.png" alt="py_h.png" class="center2">
+                <h4>Hierarchical Cluster</h4>
+                <br>
+
+                <p>
+                  In this, we can see that the different document rows are being clustered via similarity in a Dendrogram. Although we can't see the x-axis labels that well due to the sheer number of data points, on the Python terminal it can be seen clearer.
+                </span></p>
+                <br>
+
+
+                <h2>PYTHON - SUMMARY</h2>
+
+                <p>
+                  What this section was for is to understand how text based data can be clustered and showcased in various graphs.
+                </span></p>
+
+                <p>
+                  We first started by getting the Tweets, cleaning them via regular expressions, and creating a count vectorized dataframe of all the unique words as columns and the rows being document id. We created a wordcloud to see the unique words in each label.
+                  </p>
+
+
+                  <p>
+                  We then removed the label. Next, we ran the elbow plot to determine the optimal 'K' for K-Means and performed a PCA to reduce the number of dimensionality of the dataframe to plot 2D Vectors. We noticed that K = 4,6, and 8 were the best K values and plotted the scattered plots respectively. 
+                </span></p>
+                
+
+                <p>
+                  Then, using, density-based spatial clustering of applications with noise (DBSCAN), we found core samples of high density and expands clusters based around them. It is very effective for data which contains similar clusters of density. We saw that the clusters weren't getting clustered properly with this method.
+                </span></p>
+
+                <p>
+                  Finally, upon seeing the results of the various K-Means and DBSCAN, we created a Dendrogram to see an ariel correlation amongst the various data nodes in the countvectorized dataframe.
+                </span></p>
+                <br> 
+                <br> 
+
+                <hr style="height:2px;border-width:0;color:gray;background-color:blue">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+           <!-- ARM AND NETWORK Section -->
+           <div class="paragraph" id="arm">
+            <div class="main__container">
+              <div class="main__content">
+                <h1>ARM AND NETWORKING.</h1>
+    
+                <br>
+                <h2>Introduction</h2>
+                <p>
+                  
+                  In this section, we’ll be preparing “transaction data” that’ll be used to perform Association Rule Mining (ARM). We’ll gather tweets and format it as transaction data using only R. Next, we will get the top 15 rules for support, confidence, and lift (explained later) and take a deep dive into understand what it means in the scale of association. Finally, we will generate 3 network graphs (a few interactive) that’ll allow us to visualize how different words are associated to each other via a D3 Network in R.
+
+                </span></p>
+                <br>
+
+
+                <h2>Code</h2>
+                <p>
+                  
+                  The code in R for this section can be found below. Note: since the code takes in live tweets, the results may vary as the tweets and its contents change. These results are from: Oct 27 2021, 5:26:10PM.
+
+                </span></p>
+                <br>
+
+                <a href="arm.html" class="button2" id="rcode">CODE: R - ARM & Networks</a>
+                <br>
+                <br>
+
+
+                <h2>Twitter Data</h2>
+                <p>
+                  
+                  Twitter data was pulled using the two keywords: “climate change” and “global warming.” For each topic, 100 tweets were pulled via the Twitter api and 'twitteR::searchTwitter' (100 tweets = 100 rows). The uncleaned csv file can be seen/downloaded below:
+
+                </span></p>
+                <br>
+
+                <img style="max-width: 100%; height: auto;" src="ARM_Uncleaned.png" class="center2">
+              
+                <h4>This is a screenshot of ARM Twitter data before cleaning.</a></h4>
+  
+                <a href="arm_uncleaned.csv" class="button2" download="arm_uncleaned.csv">Download arm_uncleaned.csv</a>
+                <br>
+                <br>
+
+
+                <p>
+
+                  In order to create transaction data, the tweets were cleaned and placed in a csv file. The remaining relevant words of each tweet became a row in the dataset. The cleaning was done by tokenizing the tweets and iterating over the each tweets and lowercasing and removing stopwords. Next, the tweets were formatted into buckets and simplified to words which were in context with global warming and climate change. Once complete, the transactions were finally read and outputted a clean arm csv file of the tweets. The cleaned .csv file can be seen/downloaded below:
+
+                </span></p>
+                <br>
+
+                <img style="max-width: 100%; height: auto;" src="ARM_Cleaned.png" class="center2">
+              
+                <h4>This is a screenshot of ARM Twitter data after cleaning.</a></h4>
+  
+                <a href="arm_cleaned.csv" class="button2" download="arm_cleaned.csv">Download arm_cleaned.csv</a>
+                <br>
+                <br>
+
+
+
+                <br>
+
+                <h2>Association Rule Mining</h2>
+                <p>
+                  
+                  Association Rule Mining is a method that used to find frequent item sets, associations, correlation, or normal associations between items for objects. In essence, it’s a data mining technique that finds various and unique patters in data. 
+
+                </span></p>
+
+                <p>
+                  
+                  A rule is defined as building associations from frequent items generated between the datasets. There are three major common measures that are used to measure a rule: support, confidence, and lift.
+
+                </span></p>
+
+
+                <p>
+                  
+                  Support is the percentage of particular related item that occurs together in the whole dataset. Confidence is the conditional probability that a certain item, X, occurs given that item Y occurs. Lift is the increment ratio of the probability that certain items X, Y occurs together compared with the mutually independent case. Note: If the lift is above 1, then the set of items are associated with each other.
+                  
+                </span></p>
+
+
+                <p>
+                  Using the apriori algorithm, the rules were developed (as seen below). The algorithm is used to find items in a dataset based on the level-wise generation of frequent itemsets. The main application of this algorithm is to reduce the search space. Apriori uses two steps, “join” and “prune”, to reduce the search space. As a result, it uses an iterative approach to discover the most frequent itemsets. As a result, a set of items is called "frequent" if it satisfies a minimum threshold value (based on an user input) for support and confidence.
+                </span></p>
+
+
+                <br>
+
+                <h2>Top 15 Rules</h2>
+
+                <p>
+                  Top 15 Rules for Support
+                </span></p>
+                <br>
+
+                <img style="max-width: 100%; height: auto;" src="support_table.png" class="center2">
+              
+                <h4>This is a screenshot of a table that indicates the rules and ARM values for support.</a></h4>
+
+                <p>
+                  As we defined before, support is the percentage of particular related item that occurs together in the whole dataset. Based on the chart above, which showcases the top 15 rules for support, the highest probability of a particular related item that occurs frequently in the entire dataset is “closer”, “draws”, “closer”, “fossil”, “closer”, “reminding”, “closer”, “worth”, “draws”, “fossil”, “draws”, “alive”, and “draws.” All of these values have the same support, of 0.14, confidence, of 1, coverage of 0.14, lift of 7.14, and count of 14. This makes sense as all of these words are closely related to global warming and climate change. This means that all of these words with relationship to support are highly associated with one another.
+
+                </span></p>
+                <br>
+
+
+
+
+
+
+
+
+
+                <p>
+                  Top 15 Rules for Confidence
+                </span></p>
+                <br>
+
+                <img style="max-width: 100%; height: auto;" src="confidence_table.png" class="center2">
+              
+                <h4>This is a screenshot of a table that indicates the rules and ARM values for confidence.</a></h4>
+
+
+
+                <p>
+                  As we defined before, confidence is the conditional probability that a certain item, X, occurs given that item Y occurs. As we can see, the parameters for the rules whose confidence below 1 isn’t show. As a result, the highest confidence level for confidence based rules is 1. The highest conditional probability in the dataset is “nytimes”, “gain”, “global, nytimes”, “gain, global”, “gain, warming”, “global, nytimes, warming”, and “gain, global, warming.” Essentially, this means that all of these words with relationship to confidenc are highly associated with one another.
+
+                </span></p>
+                <br>
+
+
+
+
+
+                <p>
+                  Top 15 Rules for Lift
+                </span></p>
+                <br>
+
+                <img style="max-width: 100%; height: auto;" src="lift_table.png" class="center2">
+                
+              
+                <h4>This is a screenshot of a table that indicates the rules and ARM values for lift.</a></h4>
+
+                <p>
+                  As we defined before, lift is the increment ratio of the probability that certain items X, Y occurs together compared with the mutually independent case. Note: If the lift is above 1, then the set of items are associated with each other. As we can see, the parameters for the rules whose confidence below 1 isn’t show, much like the table generated from confidence. As a result, the highest confidence level for confidence based rules is 1. The highest lift between associations in the dataset is “nytimes”, “gain”, “global, nytimes”, “gain, global”, “gain, warming”, “global, nytimes, warming”, and “gain, global, warming” which is around 10. When two values lifts are greater than 1, two words are associated to each other. As a result, a lift of 10, shows a high level of associative relationship.
+                </span></p>
+                <br>
+
+
+
+
+
+
+
+
+                <br>
+
+                <h2>Networks</h2>
+                <p>
+                  Network D3 is a package in R that offers a simplistic way to generate illustrations of Networks and Sankey diagrams. This package doesn’t require the user to understand the full scope of the D3 javascript package.
+                </span></p>
+
+                <p>
+                  The igraph is a collection of various network analysis tools which are useful to understand the correlation of networks with a firm spotlight on efficiency and portability. It's an open source program which can be imported in various langauges such as R, Python, and C/C++.
+                </span></p>
+
+                <p>
+                  Click on the images below to interact with the D3 and igraph files.
+                </span></p>
+
+                <br>
+
+                <a href="D3.html" class="center3">
+                  <img style="max-width: 100%; height: auto;" src="D3.png" class="center2">
+                </a>
+              
+
+                <h4>This is a screenshot of the generated D3 graph. Click on it to interact with it.</a></h4>
+
+                <p>
+                  Using the top 25 lift rules, an interactive D3 network file was created for our tweets regarding climate change and global warming. The graph is an exhaustive command of lines which interact with words associated with one another. 
+                </span></p>
+
+                <br>
+                <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+
+                <br>
+
+
+                <a href="igraph.html" class="center2">
+                  <img style="max-width: 100%; height: auto;" src="igraph.png" class="center3">
+                </a>
+
+                <h4>This is a screenshot of the generated igraph. Click on it to interact with it.</a></h4>
+
+                <p>
+                  Looking at the igraph, the network was taken from the top lift rules from tweets based on climate change and global warming. As seen from the graph, mindfulness and Dr.Wizdom, a person who is an advocate of climate change awareness, were the two most prominent nodes. These points are correlated with news, live, talking, and spiral. What this means is that, the point in which I took the tweets about climate change and global waring were related to global warming awareness. We can predict that at different points of time, the tweets would be about different things, and as a result, the graphs would be very different.
+                </span></p>
+
+                <br>
+
+
+
+
+                
+
+                <h2>Arules Visual</h2>
+                <p>
+                  The arules package provides a holistic functionality for analyzing networks alongside their items, associations rules, frequently related items, and building association classification models.
+                </span></p>
+
+                <p>
+                  Top Lift Network
+                </span></p>
+                <br>
+
+                <img style="max-width: 50%; height: auto;" src="lift.png" class="center2">
+                <h4>This is a screenshot made via arulesViz for the top lift network.</a></h4>
+
+
+                <p>
+                  Using the top 15 lift rules, an arules network was created as seen from the graph above. From the graph, we can see it showcases “worth” and “reminding” as the popular centroids. The confidence for all the values is 1. As they are in the same graph, these words are highly associated with each other from the tweets pulled related to global warming and climate change.
+                </span></p>
+                
+
+                <p>
+                  Top Support Network
+                </span></p>
+                <br>
+
+                <img style="max-width: 50%; height: auto;" src="support.png" class="center2">
+                <h4>This is a screenshot made via arulesViz for the top support network.</a></h4>
+
+
+                <p>
+                  Using the top 15 support rules, an arules network was created as seen from the graph above. From the graph, we can see it showcases “worth”, “reminding”, "global", "warmining", as the popular centroids. The confidence for all the values is 1. There is a higher probability that these words are included together than others in the dataset.
+                </span></p>
+
+
+                <p>
+                  Top Confidence Network
+                </span></p>
+                <br>
+
+                <img style="max-width: 50%; height: auto;" src="confidence.png" class="center2">
+                <h4>This is a screenshot made via arulesViz for the top confidence network.</a></h4>
+
+
+                <p>
+                  Using the top 15 confidence rules, an arules network was created as seen from the graph above. From the graph, we can see it showcases “worth”, “reminding”, "alive", "warmining", as the popular centroids. The confidence for all the values is 1. There is a strong correlation (probability) that these words are included together than others in the dataset.</span></p>
+
+                <br>
+
+
+
+
+
+
+
+                <h2>Conclusion</h2>
+                <p>
+                  
+                  A lot of interesting discoveries were made throughout the ARM (association rule mining) process. We started off with getting the tweets of two hashtags: #climatechange and #globalwarmining. The hashtags are used to classify categories in Twitter and we’re using it to get data to transform the text to associations and understand how closely kit they are.
+
+                </span></p>
+
+
+                <p>
+                  
+                  The first step of achieving this goal, was getting the transaction data using R. A hundred tweets were used with the hashtags mentioned above and cleaning was done on the tokenized tweets. This was achieved by iterating over the tweets and removing stop words (common words). Once the process was completed, the results were saved into a data file (csv).
+
+                </span></p>
+
+
+
+                <p>
+                  
+                  The next step was to generate the various interactive graphs based on various association metrics from the transaction data (lift, support, and confidence). Once this was done, we were able to visualize the results in network 3D and igraphs showing the cluster of associations between the common words.
+
+                </span></p>
+
+
+
+                <p>
+                  
+                  A conclusion can be made that these words presented in the results of each of the graphs are only the current/modern results when talking about climate change and global warming. Twitter, being a very convoluted social media, can showcase tweets about a particular hashtag in a rather odd way. Therefore, it is not suprising that there are words, such as “mindfulness” and “talking”, in the dataset. This just represents what people are talking about currently, and not at the issue at large.
+
+                </span></p>
+
+                <p>
+                  
+                  A further study could be done by getting the transaction data over a long period of time and looking at key words related to global warming/climate change, such as fossil fuels, etc, along with other hashtags. This will yield a more strong and a holistic perspective on what people are talking about on Twitter for climate change related issues.
+
+                </span></p>
+                <br>
+                <br>
+
+
+
+                <hr style="height:2px;border-width:0;color:gray;background-color:blue">
+
+
+
+              </div>
+              <br>
+              <br>
+            </div>
+          </div>
+
+        </div>
+
+
+
+
+
+
+
+
+
+        <!-- ARM AND NETWORK Section -->
+           <div class="paragraph" id="arm">
+            <div class="main__container">
+              <div class="main__content">
+                <h1>ARM AND NETWORKING.</h1>
+    
+                <br>
+                <h2>Introduction</h2>
+                <p>
+                  
+                  In this section, we’ll be preparing “transaction data” that’ll be used to perform Association Rule Mining (ARM). We’ll gather tweets and format it as transaction data using only R. Next, we will get the top 15 rules for support, confidence, and lift (explained later) and take a deep dive into understand what it means in the scale of association. Finally, we will generate 3 network graphs (a few interactive) that’ll allow us to visualize how different words are associated to each other via a D3 Network in R.
+
+                </span></p>
+                <br>
+
+
+                <h2>Code</h2>
+                <p>
+                  
+                  The code in R for this section can be found below. Note: since the code takes in live tweets, the results may vary as the tweets and its contents change. These results are from: Oct 27 2021, 5:26:10PM.
+
+                </span></p>
+                <br>
+
+                <a href="arm.html" class="button2" id="rcode">CODE: R - ARM & Networks</a>
+                <br>
+                <br>
+
+
+                <h2>Twitter Data</h2>
+                <p>
+                  
+                  Twitter data was pulled using the two keywords: “climate change” and “global warming.” For each topic, 100 tweets were pulled via the Twitter api and 'twitteR::searchTwitter' (100 tweets = 100 rows). The uncleaned csv file can be seen/downloaded below:
+
+                </span></p>
+                <br>
+
+                <img style="max-width: 100%; height: auto;" src="ARM_Uncleaned.png" class="center2">
+              
+                <h4>This is a screenshot of ARM Twitter data before cleaning.</a></h4>
+  
+                <a href="arm_uncleaned.csv" class="button2" download="arm_uncleaned.csv">Download arm_uncleaned.csv</a>
+                <br>
+                <br>
+
+
+                <p>
+
+                  In order to create transaction data, the tweets were cleaned and placed in a csv file. The remaining relevant words of each tweet became a row in the dataset. The cleaning was done by tokenizing the tweets and iterating over the each tweets and lowercasing and removing stopwords. Next, the tweets were formatted into buckets and simplified to words which were in context with global warming and climate change. Once complete, the transactions were finally read and outputted a clean arm csv file of the tweets. The cleaned .csv file can be seen/downloaded below:
+
+                </span></p>
+                <br>
+
+                <img style="max-width: 100%; height: auto;" src="ARM_Cleaned.png" class="center2">
+              
+                <h4>This is a screenshot of ARM Twitter data after cleaning.</a></h4>
+  
+                <a href="arm_cleaned.csv" class="button2" download="arm_cleaned.csv">Download arm_cleaned.csv</a>
+                <br>
+                <br>
+
+
+
+                <br>
+
+                <h2>Association Rule Mining</h2>
+                <p>
+                  
+                  Association Rule Mining is a method that used to find frequent item sets, associations, correlation, or normal associations between items for objects. In essence, it’s a data mining technique that finds various and unique patters in data. 
+
+                </span></p>
+
+                <p>
+                  
+                  A rule is defined as building associations from frequent items generated between the datasets. There are three major common measures that are used to measure a rule: support, confidence, and lift.
+
+                </span></p>
+
+
+                <p>
+                  
+                  Support is the percentage of particular related item that occurs together in the whole dataset. Confidence is the conditional probability that a certain item, X, occurs given that item Y occurs. Lift is the increment ratio of the probability that certain items X, Y occurs together compared with the mutually independent case. Note: If the lift is above 1, then the set of items are associated with each other.
+                  
+                </span></p>
+
+
+                <p>
+                  Using the apriori algorithm, the rules were developed (as seen below). The algorithm is used to find items in a dataset based on the level-wise generation of frequent itemsets. The main application of this algorithm is to reduce the search space. Apriori uses two steps, “join” and “prune”, to reduce the search space. As a result, it uses an iterative approach to discover the most frequent itemsets. As a result, a set of items is called "frequent" if it satisfies a minimum threshold value (based on an user input) for support and confidence.
+                </span></p>
+
+
+                <br>
+
+                <h2>Top 15 Rules</h2>
+
+                <p>
+                  Top 15 Rules for Support
+                </span></p>
+                <br>
+
+                <img style="max-width: 100%; height: auto;" src="support_table.png" class="center2">
+              
+                <h4>This is a screenshot of a table that indicates the rules and ARM values for support.</a></h4>
+
+                <p>
+                  As we defined before, support is the percentage of particular related item that occurs together in the whole dataset. Based on the chart above, which showcases the top 15 rules for support, the highest probability of a particular related item that occurs frequently in the entire dataset is “closer”, “draws”, “closer”, “fossil”, “closer”, “reminding”, “closer”, “worth”, “draws”, “fossil”, “draws”, “alive”, and “draws.” All of these values have the same support, of 0.14, confidence, of 1, coverage of 0.14, lift of 7.14, and count of 14. This makes sense as all of these words are closely related to global warming and climate change. This means that all of these words with relationship to support are highly associated with one another.
+
+                </span></p>
+                <br>
+
+
+
+
+
+
+
+
+
+                <p>
+                  Top 15 Rules for Confidence
+                </span></p>
+                <br>
+
+                <img style="max-width: 100%; height: auto;" src="confidence_table.png" class="center2">
+              
+                <h4>This is a screenshot of a table that indicates the rules and ARM values for confidence.</a></h4>
+
+
+
+                <p>
+                  As we defined before, confidence is the conditional probability that a certain item, X, occurs given that item Y occurs. As we can see, the parameters for the rules whose confidence below 1 isn’t show. As a result, the highest confidence level for confidence based rules is 1. The highest conditional probability in the dataset is “nytimes”, “gain”, “global, nytimes”, “gain, global”, “gain, warming”, “global, nytimes, warming”, and “gain, global, warming.” Essentially, this means that all of these words with relationship to confidenc are highly associated with one another.
+
+                </span></p>
+                <br>
+
+
+
+
+
+                <p>
+                  Top 15 Rules for Lift
+                </span></p>
+                <br>
+
+                <img style="max-width: 100%; height: auto;" src="lift_table.png" class="center2">
+                
+              
+                <h4>This is a screenshot of a table that indicates the rules and ARM values for lift.</a></h4>
+
+                <p>
+                  As we defined before, lift is the increment ratio of the probability that certain items X, Y occurs together compared with the mutually independent case. Note: If the lift is above 1, then the set of items are associated with each other. As we can see, the parameters for the rules whose confidence below 1 isn’t show, much like the table generated from confidence. As a result, the highest confidence level for confidence based rules is 1. The highest lift between associations in the dataset is “nytimes”, “gain”, “global, nytimes”, “gain, global”, “gain, warming”, “global, nytimes, warming”, and “gain, global, warming” which is around 10. When two values lifts are greater than 1, two words are associated to each other. As a result, a lift of 10, shows a high level of associative relationship.
+                </span></p>
+                <br>
+
+
+
+
+
+
+
+
+                <br>
+
+                <h2>Networks</h2>
+                <p>
+                  Network D3 is a package in R that offers a simplistic way to generate illustrations of Networks and Sankey diagrams. This package doesn’t require the user to understand the full scope of the D3 javascript package.
+                </span></p>
+
+                <p>
+                  The igraph is a collection of various network analysis tools which are useful to understand the correlation of networks with a firm spotlight on efficiency and portability. It's an open source program which can be imported in various langauges such as R, Python, and C/C++.
+                </span></p>
+
+                <p>
+                  Click on the images below to interact with the D3 and igraph files.
+                </span></p>
+
+                <br>
+
+                <a href="D3.html" class="center3">
+                  <img style="max-width: 100%; height: auto;" src="D3.png" class="center2">
+                </a>
+              
+
+                <h4>This is a screenshot of the generated D3 graph. Click on it to interact with it.</a></h4>
+
+                <p>
+                  Using the top 25 lift rules, an interactive D3 network file was created for our tweets regarding climate change and global warming. The graph is an exhaustive command of lines which interact with words associated with one another. 
+                </span></p>
+
+                <br>
+                <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+
+                <br>
+
+
+                <a href="igraph.html" class="center2">
+                  <img style="max-width: 100%; height: auto;" src="igraph.png" class="center3">
+                </a>
+
+                <h4>This is a screenshot of the generated igraph. Click on it to interact with it.</a></h4>
+
+                <p>
+                  Looking at the igraph, the network was taken from the top lift rules from tweets based on climate change and global warming. As seen from the graph, mindfulness and Dr.Wizdom, a person who is an advocate of climate change awareness, were the two most prominent nodes. These points are correlated with news, live, talking, and spiral. What this means is that, the point in which I took the tweets about climate change and global waring were related to global warming awareness. We can predict that at different points of time, the tweets would be about different things, and as a result, the graphs would be very different.
+                </span></p>
+
+                <br>
+
+
+
+
+                
+
+                <h2>Arules Visual</h2>
+                <p>
+                  The arules package provides a holistic functionality for analyzing networks alongside their items, associations rules, frequently related items, and building association classification models.
+                </span></p>
+
+                <p>
+                  Top Lift Network
+                </span></p>
+                <br>
+
+                <img style="max-width: 50%; height: auto;" src="lift.png" class="center2">
+                <h4>This is a screenshot made via arulesViz for the top lift network.</a></h4>
+
+
+                <p>
+                  Using the top 15 lift rules, an arules network was created as seen from the graph above. From the graph, we can see it showcases “worth” and “reminding” as the popular centroids. The confidence for all the values is 1. As they are in the same graph, these words are highly associated with each other from the tweets pulled related to global warming and climate change.
+                </span></p>
+                
+
+                <p>
+                  Top Support Network
+                </span></p>
+                <br>
+
+                <img style="max-width: 50%; height: auto;" src="support.png" class="center2">
+                <h4>This is a screenshot made via arulesViz for the top support network.</a></h4>
+
+
+                <p>
+                  Using the top 15 support rules, an arules network was created as seen from the graph above. From the graph, we can see it showcases “worth”, “reminding”, "global", "warmining", as the popular centroids. The confidence for all the values is 1. There is a higher probability that these words are included together than others in the dataset.
+                </span></p>
+
+
+                <p>
+                  Top Confidence Network
+                </span></p>
+                <br>
+
+                <img style="max-width: 50%; height: auto;" src="confidence.png" class="center2">
+                <h4>This is a screenshot made via arulesViz for the top confidence network.</a></h4>
+
+
+                <p>
+                  Using the top 15 confidence rules, an arules network was created as seen from the graph above. From the graph, we can see it showcases “worth”, “reminding”, "alive", "warmining", as the popular centroids. The confidence for all the values is 1. There is a strong correlation (probability) that these words are included together than others in the dataset.</span></p>
+
+                <br>
+
+
+
+
+
+
+
+                <h2>Conclusion</h2>
+                <p>
+                  
+                  A lot of interesting discoveries were made throughout the ARM (association rule mining) process. We started off with getting the tweets of two hashtags: #climatechange and #globalwarmining. The hashtags are used to classify categories in Twitter and we’re using it to get data to transform the text to associations and understand how closely kit they are.
+
+                </span></p>
+
+
+                <p>
+                  
+                  The first step of achieving this goal, was getting the transaction data using R. A hundred tweets were used with the hashtags mentioned above and cleaning was done on the tokenized tweets. This was achieved by iterating over the tweets and removing stop words (common words). Once the process was completed, the results were saved into a data file (csv).
+
+                </span></p>
+
+
+
+                <p>
+                  
+                  The next step was to generate the various interactive graphs based on various association metrics from the transaction data (lift, support, and confidence). Once this was done, we were able to visualize the results in network 3D and igraphs showing the cluster of associations between the common words.
+
+                </span></p>
+
+
+
+                <p>
+                  
+                  A conclusion can be made that these words presented in the results of each of the graphs are only the current/modern results when talking about climate change and global warming. Twitter, being a very convoluted social media, can showcase tweets about a particular hashtag in a rather odd way. Therefore, it is not suprising that there are words, such as “mindfulness” and “talking”, in the dataset. This just represents what people are talking about currently, and not at the issue at large.
+
+                </span></p>
+
+                <p>
+                  
+                  A further study could be done by getting the transaction data over a long period of time and looking at key words related to global warming/climate change, such as fossil fuels, etc, along with other hashtags. This will yield a more strong and a holistic perspective on what people are talking about on Twitter for climate change related issues.
+
+                </span></p>
+                <br>
+                <br>
+
+
+
+                <hr style="height:2px;border-width:0;color:gray;background-color:blue">
+
+
+
+              </div>
+              <br>
+              <br>
+            </div>
+          </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- DECISION TREE Section -->
+        <div class="paragraph" id="decisiontree">
+          <div class="main__container">
+            <div class="main__content">
+              <h1>DECISION TREE.</h1>
+  
+              <br>
+              <h2>Introduction</h2>
+              <p>
+                
+                A decision tree is a tree-like model that illustrates the various decisions and the outcomes of each possibilities. In machine learning, it used as an algorithm to display conditional outcomes based on the nodes (label) and their roots (outcomes of the test). It is a type of supervised machine learning model.
+
+              </span></p>
+              <br>
+
+
+              <h2>Python - Data</h2>
+              <p>
+                
+                The data for creating the decision trees in Python was gathered from NewsAPI. This data will be useful in parsing through various news related to climate change, global warming, and renewable energy; all of which are the key words used to makes the root nodes of the decision tree. 
+              </span></p>
+              <br>
+
+
+              <h2>Python - Code</h2>
+              <p>
+
+                Please find the code below for the creating decision trees in python.
+
+              </span></p>
+              <br>
+              <br>
+
+              <a href="dt_python.html" class="button2" id="rcode">CODE: Python - Decision Trees</a>
+              <br>
+              <br>
+              <br>
+
+
+              <h2>Cleaning NewsAPI Data</h2>
+              <p>
+                
+                The raw data collected can be found below. The news articles are labeled by the key word used to generate the articles (labels).
+
+              </span></p>
+              <br>
+
+              <img style="max-width: 100%; height: auto;" src="python_uncleaned.png" class="center2">
+            
+              <h4>This is a screenshot of the raw data gathered from the NewsAPI.</a></h4>
+
+              <a href="python_uncleaned.csv" class="button2" download="python_uncleaned.csv">Download python_uncleaned.csv</a>
+              <br>
+
+              <p>
+                
+                The cleaning has been done via removing stop words and any meaningless words. Then using Count Vectorizer, a cleaned csv file was created created with relevant words as the variables (columns) and the topics as the labels (first column for each row).
+
+              </span></p>
+              <br>
+
+              <img style="max-width: 100%; height: auto;" src="python_cleaned.png" class="center2">
+            
+              <h4>This is a screenshot of the cleaned NewsAPI data.</a></h4>
+
+              <a href="python_cleaned.csv" class="button2" download="python_cleaned.csv">Download python_cleaned.csv</a>
+              <br>
+              <br>
+
+
+              <p>
+
+                Three word clouds were generated to visualize the data pulled from each topic: climate change, global warming, and renewable energy.
+              </span></p>
+              <br>
+
+              <img style="max-width: 100%; height: auto;" src="climate_wc.png" class="center2">
+            
+              <h4>Wordcloud for climate change.</a></h4>
+
+              <img style="max-width: 100%; height: auto;" src="global_wc.png" class="center2">
+            
+              <h4>Wordcloud for global warming.</a></h4>
+
+              <img style="max-width: 100%; height: auto;" src="energy_wc.png" class="center2">
+            
+              <h4>Wordcloud for renewable energy.</a></h4>
+
+              
+
+
+
+
+
+
+
+
+
+
+              <br>
+
+              <h2>Python: Decision Tree</h2>
+              <p>
+                
+                The decision trees were created via sklearn.tree import DecisionTreeClassifier and plot_tree. Confusion matrixes were also formed from each decision tree. These are used to describe the performance of a classification model. The x axis is the Prediction and the y axis is the Actual value. The Gini and entropy are both criterion for calculating information gain. Gini is the measure how often a randomly chosen element would be incorrectly labeled. And, entropy is to measure the disorder of a grouping by the target variable.
+
+              </span></p>
+              <br>
+
+
+
+              <h2>Python: Decision Tree Results</h2>
+
+              <p>
+                The first decision tree created used criterion equal to entropy and splitter equal to best. The result can be seen below:
+              </span></p>
+
+              <p>
+                Key Parameters: criterion='entropy', splitter='best', min_samples_split = 2, min_samples_leaf = 1
+              </span></p>
+              <br>
+
+
+              <img style="max-width: 100%; height: auto;" src="tree1.png" class="center2">
+              <br>
+
+
+              <img style="max-width: 100%; height: auto;" src="cf_dt1.png" class="center2">
+              <br>
+
+              <img style="max-width: 100%; height: auto;" src="dt_result1.png" class="center2">
+
+              <br>
+              <br>
+
+
+
+
+
+            <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+
+            <p>
+              The second decision tree created used criterion equal to gini and splitter equal to random. The result can be seen below:
+            </span></p>
+
+            <p>
+              Key Parameters: criterion='gini', splitter='random', min_samples_split = 2, min_samples_leaf = 1
+            </span></p>
+            <br>
+
+
+              <img style="max-width: 100%; height: auto;" src="tree2.png" class="center2">
+              <br>
+
+              <img style="max-width: 100%; height: auto;" src="cm_dt2.png" class="center2">
+              <br>
+
+
+              <img style="max-width: 100%; height: auto;" src="dt_result1.png" class="center2">
+
+              <br>
+
+
+              <img style="max-width: 100%; height: auto;" src="fm_dt2.png" class="center2">
+
+
+              <br>
+              <br>
+
+              <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+
+
+              <p>
+                The third decision tree created used criterion equal to gini and splitter equal to best. The result can be seen below:
+              </span></p>
+
+              <p>
+                Key Parameters: criterion='gini', splitter='best', min_samples_split = 2, min_samples_leaf = 1, max_depth = 10
+              </span></p>
+              <br>
+
+              <br>
+              
+
+
+              <img style="max-width: 100%; height: auto;" src="tree3.png" class="center2">
+              <br>
+
+              <img style="max-width: 100%; height: auto;" src="cm_dt3.png" class="center2">
+              <br>>
+
+
+              <img style="max-width: 100%; height: auto;" src="dt_result1.png" class="center2">
+              <br>
+
+
+              <img style="max-width: 100%; height: auto;" src="fm_dt3.png" class="center2">
+
+
+              <br>
+              <br>
+
+
+
+              <h2>Python - Decision Tree Conclusion</h2>
+              <p>
+                In predicting vairous news artciles of key words related to climate change, we can note that the decision tree did a fairly good job, predicting ~86% for each key word. The key parameters in the deicsion tree that were chosen to build the trees were criterion, splitter, and max_depth. Within criterion, we have two impurities: gini and entryop. The gini impurity measures the frequency at which any element of the dataset will be mislabelled when it is randomly labeled. Entropy is a measure of information that indicates the disorder of the features with the target. Similar to the Gini Index, the optimum split is chosen by the feature with less entropy. In the three decision trees, we can note that the differences weren't seen much depending on the type of entropy used. For splitter, we can note that there are two features which decide what threshold to use: best and random. Using best, the model is taking the feature with the highest importance. Using random, the model sf taking the feature randomly but with the same distribution. We can also note that the across the three types of entropy, the various precition rates weren't affected. And, finally for Max-depth, since it controls the depth of decision tree, which is how big a tree is, more difference in the tree was shown.
+              </span></p>
+              <br>
+
+              <p>
+                For Decision Tree 1, according to the classification report and confusion matrix, there are 2 wrong predictions for climate change, 1 wrong prediction for global wamring, and 1 wrong preidciton for renewable energy. The accuracy of Decision Tree 1 is 0.89.
+              </span></p>
+              <br>
+
+              <p>
+                For Decision Tree 2, according to the classification report and confusion matrix, there are 2 wrong predictions for climate change, 1 wrong prediction for global wamring, and 1 wrong preidciton for renewable energy. The accuracy of Decision Tree 2 is 0.89.
+              </span></p>
+              <br>
+
+              <p>
+                For Decision Tree 3, according to the classification report and confusion matrix, there are 2 wrong predictions for climate change, 1 wrong prediction for global wamring, and 1 wrong preidciton for renewable energy. The accuracy of Decision Tree 3 is 0.89.
+              </span></p>
+              <br>
+
+              <p>
+                Looking at the various feature importances of the decision tree, we can note that the most important words are "global", "power", and "energy". This makes sense, as these words would be key in determining if the article is about one of the three topics generated for the NewsAPI.
+              </span></p>
+              <br>
+
+              <p>
+                Looking at the accuracies of the various decision trees genearted, it can infered that all the decision tress make equal sense in predicting if an article is about climate change, global warming, or renenwable energy. This makes sense, as these words are interrelated and are also bleak synonyms of each other. In other words, key words in a global warmining related article will have key words related to an artcile with climate change and renewable energy. A better analysis should be done in the future which showcases three distinct topics of global warming, such as maybe, fossil fuels, etc.
+              </span></p>
+              <br>
+
+              <p>
+                It can be noted that Decision Trees can be used to deal with complex datasets, and can be pruned if necessary to avoid overfitting. It can be also seen that they are popular in data analytics and machine learning, with practical applications across sectors from health, to energy, and clime change.
+
+              </span></p>
+              <br>
+
+
+
+
+
+
+
+
+              <br>
+              <br>
+
+
+
+              <hr style="height:2px;border-width:0;color:gray;background-color:blue">
+
+
+              <br>
+              <br>
+
+
+
+              <h2>R - Data</h2>
+              <p>
+                
+                The data for creating the decision trees in R was gathered from the data cleaining tab, specifically the numeric section. This raw data showcases the global land temperature by country. The dataset spans across over a hundred countries as well as weather points dating back from the 1750's. The temperature data presented here is in Celsius. Feature extraction was performed to get the data of countries USA and India. To accomplish this in R, the data was read in by getting the country code 'USA' and 'India'. Next, the date data was converted to months and years as features in the dataset along with the month number correlating to the abbreviation. Then, applying another feature extraction, the celsius data was converted to fahrenheit (by the formula 9/5*C + 32). Next, using a simple key of very cold to very hot, based on the fahrenheit scale, a feature was made to determine the "sense" of the weather. Finally, this transform was outputted as a csv. The code for cleaning the data can be found below as well as USA specific dataset and the dataset used to create the decision tree.
+
+              </span></p>
+              <br>
+
+              <br>
+              <p>
+
+                Code for cleaning the raw data to country specific data along with feature generation.
+
+              </span></p>
+              <br>
+              <a href="r_clean_country.html" class="button2" id="rcode">CODE: R Cleaning - Country</a>
+
+              <br>
+              <br>
+
+
+              <p>
+
+                USA climate dataset.
+
+              </span></p>
+              <br>
+
+              <img style="max-width: 100%; height: auto;" src="R_Cleaning_Final.png" alt="R Dataset - Not Cleaned" class="center2">
+              <br>
+              <br>
+
+              <a href="USA_Climate.csv" class="button2" download="USA_Climate.csv">Download USA_Climate.csv</a>
+              <br>
+              <br>
+
+              <p>
+
+                Dataset used to generate decision trees in R.
+
+              </span></p>
+              <br>
+
+
+              <img style="max-width: 100%; height: auto;" src="small_sample.png" class="center2">
+              <br>
+              <br>
+
+              <a href="small_sample.csv" class="button2" download="small_sample.csv">Download small_sample.csv</a>
+              <br>
+              <br>
+
+
+
+
+              <h2>R - Code</h2>
+              <p>
+
+                The code for creating the decision trees in R can be found below. The model was generated via the rpart library and where the testing and training were split into 30% and 70% respectively.
+
+              </span></p>
+              <br>
+
+
+              <a href="dt_r.html" class="button2" id="rcode">CODE: R - Decision Trees</a>
+              <br>
+              <br>
+              <br>
+
+
+
+
+
+
+              <h2>R: Decision Tree Results</h2>
+
+              <p>
+                The first decision tree uses the average temperature category as the root node. The category can be broken down into cold, normal, or hot.
+              </span></p>
+
+              <p>
+                rpart(MyTrainingSet$Category ~.,
+                data=MyTrainingSet, cp=0, method="class",
+                parms=list(split="information"), minsplit=2)
+              </span></p>
+              <br>
+
+
+              <img style="max-width: 100%; height: auto;" src="r_dt_1.png" class="center2">
+              <br>
+
+
+              <img style="max-width: 100%; height: auto;" src="r_dt_result1.png" class="center2">
+              <br>
+
+              <br>
+
+
+
+
+
+
+            <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+
+            <p>
+              In this decision tree, the root node is changed to the variable, year. In this dataset, the year are all the years from 1770-1779. The split was information and a cp of 0.           
+             </span></p>
+
+            <p>
+              Key Parameters: criterion='gini', splitter='random', min_samples_split = 2, min_samples_leaf = 1
+            </span></p>
+            <br>
+
+
+            <img style="max-width: 100%; height: auto;" src="r_dt_2.png" class="center2">
+            <br>
+
+
+            <img style="max-width: 100%; height: auto;" src="r_dt_result2.png" class="center2">
+            <br>
+
+            <br>
+
+              <br>
+
+              <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+
+
+              <p>
+                In this decision tree, the root node is changed to the variable, country. In this dataset, the Gender is either India or USA. The split was information and a cp of 0. The decisions are based on the avergaetemperature based in celcius.
+              </span></p>
+
+              <p>
+                Key Parameters: criterion='gini', splitter='best', min_samples_split = 2, min_samples_leaf = 1, max_depth = 10
+              </span></p>
+              <br>
+
+              <br>
+              
+              <img style="max-width: 100%; height: auto;" src="r_dt_3.png" class="center2">
+              <br>
+  
+  
+              <img style="max-width: 100%; height: auto;" src="r_dt_result3.png" class="center2">
+              <br>
+  
+
+              <h2>R - Decision Tree Conclusion</h2>
+              <p>
+                In predicting vairous news artciles of key words related to climate change, we can note that the decision tree did a fairly good job, predicting ~96 for the first decision tree, 90% for the second, and 84% for the third.
+              </span></p>
+
+              <p>
+                For Decision Tree 1, according to the classification report and confusion matrix, there are 8 wrong predictions for cold, 0 wrong prediction for extreme cold, 0 for hot, and 1 for normal. The accuracy of Decision Tree 1 is 0.96.
+              </span></p>
+              <br>
+
+              <p>
+                For Decision Tree 2, according to the classification report and confusion matrix, there are 0 for 1768, 0 for 1796, 0 for 1774, 1 for 1775, 0 for 1776, 1 for 1777, 0 for 1778, 0 for 1779, 2 for 1781, 0 for 1796, and 0 for 1797. The accuracy of Decition Tree 2 is 0.90.
+              </span></p>
+              <br>
+
+              <p>
+                For Decision Tree 3, according to the classification report and confusion matrix, there are 5 wrong for India nd 2 wrong for USA. The accuracy of Decision Tree 3 is 0.84.
+              </span></p>
+              <br>
+
+              <img style="max-width: 100%; height: auto;" src="r_features.png" class="center2">
+              <br>
+
+              <p>
+                Looking at the various feature importances of the decision tree, we can note that the most important features to determining the success of a decision tree is the averagetemperature and the temperature in farenheight.
+              </span></p>
+              <br>
+
+              <p>
+                Looking at the accuracies of the various decision trees genearted, we can note that the most effective and accuracte predictive model is by category. In essense, if given a temperature and asked to predict if the temperature is cold or hot on a scale, the decision tree will predict the results with a 96% accuracy.
+              </span></p>
+              <br>
+
+
+              <p>
+                Based on the confusion matrix for all the matricies, we can see that the prediction results aren't as bad as the ones in resulted in the python section. We can note taht based on the confidence interval for decition tree number 1 and three, that there is a tight upperbound fix for both of them. For decision tree number 2, due to the sheer high number of nodes, it can infered that a low predictive rate can be generated just becasue of the poor correlation of the years to the average temperature. A fix around this would be probably looking at the months instead of the years, and trying to identify a correlation between the seasons and the temperature.
+              </span></p>
+              <br>
+
+              <p>
+                It can be noted that Decision Trees can be used to deal with complex datasets, and can be pruned if necessary to avoid overfitting. It can be also seen that they are popular in data analytics and machine learning, with practical applications across sectors from health, to energy, and clime change.
+
+              </span></p>
+              
+              <br>
+
+              
+
+            </div>
+
+            <br>
+            <br>
+
+            <hr style="height:2px;border-width:0;color:gray;background-color:blue">
+
+
+
+               <!-- NB Section -->
+          <div class="paragraph" id="NB">
+            <div class="main__container">
+              <div class="main__content">
+                <h1>NAIVE BAYES (NB).</h1>
+
+                <h2>What is Naive Bayes (NB)?</h2>
+
+                <p>
+                  The naive bayes classifier is an machine learning algorithm that is based on probabilsitic methodologies. The underlying formila based on this classification model is bayes theorem. The therom essentially states that the probability of A happening given that B already occured. In other words, we're trying to prove the evidence of B based on A, with the assumption that the two events are independent.
+                </span></p>
+                <br>
+
+                <img style="max-width: 100%; height: auto;" src="NB.jpeg" class="center2">
+            
+                <h4>Source: Chris Alben
+                </a></h4>
+
+
+
+                <br>
+                <h2>NAIVE BAYES WITH PYTHON</h2>
+                <br>
+
+                <br>
+
+                <h2>Python - NB Code</h2>
+
+                <p>
+                  The code for performing Naive Bayes in Python can be found below (incldues both NB and SVM; commented out the NB portion):
+                </p>
+  
+  
+                <br>
+                <a href="svm_python.html" class="button2" id="rcode">CODE: Python - NB</a>
+                <br>
+                <br>
+
+                <h2>Python - NB Data</h2>
+                <p>
+                
+                The raw data collected can be found below. The news articles are labeled by the key word used to generate the articles (labels).
+              </span></p>
+              <br>
+
+
+              <img style="max-width: 100%; height: auto;" src="python_uncleaned.png" class="center2">
+            
+              <h4>This is a screenshot of the raw data gathered from the NewsAPI.</a></h4>
+
+              <a href="python_uncleaned.csv" class="button2" download="python_uncleaned.csv">Download python_uncleaned.csv</a>
+              <br>
+
+              <p>
+                
+                The cleaning has been done via removing stop words and any meaningless words. Then using Count Vectorizer, a cleaned csv file was created created with relevant words as the variables (columns) and the topics as the labels (first column for each row).
+
+              </span></p>
+              <br>
+
+              <img style="max-width: 100%; height: auto;" src="python_cleaned.png" class="center2">
+            
+              <h4>This is a screenshot of the cleaned NewsAPI data.</a></h4>
+
+              <a href="python_cleaned.csv" class="button2" download="python_cleaned.csv">Download python_cleaned.csv</a>
+              <br>
+              <br>
+
+              <p> 
+                The code for cleaning the dataset can be found below (first portion):
+              </p>
+
+              <br>
+              <a href="dt_python.html" class="button2" id="rcode">CODE: Python - NEWS API Cleaning</a>
+              <br>
+              <br>
+
+              <h2>Python - NB Results</h2>
+              <br>
+
+              <img style="max-width: 100%; height: auto;" src="P_NB_Gaussian.png" class="center2">
+            
+              <h4>This is a screenshot of confusion matrix for NB - Gaussian.</a></h4>
+
+
+              <img style="max-width: 100%; height: auto;" src="nb_linear.png" class="center2">
+            
+              <h4>This is a screenshot of the results for NB - Gaussian.</a></h4>
+
+              <br>
+
+              <img style="max-width: 100%; height: auto;" src="P_NB_B.png" class="center2">
+            
+              <h4>This is a screenshot of confusion matrix for NB - Bernoulli.</a></h4>
+
+              <img style="max-width: 100%; height: auto;" src="nb_b.png" class="center2">
+            
+              <h4>This is a screenshot of the results for NB - Bernoulli.</a></h4>
+              <br>
+
+
+
+              <img style="max-width: 100%; height: auto;" src="NB_Feature.png" class="center2">
+            
+              <h4>This is a screenshot of the most important features for NB.</a></h4>
+
+              <br>
+
+              <p>
+                Based on the two confusion matrix, we can see that the model did a fantastic job classifying the categroies based on the average temperature, with a 94% and 100%. However, with the Bernoulli NB classifer, we have to take it with a grain of salt that there's no way the model predicted it with 100%. The model was probably overfitted as well as another amalagmation of various things that make it seem that the classifier is 100%.
+              </p>
+
+              <p>
+                Looking at the top features, we can see the features with the 10 highest levels of importance in predicting the correct label. We can notice words such as "climate", "global", "oil", and "gas" as the words which are essential to predicting the lables. This makes sense, as the these worlds would be common when classfying terms based on temperature from global warming and climate change.
+              </p>
+              <br>
+
+              <h2>Python - NB Conclusion</h2>
+
+              <p>
+                It can be said that Naive Bayes is a very powerful classifer when predicting labels, which can be seen pervasively here. Specifically for text data, it was seen that labeling text based on news headlines for global warming and climate change that it has a 90%+ accuracy when predicting the model. the text data used in this section is short, and there's always scope for improvement. We can also note that there are some crucial words which are used to predict these classifictions, based on the feature importance bar graph. High accuracy can be reached, however not at 100% as the accuracy predicted by the Bernoulli. Overall, we can confidently say that there is a high accuracy between the realtionship of the words we use within a news headline and the specific topic of the word.
+              </p>
+
+              <br>
+              
+              <br>
+              <hr style="height:2px;border-width:0;color:gray;background-color:blue">
+              <br>
+
+                <h2>NAIVE BAYES WITH R</h2>
+                <br>
+
+                <h2>R - NB Code</h2>
+                <br>
+                <a href="R-NB.html" class="button2" id="rcode">CODE: R - NB</a>
+                <br>
+                <br>
+
+
+
+                <h2>R - NB Data</h2>
+
+                    <p>
+
+                      The data for creating the decision trees in R was gathered from the data cleaining tab, specifically the numeric section. This raw data showcases the global land temperature by country. The dataset spans across over a hundred countries as well as weather points dating back from the 1750's. The temperature data presented here is in Celsius. Feature extraction was performed to get the data of countries USA and India. To accomplish this in R, the data was read in by getting the country code 'USA' and 'India'. Next, the date data was converted to months and years as features in the dataset along with the month number correlating to the abbreviation. Then, applying another feature extraction, the celsius data was converted to fahrenheit (by the formula 9/5*C + 32). Next, using a simple key of very cold to very hot, based on the fahrenheit scale, a feature was made to determine the "sense" of the weather. Finally, this transform was outputted as a csv.
+                    </p>
+      
+      
+                    <p>
+      
+                      USA and India climate dataset.
+      
+                    </span></p>
+                    <br>
+
+                    <img style="max-width: 100%; height: auto;" src="small_sample.png" class="center2">
+                    <h4>This is a screenshot of the raw data which includes both USA and India.</a></h4>
+
+                    <br>
+      
+                    <a href="small_sample.csv" class="button2" download="small_sample.csv">Download small_sample.csv</a>
+                    <br>
+                    <br>
+
+                    <h2>R - NB Results</h2>
+                    <br>
+
+                    <img style="max-width: 100%; height: auto;" src="NB_R.png" class="center2">
+                    <h4>R - NB Confusion Matrix.</a></h4>
+                    <br>
+
+                    <img style="max-width: 100%; height: auto;" src="NB_Classify.png" class="center2">
+                    <h4>R - Accuracy.</a></h4>
+
+
+                    <img style="max-width: 100%; height: auto;" src="NB_1.png" class="center2">
+                    <h4>R - Category features based on AverageTemperature.</a></h4>
+
+
+                    <img style="max-width: 100%; height: auto;" src="NB_2.png" class="center2">
+                    <h4>R - Category features based on AverageTemperature Uncetaintity.</a></h4>
+
+
+
+                    <img style="max-width: 100%; height: auto;" src="NB_3.png" class="center2">
+                    <h4>R - Category features based on year.</a></h4>
+
+
+                    <br>
+                    <br>
+
+
+                    <h2>R - NB Conclusion</h2>
+                    <br>
+                    <p>
+                      After looking at the confusion matrix, we can infer that there is a strong correlation between the average temperature and the category. Looking at the classificaiton reported generated by R, we can see that there was a accuracy of 1. Although the value is perfect, it can infered that there is a strong correlation between the category of the temperature and the avergate temperature. The high accuracy rate is most probably due to overfitting, and a way around this is to tune the model less so that this problem doesn't occur again. And, looking at the features as well as the PDF of the Naive Bayes, we can notice how the density ranges acorss all the vairous elements of the dataset. We can conclude that the highest variance in the data is based on teh AverageTemperatureUncertainty as each country would have a different temperature change based on the different climate regions. Finally, another conclusion we can gathere from this data is how closely linkd the data we used to perform NB. In essence, the Naive Bayes classifier is used to perform probabilistic classifiers, which is applying Bayes Therom. Due to the high accuracy, both independent events can be correlated coupled with the kernal desnity esimtation, to achieve high accuracy results.
+                    </p>
+      
+              </div>
+        
+      </div>
+    </div>
+
+
+
+
+
+
+
+    <br>
+    <br>
+    <br>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+
+
+               <!-- SVM Section -->
+               <div class="paragraph" id="SVM">
+                <div class="main__container">
+                  <div class="main__content">
+                    <h1>SUPPORT VECTOR MACHINE (SVM).</h1>
+    
+                    <br>
+
+                  <h2>What is Support Vector Machine (SVM)?</h2>
+
+                  <p>
+
+                    Support Vector Machine (SVM) is a type of supervised machine learning algorithm that essentially requires a labled training set and an unlabeled testing set which the algorithm makes predictions on. The SVM takes data points and outputs it onto a two dimension hyperplane that seperates the training testing points based on a decision boundry into the n-number of classifiers. One of the advantages of the SVM classifier is the kernal, which allows the algorithm to classify into n-dimensional space to fit the dataset. An image below can be seen on how SVMs holistically work.
+    
+                  </span></p>
+                  <br>
+
+                  <img style="max-width: 100%; height: auto;" src="svm.png" class="center2">
+            
+                  <h4>Source: An Introduction to Statistical Learning with Applications in R, book by Robert Tibshirani, Gareth James, Trevor Hastie and Daniela Witten.
+                  </a></h4>
+
+
+                  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                  <h2>Python: Text Data - Cleaning NewsAPI Data</h2>
+              <p>
+                
+                The raw data collected can be found below. The news articles are labeled by the key word used to generate the articles (labels).
+
+              </span></p>
+              <br>
+
+              <img style="max-width: 100%; height: auto;" src="python_uncleaned.png" class="center2">
+            
+              <h4>This is a screenshot of the raw data gathered from the NewsAPI.</a></h4>
+
+              <a href="python_uncleaned.csv" class="button2" download="python_uncleaned.csv">Download python_uncleaned.csv</a>
+              <br>
+
+              <p>
+                
+                The cleaning has been done via removing stop words and any meaningless words. Then using Count Vectorizer, a cleaned csv file was created created with relevant words as the variables (columns) and the topics as the labels (first column for each row).
+
+              </span></p>
+              <br>
+
+              <img style="max-width: 100%; height: auto;" src="python_cleaned.png" class="center2">
+            
+              <h4>This is a screenshot of the cleaned NewsAPI data.</a></h4>
+
+              <a href="python_cleaned.csv" class="button2" download="python_cleaned.csv">Download python_cleaned.csv</a>
+              <br>
+              <br>
+
+
+
+
+
+
+
+              <p>
+
+                Three word clouds were generated to visualize the data pulled from each topic: climate change, global warming, and renewable energy.
+              </span></p>
+              <br>
+
+              <img style="max-width: 100%; height: auto;" src="climate_wc.png" class="center2">
+            
+              <h4>Wordcloud for climate change.</a></h4>
+
+              <img style="max-width: 100%; height: auto;" src="global_wc.png" class="center2">
+            
+              <h4>Wordcloud for global warming.</a></h4>
+
+
+              <p>
+
+                The code for creating the dataset and the wordclouds can be found below:
+              </p>
+
+              <br>
+              <a href="dt_python.html" class="button2" id="rcode">CODE: Python - NEWS API Cleaning</a>
+              <br>
+              <br>
+
+
+              <h2>Python - SVM Results</h2>
+
+              <p>
+
+                The code for the three SVM kernals and the accuracy can be found below (incldues both NB and SVM; commented out the SVM portion):
+              </p>
+
+
+              <br>
+              <a href="svm_python.html" class="button2" id="rcode">CODE: Python - SVM</a>
+              <br>
+              <br>
+
+
+              <p>
+                Linear Kernal:
+              </p>
+
+              <img style="max-width: 100%; height: auto;" src="SVM_Linear.png" class="center2">
+            
+              <h4>Linear Kernal SVM Confusion Matrix.</a></h4>
+
+
+              <img style="max-width: 100%; height: auto;" src="linearsvm.png" class="center2">
+            
+              <h4>Linear Kernal SVM Results.</a></h4>
+              <br>
+
+              <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+
+              <br>
+              <p>
+                Polynomial Kernal:
+              </p>
+
+              <img style="max-width: 100%; height: auto;" src="SVM_Poly.png" class="center2">
+            
+              <h4>Polynomial Kernal SVM Confusion Matrix.</a></h4>
+
+
+              <img style="max-width: 100%; height: auto;" src="svmpoly.png" class="center2">
+            
+              <h4>Polynomial Kernal SVM Results.</a></h4>
+              <br>
+
+              <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+
+              <p>
+                Radial Basis Function (RBF) Kernel:
+              </p>
+
+              <img style="max-width: 100%; height: auto;" src="SVM_RBF.png" class="center2">
+            
+              <h4>Radial Basis Function (RBF) Kernel Confusion Matrix.</a></h4>
+
+
+              <img style="max-width: 100%; height: auto;" src="rbfsvm.png" class="center2">
+            
+              <h4>Radial Basis Function (RBF) Kernel SVM Results.</a></h4>
+
+              
+
+
+              <p> 
+                
+                The Linear kernal, Polynomial kernal, and RBF Kernal, suprisingly gave the same accuracy of 89%. Well, in retrospect this seems counter intuitive as I made sure that the code was unique for each by the label. However, the results are not that suprising if you take into account the less disparity in the dataset and how monotone the data is, any form of SVM would yield the same result.
+              </p>
+
+              
+              <br>
+              <br>
+              <h2>Python - SVM Conclusion</h2>
+
+              <p> 
+                In summary, it has been demonstrated how SVM can be a really powerful classifier for text data line news headlines. With other types of data, such as record data, it may not be that much of success. For this specific data, it can be safely assumed to improve the result of 89% accuracy, by incorporating other tuning parameters for example by getting variables which describe the voltatility of the temperature. For text data, it can be seen from the results section that the SVM did really well in classifying the various classes, all of which have the same accuracy. All in al, it can be infered that SVM models can be immensly usefl to hlpe predict news classifications on climate change and global warming.
+              </p>
+
+              </p>
+
+    
+
+
+
+
+
+
+
+
+
+
+              <hr style="height:2px;border-width:0;color:gray;background-color:blue">
+    
+                    <br>
+    
+                    <h2>SVM WITH R</h2>
+                    <br>
+
+
+                    <h2>R - Code</h2>
+
+                    <p>The code for performing SVM classificaton in R can be found below:</p>
+                    <br>
+
+                    <a href="r_svm.html" class="button2" id="rcode">CODE: R - SVM</a>
+                    <br>
+                    <br>
+
+
+                    <h2>R - SVM Data</h2>
+
+                    <br>
+                    <a href="r_clean_country.html" class="button2" id="rcode">CODE: R Cleaning - Country</a>
+      
+                    <br>
+                    <br>
+
+                    <p>
+
+                      The data for creating the decision trees in R was gathered from the data cleaining tab, specifically the numeric section. This raw data showcases the global land temperature by country. The dataset spans across over a hundred countries as well as weather points dating back from the 1750's. The temperature data presented here is in Celsius. Feature extraction was performed to get the data of countries USA and India. To accomplish this in R, the data was read in by getting the country code 'USA' and 'India'. Next, the date data was converted to months and years as features in the dataset along with the month number correlating to the abbreviation. Then, applying another feature extraction, the celsius data was converted to fahrenheit (by the formula 9/5*C + 32). Next, using a simple key of very cold to very hot, based on the fahrenheit scale, a feature was made to determine the "sense" of the weather. Finally, this transform was outputted as a csv.
+                    </p>
+      
+      
+                    <p>
+      
+                      USA and India climate dataset.
+      
+                    </span></p>
+                    <br>
+
+                    <img style="max-width: 100%; height: auto;" src="small_sample.png" class="center2">
+                    <br>
+                    <br>
+      
+                    <a href="small_sample.csv" class="button2" download="small_sample.csv">Download small_sample.csv</a>
+                    <br>
+                    <br>
+      
+
+
+
+
+
+
+
+
+                    <br>
+                    <h2>R - SVM Results</h2>
+
+
+                    <p>
+                      Linear Kernal:
+                    </p>
+      
+                    <img style="max-width: 100%; height: auto;" src="linear_r.png" class="center2">
+                  
+                    <h4>Linear Kernal SVM Confusion Matrix.</a></h4>
+
+                    <br>
+                    <p>
+                      Polynomial Kernal:
+                    </p>
+      
+                    <img style="max-width: 100%; height: auto;" src="poly_r.png" class="center2">
+                  
+                    <h4>Polynomial Kernal SVM Confusion Matrix.</a></h4>
+
+      
+                    <p>
+                      Radial Basis Function (RBF) Kernel:
+                    </p>
+      
+                    <img style="max-width: 100%; height: auto;" src="RBF_r.png" class="center2">
+                  
+                    <h4>Radial Basis Function (RBF) Kernel Confusion Matrix.</a></h4>
+      
+
+                    <p>
+                      Results:
+                    </p>
+
+                    <p>
+                      The linear kernal got a prediction accuracy from the test sets of 23.3%. The polynomial kernal achived a preduction accuracy of 23.3% accuracy as well.
+                    </p>
+                    <br>
+                    <br>
+      
+
+
+                    <h2>R - SVM Conclusion</h2>
+                    <p>
+                      There were three different kernal used to perform SVM: Linear, Polynomial, and Radial Basis Function (RBF). The overall accuracies for these three different SVM algorithms were dissapointing to say the least. The overall performance by the SVM done by the linear and polynomial. This gives us the conclusion that the accuracies based on the category to the average temperature based on the country doesn't have a strong correlation. In other words, how the datapoints are split from the India's and USA's temperatures can't be distinctly categorized by the category of the temperature they're in. This, at the end, makes sense, as the temperature variance between the two countries are very different, as they're from two different climate regions.
+                    </p>
+                    
+
+
+
+
+
+
+
+
+
+
+                  </div>
+            
+          </div>
+        </div>
+    
+    
+        <br>
+        <br>
+        <br>
+
+
+
+            
+            <br>
+            <br>
+          </div>
+
+        </div>
+
+      </div>
+
+        </div>
+
+
+
+              </div>
+              
+            </div>
+          </div>
+
+
+
+
+
+
+
+
+
+
+
+      </section>
+    </div>
+  </body>
+</html>

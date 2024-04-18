@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+
+<!-- 
+█▀ █░█░█ ▄▀█ █▀▄▀█ █   █░█ █▀▀ █▄░█ █▄▀ ▄▀█ ▀█▀
+▄█ ▀▄▀▄▀ █▀█ █░▀░█ █   ▀▄▀ ██▄ █░▀█ █░█ █▀█ ░█░
+
+
+ -->
+
+ <style>
+  @import url('https://fonts.googleapis.com/css?family=Urbanist');
+  </style>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Swami Venkat ANLY501 Website - Coming Soon</title>
+    <link rel="stylesheet" href="styles_r.css" />
+  </head>
+    <body >
+
+    <!-- About Section -->
+    <div class="paragraph" id="introduction">
+      <form>
+        <form>
+          <input type="button" class = button value="<-- Go Back" onclick="history.back()">
+         </form>       </form>
+      <div class="main__container">
+        <div class="main__content">
+            <xmp>
+
+
+              # -*- coding: utf-8 -*-
+"""
+Spyder Editor
+
+This is a temporary script file.
+"""
+
+#Module 6 Assignment (NB and SVM)
+
+import nltk
+from sklearn import preprocessing
+import pandas as pd
+import sklearn
+from pandas import DataFrame
+import sys
+
+from nltk.stem.porter import PorterStemmer
+from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
+from sklearn.model_selection import train_test_split
+from nltk.tokenize import sent_tokenize, word_tokenize
+import os
+
+import random as rd
+from sklearn.naive_bayes import MultinomialNB
+from sklearn.metrics import confusion_matrix
+from sklearn.naive_bayes import GaussianNB
+
+from sklearn.naive_bayes import BernoulliNB
+
+from sklearn.svm import SVC
+from sklearn.preprocessing import LabelBinarizer 
+from sklearn.metrics import classification_report
+from sklearn.inspection import permutation_importance
+
+
+import re
+import requests
+import numpy as np 
+import matplotlib.pyplot as plt
+import seaborn as sns
+from sklearn.svm import LinearSVC
+from sklearn.decomposition import PCA
+import numpy as np
+import wordcloud
+from wordcloud import WordCloud, STOPWORDS
+
+
+
+
+topics = ["global+warming","climate+change"]
+
+#create a new csv file 
+filename = "NewHeadlines2.csv"
+MyFile = open(filename,"w")
+WriteThis = "LABEL,Data,Source,Title,Headline\n"
+MyFile.write(WriteThis)
+MyFile.close()
+
+#enter for loop to collect data on three topics 
+endpoint="https://newsapi.org/v2/everything"
+
+for topic in topics: 
+     URLPost = {'apiKey':'f94cd7e9d6144f83b2e5637bf533421f',
+               'q':topic,
+               'pageSize':30} 
+     
+     response = requests.get(endpoint,URLPost)
+     print(response)
+     jsontxt = response.json()
+     print(jsontxt)
+
+     MyFile = open(filename,"a")
+     LABEL = topic 
+     for items in jsontxt["articles"]:
+       print(items,"\n\n\n")
+       Source = items["source"]["id"]
+       print(Source)
+       Date=items["publishedAt"]
+        ##clean up the date
+       NewDate=Date.split("T")
+       Date=NewDate[0]
+       print(Date)
+       #clean the title 
+       Title=items["title"]
+       Title=str(Title)
+       #print(Title)
+       Title=re.sub(r'[,.;@#?!&$\-\']+', ' ', str(Title), flags=re.IGNORECASE)
+       Title=re.sub(' +', ' ', str(Title), flags=re.IGNORECASE)
+       Title=re.sub(r'\"', ' ', str(Title), flags=re.IGNORECASE)
+       print(Title)
+    
+       Title=re.sub(r'[^a-zA-Z]', " ", str(Title), flags=re.VERBOSE)
+       Title=Title.replace(',', '')
+       Title=' '.join(Title.split())
+       Title=re.sub("\n|\r", "", Title)
+       #headline
+       Headline=items["description"]
+       Headline=str(Headline)
+       Headline=re.sub(r'[,.;@#?!&$\-\']+', ' ', Headline, flags=re.IGNORECASE)
+       Headline=re.sub(' +', ' ', Headline, flags=re.IGNORECASE)
+       Headline=re.sub(r'\"', ' ', Headline, flags=re.IGNORECASE)
+       Headline=re.sub(r'[^a-zA-Z]', " ", Headline, flags=re.VERBOSE)
+        ## Be sure there are no commas in the headlines or it will
+        ## write poorly to a csv file....
+       Headline=Headline.replace(',', '')
+       Headline=' '.join(Headline.split())
+       Headline=re.sub("\n|\r", "", Headline)
+    
+       print(Title)
+       print(Headline)
+       WriteThis=str(LABEL)+","+str(Date)+","+str(Source)+","+ str(Title) + "," + str(Headline)+ "\n"
+    
+       MyFile.write(WriteThis)
+
+MyFile.close()
+
+df = pd.read_csv(filename, error_bad_lines=False)
+print(df.head())
+
+for col in df.columns:
+    print(col)
+    
+print(df["Headline"])   
+df = df.dropna()
+print(df["Headline"])
+
+HeadlineLIST = []
+LabelLIST = []
+
+for nexthead, nextlabel in zip(df["Headline"], df["LABEL"]):
+    HeadlineLIST.append(nexthead)
+    LabelLIST.append(nextlabel)
+
+print("The headline list is:\n")
+print(HeadlineLIST)
+
+print("The label list is:\n")
+print(LabelLIST)
+
+#remove all words that match the topics exactly 
+NewHeadlineLIST=[]
+
+for element in HeadlineLIST:
+    print(element)
+    print(type(element))
+    ## make into list
+    AllWords=element.split(" ")
+    print(AllWords)
+    
+    ## Now remove words that are in your topics
+    NewWordsList=[]
+    for word in AllWords:
+        print(word)
+        word=word.lower()
+        if word in topics:
+            print(word)
+        else:
+            NewWordsList.append(word)
+            
+    ##turn back to string
+    NewWords=" ".join(NewWordsList)
+    ## Place into NewHeadlineLIST
+    NewHeadlineLIST.append(NewWords)
+
+
+## Set the HeadlineLIST to the new one
+HeadlineLIST=NewHeadlineLIST
+print(HeadlineLIST)     
+
+## build the labeled dataframe 
+#instantiate your cv 
+MyCountV=CountVectorizer(
+        input="content",  ## because we have a csv file
+        lowercase=True, 
+        stop_words = "english",
+        max_features=50
+        )
+
+## Use your CV 
+MyDTM = MyCountV.fit_transform(HeadlineLIST)  # create a sparse matrix
+print(type(MyDTM))
+    
+ColumnNames = MyCountV.get_feature_names()
+#print(type(ColumnNames))
+
+#build the data frame
+MyDTM_DF=pd.DataFrame(MyDTM.toarray(),columns=ColumnNames)
+Labels_DF = DataFrame(LabelLIST,columns=['LABEL'])
+
+#print("Labels\n")
+print(Labels_DF)
+#print("News df\n")
+print(MyDTM_DF.iloc[:,0:6])
+
+#save original df without the labels 
+My_Orig_DF = MyDTM_DF
+print(My_Orig_DF)
+
+dfs = [Labels_DF,MyDTM_DF]
+Final_News_DF_Labeled = pd.concat(dfs,axis=1, join='inner')
+## DF with labels
+print(Final_News_DF_Labeled)
+
+#save csv file to computer 
+Final_News_DF_Labeled.to_csv("Final_Labeled_v2.csv")
+#Create Training and Testing Data 
+
+
+#see wordclouds for each of the topics first 
+List_of_WC = []
+
+for mytopic in topics:
+
+    tempdf = Final_News_DF_Labeled[Final_News_DF_Labeled['LABEL'] == mytopic]
+    print(tempdf)
+    
+    tempdf =tempdf.sum(axis=0,numeric_only=True)
+    #print(tempdf)
+    
+    #Make var name
+    NextVarName=str("wc"+str(mytopic))
+    #print( NextVarName)
+    
+    
+    ###########
+    ## Create and store in a list the wordcloud OBJECTS
+    #########
+    NextVarName = WordCloud(width=1000, height=600, background_color="white",
+                   min_word_length=4, #mask=next_image,
+                   max_words=200).generate_from_frequencies(tempdf)
+    
+    ## Here, this list holds all three wordclouds I am building
+    List_of_WC.append(NextVarName)
+    
+
+##------------------------------------------------------------------
+print(List_of_WC)
+##########
+########## Create the wordclouds
+##########
+fig=plt.figure(figsize=(25, 25))
+#figure, axes = plt.subplots(nrows=2, ncols=2)
+NumTopics=len(topics)
+for i in range(NumTopics):
+    print(i)
+    ax = fig.add_subplot(NumTopics,1,i+1)
+    plt.imshow(List_of_WC[i], interpolation='bilinear')
+    plt.axis("off")
+    plt.savefig("NewClouds2.pdf")
+
+Final_News_DF_Labeled.to_csv("Final_Labeled_v2.csv")
+TrainDF, TestDF = train_test_split(Final_News_DF_Labeled, test_size=0.3)
+print(TrainDF)
+print(TestDF)
+
+#STEP 2: Separate Labels 
+### TEST ---------------------
+TestLabels=TestDF["LABEL"]
+print(TestLabels)
+TestDF = TestDF.drop(["LABEL"], axis=1)
+print(TestDF)
+### TRAIN----------------------
+TrainLabels=TrainDF["LABEL"]
+print(TrainLabels)
+## remove labels
+TrainDF = TrainDF.drop(["LABEL"], axis=1)
+
+#NB 
+from sklearn.metrics import classification_report, confusion_matrix
+from sklearn.metrics import accuracy_score
+
+MyModelNB = MultinomialNB()
+NB1 = MyModelNB.fit(TrainDF,TrainLabels)
+Prediction1 = MyModelNB.predict(TestDF)
+print(np.round(MyModelNB.predict_proba(TestDF),2))
+
+print(classification_report(TestLabels,Prediction1))
+
+
+print("\nThe prediction from NB is:")
+print(Prediction1)
+print("\nThe actual labels are:")
+print(TestLabels)
+
+
+cnf_matrix1 = confusion_matrix(TestLabels, Prediction1)
+print("\nThe confusion matrix is:")
+print(cnf_matrix1)
+
+#plot confusion matrix 
+df_confusion = pd.DataFrame(cnf_matrix1, range(2), range(2))
+#df_confusion
+
+ax = plt.subplot()
+sns.set(font_scale=1.4) # label size
+sns.heatmap(df_confusion, annot=True, fmt='g', ax=ax, annot_kws={"size": 16});
+ax.set_xlabel('Predicted Labels');
+ax.set_ylabel('True Labels'); 
+ax.set_title('NB Confusion Matrix'); 
+ax.xaxis.set_ticklabels(['GlobalWarming', 'ClimateChange'])
+ax.yaxis.set_ticklabels(['GlobalWarming', 'ClimateChange']);
+plt.show()
+ 
+imps = permutation_importance(MyModelNB, TestDF, TestLabels)
+importances = imps.importances_mean
+std = imps.importances_std
+indices = np.argsort(importances)[::-1]
+
+
+
+
+### Bernoulli #
+from sklearn.naive_bayes import BernoulliNB
+BernModel = BernoulliNB()
+BernModel.fit(TrainDF, TrainLabels)
+##BernoulliNB(alpha=1.0, binarize=0.0, class_prior=None, fit_prior=True)
+print("\nBernoulli prediction:\n")
+Prediction=BernModel.predict(TestDF)
+print("\nActual:")
+print(TestLabels)
+print("\The prediction\n")
+print(Prediction)
+
+print(classification_report(TestLabels,Prediction))
+#
+bn_matrix = confusion_matrix(TestLabels, Prediction)
+print("\nThe confusion matrix is:")
+print(bn_matrix)
+
+df_confusion1 = pd.DataFrame(bn_matrix, range(2), range(2))
+#df_confusion
+
+ax = plt.subplot()
+sns.set(font_scale=1.4) # label size
+sns.heatmap(df_confusion1, annot=True, fmt='g', ax=ax, annot_kws={"size": 16});
+ax.set_xlabel('Predicted Labels');
+ax.set_ylabel('True Labels'); 
+ax.set_title('Bernoulli Confusion Matrix'); 
+ax.xaxis.set_ticklabels(['GlobalWarming', 'ClimateChange'])
+ax.yaxis.set_ticklabels(['GlobalWarming', 'ClimateChange']);
+plt.show()
+
+
+#gaussian 
+GausModel = GaussianNB()
+GausModel.fit(TrainDF, TrainLabels)
+##BernoulliNB(alpha=1.0, binarize=0.0, class_prior=None, fit_prior=True)
+print("\nGaussian prediction:\n")
+Prediction2=GausModel.predict(TestDF)
+print("\nActual:")
+print(TestLabels)
+print("\The prediction\n")
+print(Prediction2)
+
+print(classification_report(TestLabels,Prediction2))
+#
+g_matrix = confusion_matrix(TestLabels, Prediction2)
+print("\nThe confusion matrix is:")
+print(g_matrix)
+
+df_confusion2 = pd.DataFrame(g_matrix, range(2), range(2))
+#df_confusion
+
+ax = plt.subplot()
+sns.set(font_scale=1.4) # label size
+sns.heatmap(df_confusion2, annot=True, fmt='g', ax=ax, annot_kws={"size": 16});
+ax.set_xlabel('Predicted Labels');
+ax.set_ylabel('True Labels'); 
+ax.set_title('Gaussian Confusion Matrix'); 
+ax.xaxis.set_ticklabels(['GlobalWarming', 'ClimateChange'])
+ax.yaxis.set_ticklabels(['GlobalWarming', 'ClimateChange']);
+plt.show()
+
+
+       
+
+
+#LINEAR SVM
+SVM_Model=LinearSVC(C=1)
+SVM_Model.fit(TrainDF,TrainLabels)
+
+Prediction2 = SVM_Model.predict(TestDF)
+SVM_matrix = confusion_matrix(TestLabels, Prediction2)
+
+print("\nThe confusion matrix is:")
+print(SVM_matrix)
+print("\n\n")
+#CM different than NB 
+
+print(classification_report(TestLabels,Prediction2))
+
+svm_confusion = pd.DataFrame(SVM_matrix, range(2), range(2))
+
+
+### Plot confusion matrix 
+ax = plt.subplot()
+sns.set(font_scale=1.4) # label size
+sns.heatmap(svm_confusion, annot=True, fmt='g', ax=ax, annot_kws={"size": 16});
+ax.set_xlabel('Predicted Labels');
+ax.set_ylabel('True Labels'); 
+ax.set_title('SVM Linear Confusion Matrix'); 
+ax.xaxis.set_ticklabels(['GlobalWarming', 'ClimateChange'])
+ax.yaxis.set_ticklabels(['GlobalWarming', 'ClimateChange']);
+plt.show()
+
+#visualizing top features 
+
+def plot_coefficients(MODEL=SVM_Model, COLNAMES=TrainDF.columns, top_features=10):
+    coef = MODEL.coef_.ravel()
+    top_positive_coefficients = np.argsort(coef,axis=0)[-top_features:]
+    top_negative_coefficients = np.argsort(coef,axis=0)[:top_features]
+    top_coefficients = np.hstack([top_negative_coefficients, top_positive_coefficients])
+    # create plot
+    plt.figure(figsize=(15, 5))
+    colors = ["red" if c < 0 else "blue" for c in coef[top_coefficients]]
+    plt.bar(  x=  np.arange(2 * top_features)  , height=coef[top_coefficients], width=.5,  color=colors)
+    feature_names = np.array(COLNAMES)
+    plt.xticks(np.arange(0, (2*top_features)), feature_names[top_coefficients], rotation=60, ha="right")
+    plt.show()
+    
+
+plot_coefficients()
+plt.savefig('KeyWords.pdf')
+    
+
+
+
+#RBF
+SVM_Model2=sklearn.svm.SVC(C=10, kernel='rbf', 
+                           verbose=True, gamma="auto")
+SVM_Model2.fit(TrainDF, TrainLabels)
+Prediction3 =  SVM_Model2.predict(TestDF)
+
+print("RBF  :\n")
+SVM_matrix2 = confusion_matrix(TestLabels,Prediction3)
+print("\nThe confusion matrix is:")
+print(SVM_matrix2)
+print("\n\n")
+
+print(classification_report(TestLabels,Prediction3))
+
+svm_confusion2 = pd.DataFrame(SVM_matrix2, range(2), range(2))
+
+ax = plt.subplot()
+sns.set(font_scale=1.4) # label size
+sns.heatmap(svm_confusion2, annot=True, fmt='g', ax=ax, annot_kws={"size": 16});
+ax.set_xlabel('Predicted Labels');
+ax.set_ylabel('True Labels'); 
+ax.set_title('SVM Confusion Matrix (RBF Kernel)'); 
+ax.xaxis.set_ticklabels(['GlobalWarming', 'ClimateChange'])
+ax.yaxis.set_ticklabels(['GlobalWarming', 'ClimateChange']);
+plt.show()
+
+#visualizing top features 
+
+
+## POLY
+SVM_Model3=sklearn.svm.SVC(C=100, kernel='poly',degree=2,
+                           gamma="auto", verbose=True)
+
+#print(SVM_Model3)
+SVM_Model3.fit(TrainDF, TrainLabels)
+
+
+print("POLY Degree 2:\n")
+Prediction4 = SVM_Model3.predict(TestDF)
+SVM_matrix3 = confusion_matrix(TestLabels, Prediction4)
+print("\nThe confusion matrix is:")
+print(SVM_matrix3)
+print("\n\n")
+
+
+print(classification_report(TestLabels,Prediction4))
+
+svm_confusion3 = pd.DataFrame(SVM_matrix3, range(2), range(2))
+
+ax = plt.subplot()
+sns.set(font_scale=1.4) # label size
+sns.heatmap(svm_confusion3, annot=True, fmt='g', ax=ax, annot_kws={"size": 16});
+ax.set_xlabel('Predicted Labels');
+ax.set_ylabel('True Labels'); 
+ax.set_title('SVM Confusion Matrix (Poly Kernel)'); 
+ax.xaxis.set_ticklabels(['GlobalWarming', 'ClimateChange'])
+ax.yaxis.set_ticklabels(['GlobalWarming', 'ClimateChange']);
+plt.show()
+
+
+
+
+
+
+
+
+
+        
+            </xmp>
+            <img style="max-width: 50%; height: auto;" class="center" src="night.gif" alt="weather gif">
+      </div>
+    </div>
+  </body>
+</html>

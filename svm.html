@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+
+<!-- 
+█▀ █░█░█ ▄▀█ █▀▄▀█ █   █░█ █▀▀ █▄░█ █▄▀ ▄▀█ ▀█▀
+▄█ ▀▄▀▄▀ █▀█ █░▀░█ █   ▀▄▀ ██▄ █░▀█ █░█ █▀█ ░█░
+ -->
+
+ <style>
+  @import url('https://fonts.googleapis.com/css?family=Urbanist');
+  </style>
+  
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Swami Venkat ANLY501 Website</title>
+    <link rel="stylesheet" href="syles_SVM.css" />
+  </head>
+  <body>
+
+
+
+    <!-- Navigation Bar Section -->
+    <nav class="navigation">
+      <div class="navigation__container">
+        <a href="index.html" id="navigation__logo">SWAMI VENKAT</a>
+        <ul class="navigation__menu">
+          <ul class="navigation__item">
+            <a href="about_me.html" class="navigation__links" id="aboutme-page"> About Me</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="introduction.html" class="navigation__links" id="Introduction-page">Introduction</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="data_gathering.html" class="navigation__links" id="datagathering-page"
+              >Data Gathering</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="data_cleaning.html" class="navigation__links" id="datacleaning-page"
+              >Data Cleaning</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="exploring_data.html" class="navigation__links" id="exploring-page"
+              >Exploring Data</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="clustering.html" class="navigation__links" id="clustering-page"
+              >Clustering</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="armnetwork.html" class="navigation__links" id="armandnetworking-page"
+              >ARM and Networking</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="decisiontree.html" class="navigation__links" id="decision-page"
+              >Decision Tree</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="naivebayes.html" class="navigation__links" id="naivebayes-page"
+              >Naïve Bayes</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="svm.html" class="navigation__links" id="svm-page"
+              >SVM</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="conclusion.html" class="navigation__links" id="conclusion-page"
+              >Conclusion</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="infogrpahic.html" class="navigation__links" id="infographic-page"
+              >Infographic</a>
+          </ul>
+        </ul>
+      </div>
+    </nav>
+
+
+               <!-- SVM Section -->
+               <div class="paragraph" id="SVM">
+                <div class="main__container">
+                  <div class="main__content">
+                    <h1>SUPPORT VECTOR MACHINE (SVM).</h1>
+    
+                    <br>
+
+                  <h2>What is Support Vector Machine (SVM)?</h2>
+
+                  <p>
+
+                    Support Vector Machine (SVM) is a type of supervised machine learning algorithm that essentially requires a labled training set and an unlabeled testing set which the algorithm makes predictions on. The SVM takes data points and outputs it onto a two dimension hyperplane that seperates the training testing points based on a decision boundry into the n-number of classifiers. One of the advantages of the SVM classifier is the kernal, which allows the algorithm to classify into n-dimensional space to fit the dataset. An image below can be seen on how SVMs holistically work.
+    
+                  </span></p>
+                  <br>
+
+                  <img style="max-width: 100%; height: auto;" src="svm.png" class="center2">
+            
+                  <h4>Source: An Introduction to Statistical Learning with Applications in R, book by Robert Tibshirani, Gareth James, Trevor Hastie and Daniela Witten.
+                  </a></h4>
+
+
+                  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                  <h2>Python: Text Data - Cleaning NewsAPI Data</h2>
+              <p>
+                
+                The raw data collected can be found below. The news articles are labeled by the key word used to generate the articles (labels).
+
+              </span></p>
+              <br>
+
+              <img style="max-width: 100%; height: auto;" src="python_uncleaned.png" class="center2">
+            
+              <h4>This is a screenshot of the raw data gathered from the NewsAPI.</a></h4>
+
+              <a href="python_uncleaned.csv" class="button2" download="python_uncleaned.csv">Download python_uncleaned.csv</a>
+              <br>
+
+              <p>
+                
+                The cleaning has been done via removing stop words and any meaningless words. Then using Count Vectorizer, a cleaned csv file was created created with relevant words as the variables (columns) and the topics as the labels (first column for each row).
+
+              </span></p>
+              <br>
+
+              <img style="max-width: 100%; height: auto;" src="python_cleaned.png" class="center2">
+            
+              <h4>This is a screenshot of the cleaned NewsAPI data.</a></h4>
+
+              <a href="python_cleaned.csv" class="button2" download="python_cleaned.csv">Download python_cleaned.csv</a>
+              <br>
+              <br>
+
+
+
+
+
+
+
+              <p>
+
+                Three word clouds were generated to visualize the data pulled from each topic: climate change, global warming, and renewable energy.
+              </span></p>
+              <br>
+
+              <img style="max-width: 100%; height: auto;" src="climate_wc.png" class="center2">
+            
+              <h4>Wordcloud for climate change.</a></h4>
+
+              <img style="max-width: 100%; height: auto;" src="global_wc.png" class="center2">
+            
+              <h4>Wordcloud for global warming.</a></h4>
+
+
+              <p>
+
+                The code for creating the dataset and the wordclouds can be found below:
+              </p>
+
+              <br>
+              <a href="dt_python.html" class="button2" id="rcode">CODE: Python - NEWS API Cleaning</a>
+              <br>
+              <br>
+
+
+              <h2>Python - SVM Results</h2>
+
+              <p>
+
+                The code for the three SVM kernals and the accuracy can be found below (incldues both NB and SVM; commented out the SVM portion):
+              </p>
+
+
+              <br>
+              <a href="svm_python.html" class="button2" id="rcode">CODE: Python - SVM</a>
+              <br>
+              <br>
+
+
+              <p>
+                Linear Kernal:
+              </p>
+
+              <img style="max-width: 100%; height: auto;" src="SVM_Linear.png" class="center2">
+            
+              <h4>Linear Kernal SVM Confusion Matrix.</a></h4>
+
+
+              <img style="max-width: 100%; height: auto;" src="linearsvm.png" class="center2">
+            
+              <h4>Linear Kernal SVM Results.</a></h4>
+              <br>
+
+              <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+
+              <br>
+              <p>
+                Polynomial Kernal:
+              </p>
+
+              <img style="max-width: 100%; height: auto;" src="SVM_Poly.png" class="center2">
+            
+              <h4>Polynomial Kernal SVM Confusion Matrix.</a></h4>
+
+
+              <img style="max-width: 100%; height: auto;" src="svmpoly.png" class="center2">
+            
+              <h4>Polynomial Kernal SVM Results.</a></h4>
+              <br>
+
+              <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+
+              <p>
+                Radial Basis Function (RBF) Kernel:
+              </p>
+
+              <img style="max-width: 100%; height: auto;" src="SVM_RBF.png" class="center2">
+            
+              <h4>Radial Basis Function (RBF) Kernel Confusion Matrix.</a></h4>
+
+
+              <img style="max-width: 100%; height: auto;" src="rbfsvm.png" class="center2">
+            
+              <h4>Radial Basis Function (RBF) Kernel SVM Results.</a></h4>
+
+              
+
+
+              <p> 
+                
+                The Linear kernal, Polynomial kernal, and RBF Kernal, suprisingly gave the same accuracy of 89%. Well, in retrospect this seems counter intuitive as I made sure that the code was unique for each by the label. However, the results are not that suprising if you take into account the less disparity in the dataset and how monotone the data is, any form of SVM would yield the same result.
+              </p>
+
+              
+              <br>
+              <br>
+              <h2>Python - SVM Conclusion</h2>
+
+              <p> 
+                In summary, it has been demonstrated how SVM can be a really powerful classifier for text data line news headlines. With other types of data, such as record data, it may not be that much of success. For this specific data, it can be safely assumed to improve the result of 89% accuracy, by incorporating other tuning parameters for example by getting variables which describe the voltatility of the temperature. For text data, it can be seen from the results section that the SVM did really well in classifying the various classes, all of which have the same accuracy. All in al, it can be infered that SVM models can be immensly usefl to hlpe predict news classifications on climate change and global warming.
+              </p>
+
+              </p>
+
+    
+
+
+
+
+
+
+
+
+
+
+              <hr style="height:2px;border-width:0;color:gray;background-color:blue">
+    
+                    <br>
+    
+                    <h2>SVM WITH R</h2>
+                    <br>
+
+
+                    <h2>R - Code</h2>
+
+                    <p>The code for performing SVM classificaton in R can be found below:</p>
+                    <br>
+
+                    <a href="r_svm.html" class="button2" id="rcode">CODE: R - SVM</a>
+                    <br>
+                    <br>
+
+
+                    <h2>R - SVM Data</h2>
+
+                    <br>
+                    <a href="r_clean_country.html" class="button2" id="rcode">CODE: R Cleaning - Country</a>
+      
+                    <br>
+                    <br>
+
+                    <p>
+
+                      The data for creating the decision trees in R was gathered from the data cleaining tab, specifically the numeric section. This raw data showcases the global land temperature by country. The dataset spans across over a hundred countries as well as weather points dating back from the 1750's. The temperature data presented here is in Celsius. Feature extraction was performed to get the data of countries USA and India. To accomplish this in R, the data was read in by getting the country code 'USA' and 'India'. Next, the date data was converted to months and years as features in the dataset along with the month number correlating to the abbreviation. Then, applying another feature extraction, the celsius data was converted to fahrenheit (by the formula 9/5*C + 32). Next, using a simple key of very cold to very hot, based on the fahrenheit scale, a feature was made to determine the "sense" of the weather. Finally, this transform was outputted as a csv.
+                    </p>
+      
+      
+                    <p>
+      
+                      USA and India climate dataset.
+      
+                    </span></p>
+                    <br>
+
+                    <img style="max-width: 100%; height: auto;" src="small_sample.png" class="center2">
+                    <br>
+                    <br>
+      
+                    <a href="small_sample.csv" class="button2" download="small_sample.csv">Download small_sample.csv</a>
+                    <br>
+                    <br>
+      
+
+
+
+
+
+
+
+
+                    <br>
+                    <h2>R - SVM Results</h2>
+
+
+                    <p>
+                      Linear Kernal:
+                    </p>
+      
+                    <img style="max-width: 100%; height: auto;" src="linear_r.png" class="center2">
+                  
+                    <h4>Linear Kernal SVM Confusion Matrix.</a></h4>
+
+                    <br>
+                    <p>
+                      Polynomial Kernal:
+                    </p>
+      
+                    <img style="max-width: 100%; height: auto;" src="poly_r.png" class="center2">
+                  
+                    <h4>Polynomial Kernal SVM Confusion Matrix.</a></h4>
+
+      
+                    <p>
+                      Radial Basis Function (RBF) Kernel:
+                    </p>
+      
+                    <img style="max-width: 100%; height: auto;" src="RBF_r.png" class="center2">
+                  
+                    <h4>Radial Basis Function (RBF) Kernel Confusion Matrix.</a></h4>
+      
+
+                    <p>
+                      Results:
+                    </p>
+
+                    <p>
+                      The linear kernal got a prediction accuracy from the test sets of 23.3%. The polynomial kernal achived a preduction accuracy of 23.3% accuracy as well.
+                    </p>
+                    <br>
+                    <br>
+      
+
+
+                    <h2>R - SVM Conclusion</h2>
+                    <p>
+                      There were three different kernal used to perform SVM: Linear, Polynomial, and Radial Basis Function (RBF). The overall accuracies for these three different SVM algorithms were dissapointing to say the least. The overall performance by the SVM done by the linear and polynomial. This gives us the conclusion that the accuracies based on the category to the average temperature based on the country doesn't have a strong correlation. In other words, how the datapoints are split from the India's and USA's temperatures can't be distinctly categorized by the category of the temperature they're in. This, at the end, makes sense, as the temperature variance between the two countries are very different, as they're from two different climate regions.
+                    </p>
+                    
+
+
+
+
+
+
+
+
+
+
+                  </div>
+            
+          </div>
+        </div>
+    
+    
+
+
+
+
+
+
+
+
+
+
+      </section>
+    </div>
+  </body>
+</html>

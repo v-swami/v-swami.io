@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+
+<!-- 
+█▀ █░█░█ ▄▀█ █▀▄▀█ █   █░█ █▀▀ █▄░█ █▄▀ ▄▀█ ▀█▀
+▄█ ▀▄▀▄▀ █▀█ █░▀░█ █   ▀▄▀ ██▄ █░▀█ █░█ █▀█ ░█░
+ -->
+
+ <style>
+  @import url('https://fonts.googleapis.com/css?family=Urbanist');
+  </style>
+  
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Swami Venkat ANLY501 Website</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+
+
+
+
+    <!-- Navigation Bar Section -->
+    <nav class="navigation">
+      <div class="navigation__container">
+        <a href="index.html" id="navigation__logo">SWAMI VENKAT</a>
+        <ul class="navigation__menu">
+          <ul class="navigation__item">
+            <a href="about_me.html" class="navigation__links" id="aboutme-page"> About Me</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="introduction.html" class="navigation__links" id="Introduction-page">Introduction</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="data_gathering.html" class="navigation__links" id="datagathering-page"
+              >Data Gathering</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="data_cleaning.html" class="navigation__links" id="datacleaning-page"
+              >Data Cleaning</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="exploring_data.html" class="navigation__links" id="exploring-page"
+              >Exploring Data</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="clustering.html" class="navigation__links" id="clustering-page"
+              >Clustering</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="armnetwork.html" class="navigation__links" id="armandnetworking-page"
+              >ARM and Networking</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="decisiontree.html" class="navigation__links" id="decision-page"
+              >Decision Tree</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="naivebayes.html" class="navigation__links" id="naivebayes-page"
+              >Naïve Bayes</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="svm.html" class="navigation__links" id="svm-page"
+              >SVM</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="conclusion.html" class="navigation__links" id="conclusion-page"
+              >Conclusion</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="infogrpahic.html" class="navigation__links" id="infographic-page"
+              >Infographic</a>
+          </ul>
+        </ul>
+      </div>
+    </nav>
+
+
+    <!-- Data Gathering Section -->
+    <div class="paragraph" id="datagathering">
+        <div class="main__container">
+          <div class="main__content">
+
+            <h1>DATA GATHERING.</h1>
+
+            <h2>Where and how?</h2>
+            <p>
+              In the R portion of this project, the data was gathered via two R programs which used APIs to collect data from <a href="https://docs.airnowapi.org/">AirNow.com</a> and <a href="https://newsapi.org/"> NewsAPI.org.</a>
+              <p>
+                In the Python portion of this project, the data was gathered via a Python program which used an API to collect data from <a href="https://www.ncdc.noaa.gov/cdo-web/webservices/v2">ncdc.noaa.gov</a> (climate data online: web services).
+            </p>
+            <p>
+              All the APIs used in codes below are the author's.
+            </p>
+
+            <br>
+            <br>
+
+            <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+
+            <h2><br>R - AirNow</h2>
+              <p>
+                The AirNow API was used to gather the air quality index (AQI) of Washington DC (show in the code). AQI essentially refers to how the government uses a index to communicate to the public about how polluted the air is. The aim of this data is to view the trend of how the air quality in different U.S cities have changed. A cool analysis which will be added late to this portfolio, is a visualization on vehicle sales vs. the AQI over a period of time, in a paricular city.
+              </p><br>
+              <a href="rcode_aqi.html" class="button2" id="rcode">AirNow API - VIEW CODE</a>
+              <p>
+                Note: The current code only represents gatering data from one city.
+              </p>
+              <img style="max-width: 100%; height: auto;" src="aqiscreenshot.png" alt="AQI Data Screenshot" class="center2">
+              
+              <h4>This is a screenshot of the sample data collected from the AirNow API.</a></h4>
+
+              <a href="AirNowExample.csv" class="button2" download="AirNowAPI.csv">Download R - AirNow.csv</a>
+
+
+
+
+
+
+
+
+              <br>
+              <br>
+              <br>
+              <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+
+              <h2><br>R - NewsAPI</h2>
+
+              <p>
+                The NewsAPI was used to gather various qualitative data regarding the keyword 'climate change'. 
+              </p>
+              <p>
+                This data will be useful in parsing through various legislative news, to identify current data about what legislations are being passed about climate change (and their history). The result of this data collection will be used to analyze if its impact is benificial to our society. In other words, we're determining if the necessary steps are being done to save the enviornment.
+              </p>
+              </p>
+              <a href="rcode_news.html" class="button2" id="rcode">NewsAPI - VIEW CODE</a>
+              <p>
+                Note: There is a limit in the amount of news articles that can be retrieved from the API.
+              </p>
+              <img style="max-width: 100%; height: auto;" src="NewsAPI_Screenshot.png" alt="AQI Data Screenshot" class="center2">
+              
+              <h4>This is a screenshot of the sample data colleceted from the NewsAPI.</a></h4>
+
+              <a href="news_climatechange.csv" class="button2" download="NewsAPI.csv">Download R - NewsAPI.csv</a>
+
+
+
+
+
+
+
+
+              <br>
+              <br>
+              <br>
+              <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+
+              <h2><br>Python - NOAA API</h2>
+              <p>
+                The NOAA API was used to gather numeric data regarding temperature changes over the past year in a particular city. 
+              </p>
+              <p>
+                The gathered data is the range of temperatures from a particular city over a year. This data is crucial to understanding the degree of effect of climate change in major cities. An intersting analysis would be to compare this data alongside the carbon dioxide values of the same city and correlating their trends. The result of this would serve as key indicators to determine the effects of climate change (and even answer if it exits).
+              </p>
+              </p>
+              <a href="python_noaa.html" class="button2" id="rcode">NOAA API - VIEW CODE</a>
+              <p>
+                The temperature data is shown from Jan 2020 to Dec 2020 to the city code for Buffumville Lake (GHCND:USC00190998). Note: The 'value' column represents the "tenth of the Celcius".
+              </p>
+              <img style="max-width: 100%; height: auto;" src="NOAA_APIScreenshot.png" alt="NOAA API Screenshot" class="center2">
+              
+              <h4>This is a screenshot of the sample data colleceted from the NewsAPI.</a></h4>
+
+              <a href="NOAA.csv" class="button2" download="NOAA.csv">Download Python - NOAA.csv</a>
+
+
+
+
+
+              <br>
+              <br>
+              <br>
+
+              <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+
+              <h2><br>Data found online</h2>
+              <p>
+                There are also alot of interesting corpus of climate change data publicly available on the internet. This project also aims to collect useful data from these open data sets to aid in answering the various questions mentioned in the focus of this project.
+              </p>
+              <br>
+
+              <br>
+              <h2>Countries.csv</h2>
+            <p>This data showcases the global land temperature by country (actual title GlobalLandTemperaturesByCountry). The dataset spans across over a hundred countries as well as weather points dating back from the 1750's. The temperature data presented here is in Celsius. </span></p>
+            <p>
+              The data was gathered from <a href="https://www.kaggle.com/berkeleyearth/climate-change-earth-surface-temperature-data?select=GlobalLandTemperaturesByCountry.csv">Kaggle</a>.
+              <p>
+            
+            <img style="max-width: 100%; height: auto;" src="R_dataset.png" alt="R Dataset - Not Cleaned" class="center2">
+              
+            <h4>This is a screenshot of the raw country.csv data.</a></h4>
+
+            <a href="Country.csv" class="button2" download="Country.csv">Download Country.csv</a>
+
+
+
+            <br><br><br>
+            <h2>Twitter.csv</h2>
+
+            <p>The raw data shown below showcases various unfiltered Tweets, Tweet ID, and sentiment. There are approximately over 40,000 tweets.</span></p>
+          
+            <p>
+              The data was gathered from <a href="https://www.kaggle.com/edqian/twitter-climate-change-sentiment-dataset">Kaggle</a>.
+              <p>
+
+            <img style="max-width: 100%; height: auto;" src="Twitter_Unclean.png" alt="Twitter_Unclean.png" class="center2">
+              
+            <h4>This is a screenshot of the raw twitter_sentiment.csv data.</a></h4>
+
+            <a href="twitter_sentiment_data.csv" class="button2" download="twitter_sentiment_data.csv">Download Twitter Data.csv</a>
+
+
+
+
+            <br><br>
+            <h2>Countries_Average.csv</h2>
+
+            <p>
+              The data was gathered from <a href="https://www.kaggle.com/theworldbank/world-bank-climate-change-data?select=historical-data-excel-380-kb-.xls">Kaggle</a>.
+              <p>
+
+            <p>                  
+             The data was gathered by the World Bank. And, the exact subset of the data used was the “Country_TemperatureCRU.” This dataset contains the mean monthly and annual temperatures by country for the period 1961-1999. An advantage of using this dataset is that it's already been cleaned and stripped of any N/A values. An image of it can be seen and downloaded below. Note: all the values are in degrees Celsius. </span></p>
+          
+            <br>
+            <img style="max-width: 100%; height: auto;" src="country_average.png" alt="country_average Screenshot" class="center2">
+              
+            <h4>This is a screenshot of 'country_average'.</a></h4>
+
+            <a href="country_average.csv" class="button2" download="country_average.csv">Download country_average.csv</a>
+            
+
+            <br>
+            <br>
+          </div>
+        </div>
+      </div>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </section>
+    </div>
+  </body>
+</html>

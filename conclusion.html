@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+
+<!-- 
+█▀ █░█░█ ▄▀█ █▀▄▀█ █   █░█ █▀▀ █▄░█ █▄▀ ▄▀█ ▀█▀
+▄█ ▀▄▀▄▀ █▀█ █░▀░█ █   ▀▄▀ ██▄ █░▀█ █░█ █▀█ ░█░
+ -->
+
+ <style>
+  @import url('https://fonts.googleapis.com/css?family=Urbanist');
+  </style>
+  
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Swami Venkat ANLY501 Website</title>
+    <link rel="stylesheet" href="styles_conclusion.css" />
+  </head>
+  <body>
+
+
+
+
+    <!-- Navigation Bar Section -->
+    <nav class="navigation">
+      <div class="navigation__container">
+        <a href="index.html" id="navigation__logo">SWAMI VENKAT</a>
+        <ul class="navigation__menu">
+          <ul class="navigation__item">
+            <a href="about_me.html" class="navigation__links" id="aboutme-page"> About Me</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="introduction.html" class="navigation__links" id="Introduction-page">Introduction</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="data_gathering.html" class="navigation__links" id="datagathering-page"
+              >Data Gathering</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="data_cleaning.html" class="navigation__links" id="datacleaning-page"
+              >Data Cleaning</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="exploring_data.html" class="navigation__links" id="exploring-page"
+              >Exploring Data</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="clustering.html" class="navigation__links" id="clustering-page"
+              >Clustering</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="armnetwork.html" class="navigation__links" id="armandnetworking-page"
+              >ARM and Networking</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="decisiontree.html" class="navigation__links" id="decision-page"
+              >Decision Tree</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="naivebayes.html" class="navigation__links" id="naivebayes-page"
+              >Naïve Bayes</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="svm.html" class="navigation__links" id="svm-page"
+              >SVM</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="conclusion.html" class="navigation__links" id="conclusion-page"
+              >Conclusion</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="infogrpahic.html" class="navigation__links" id="infographic-page"
+              >Infographic</a>
+          </ul>
+        </ul>
+      </div>
+    </nav>
+    
+
+    <!-- Introduction Section -->
+    <div class="paragraph" id="introduction">
+      <div class="main__container">
+        <div class="main__content">
+          <h1>CONCLUSION.</h1>
+
+
+
+          <br>
+          <h2>Welcome back time travelers and you (the reader)!</h2>
+
+          <p>Let’s take a look at what we learned and gathered from our journey into a data-powered look into climate change and global warming.</p>
+          <br>
+          
+
+          <h2>Countries vs Their Temperatures</h2>
+
+          <p>We began to draw our first inference looking at how countries are grouped together based on data collected which showcases every country coupled with the average temperatures of that county over the late 1990’s. From the groups we made in our clusters, we can decipher what countries are correlated to one another based on the temperatures.</p>
+
+          <p>We can see common temporal region countries being grouped together based on our results, such as India and China, based on the country’s number. Our results were accurate, as we can see the graph below of the Earth and how the temporal climates are linked together, which we also proved based on our clustering. However, once we increased our clustering size,we can see a shift in these values.</p>
+          <br>
+
+          <img style="max-width: 100%; height: auto;" src="countries_temp.jpg" class="center2">
+
+          <h4>This is a screenshot of KMeans Clustering where K = 8</a></h4>
+          <br>
+          <br>
+
+
+          <p>Furthuremore, what happens here in our analysis, is that by increasing the number of cluster size, we can see the groups increase and the countries being shifted into more smaller clusters. When this happens, along with an increase in climate change, the temperatures continue to rise, and we see that temporal regions which shouldn’t be clustered together start to associate with hotter and hotter regions. Since the data collected shown only data in the end of 1990’s, we can logically conclude that more countries group together with hotter countries as the temperatures continue to rise. This shows us that the world is becoming a global hot zone pervasively across various regions of the world.</p>
+          <br>
+
+
+          <h2>Global temperature rising</h2>
+
+
+          <p>To prove that the worlds temperature is rising, let’s take a look back to noticing how the average monthly temperatures across USA and India are peaking in both extreme ends over a hundred years. To the time travelers, the plots below, created in R, showcases that the warmer months are getting extending (or peaking) as the years progress as well as the colder regions lowering (or dipping). </p>
+          <br>
+
+
+          <img style="max-width: 100%; height: auto;" src="USA_Chart.png" alt="USA_Chart.png" class="center2">
+          <h4>Figure: USA_Chart.png | Note: Temperature in C | Code: Shown in Data Cleaning ("CODE: R Cleaning - Country")</a></h4>
+
+          <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+          <br>
+
+
+          <img style="max-width: 100%; height: auto;" src="India_Chart.png" alt="India_Chart.png" class="center2">
+          <h4>Figure: India_Chart.png | Note: Temperature in F | Code: Shown in Data Cleaning ("CODE: R Cleaning - Country")</a></h4>
+
+
+          <p>This yield to the conclusion that however small a deviation is from the norm in the global temperature of two different climate regions, they both are still facing the same issues via global warming. This type of variation could butterfly into massive shifts in our ecosystems, such as polar ice caps melting to ocean waters rising. This trend, if continued, will make Earth uninhabitable if this doesn’t stop along with other human interventions. And, according to researchers within the next 500-1000 years earth this misfortune will indeed come true. </p>
+          <br>
+
+
+          <div class="row">
+            <div class="column">
+              <img src="climate_9.jpeg" alt="coal mining" style="width: 100%">
+            </div>
+            <div class="column">
+              <img src="climate_10.jpeg" alt="snow melting" style="width:100%">
+            </div>
+            <div class="column">
+              <img src="climate_11.jpeg" alt="tree depletion" style="width:100%">
+            </div>
+
+          </div>
+          <h3><a href="https://www.reddit.com/r/environment/comments/n37mc7/dramatic_photos_from_around_the_globe_record/" class="caption">Image source</a>
+
+            <br>
+            <br>
+
+
+
+
+
+            <h2> Can we predict this change? </h2>
+            <p>The million-dollar question for researchers using this data and code presented in this portfolio is, "can we somehow predict the effects of climate change"? The short answer is yes, but the long answer is no. Using predictive modelling, we can see the temperature fluxuation predictions over a short period of time. With the data we gathered, which depicts the average temperature for a country over 300 years, we can use a feature generating variable which will show researchers, much like yourself, if the temperatures are drastically changing, and of course, to what extent. The long answer is no, due to the uncertainties of the other variables which our data can't be accounted for. For example, if we see a rise in gasoline powered vehicle sales, that would add so much more severity to to the planet. Or, if there was a new molecule which was found that depletes the ozone layer faster (perhaps due to the increase in plastic use), our predictive models can't be used due to factors like these not being taken into consideration. This can help educate people about the modern day changes due to the various reasons on why the temperatures are getting hotter or colder.</p>
+
+  
+            <br>
+            <p>
+                However, on a short term basis, we can predict the category in which the climate is being changed currently. We input the category of data as either extreme cold, cold, normal, hot, or extremely hot. Why we do this is that since humans aren’t able to tell the differences between normal decimal difference of two numbers, due to the lack of frame of reference, we use categories to depict these changes. And thus, we see a strong correlation in our model to predicting the accurate (future) labels.
+            </p>
+
+            <br>
+            <h2>What do people think today?</h2>
+
+            <p>Finally, to both you and the time travelers, let's take a look into what people in our modern day society think about global warming and climate change. First, we gathered tweets with the appropriate hashtags and cleaned it to make transactional data. This showcases to us what words are being used and how closely associated they are. This along with a word cloud, which shows us the most common words used by each hashtag, gives us an understanding on how educated the public is and how much global warming and climate change is being talked about over the internet.</p>
+
+            <img style="max-width: 50%; height: auto;" src="climate_wc.png" class="center2">
+            
+            <h4>Wordcloud for climate change.</a></h4>
+            <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+            <br>
+
+            <img style="max-width: 50%; height: auto;" src="global_wc.png" class="center2">
+          
+            <h4>Wordcloud for global warming.</a></h4>
+
+
+            <p>These results, along with the network graphs, showcases that not only are people talking about climate change, we can see a lot of news articles being pulled up from the data, indicating the awareness of these hard pressing topics are being talked about. This gives us a certain hope that our future isn’t doomed and that there is still time to change what has already been done.</p>
+
+            <br>
+            <h2>Is there hope?</h2>
+            <p>Before the time travelers leave, let’s see what can be done to lessen the effects of global warming and climate change. Much like our last conclusion, we were able to pull tweets regarding renewable energy, creating a word cloud of what are the most common words used here.</p>
+
+            <img style="max-width: 50%; height: auto;" src="energy_wc.png" class="center2">
+            
+            <h4>Wordcloud for renewable energy.</a></h4>
+
+            <p>Common themes in the wordclouds about renewable, energy, power, and wind. With this much being said by the people over the internet, lets push our society to embrace greener creation of energy, such as wind turbines, electric cars, and solar power energy.</p>
+
+            <p>A common word used in economics is called sunk cost, which essentially means what whatever commodity that’s lost won’t be able to get back, such as time, money, and energy. However bad the trend is looking like based on the global climate change patterns to what it is today, let’s, together as a community, make that change positive starting from today! Let’s invest in various renewable energy resources and see the climate change peaks decrease as we run the same code with the new data in another 100 years. </p>
+            <br>
+
+            <div class="row">
+                <div class="column">
+                  <img src="re_1.jpeg" alt="coal mining" style="width: 100%">
+                </div>
+                <div class="column">
+                  <img src="re_2.jpeg" alt="snow melting" style="width:100%">
+                </div>
+                <div class="column">
+                  <img src="re_3.jpeg" alt="tree depletion" style="width:100%">
+                </div>
+    
+              </div>
+
+            <p>We only have one Earth, and let’s make sure to protect it at all costs. Here’s to life and the joy it brings!</p>
+
+            <p>Have a safe journey back time-travelers!</p>
+            <br>
+
+            <hr style="height:2px;border-width:0;color:gray;background-color:blue">
+
+
+            <img style="max-width: 25%; height: auto;" src="earth.jpg" alt="Cleaned_Twitter.png" class="center2">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+        
+      </div>
+    </div>
+
+
+      </section>
+    </div>
+  </body>
+</html>

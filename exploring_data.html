@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+
+<!-- 
+█▀ █░█░█ ▄▀█ █▀▄▀█ █   █░█ █▀▀ █▄░█ █▄▀ ▄▀█ ▀█▀
+▄█ ▀▄▀▄▀ █▀█ █░▀░█ █   ▀▄▀ ██▄ █░▀█ █░█ █▀█ ░█░
+ -->
+
+ <style>
+  @import url('https://fonts.googleapis.com/css?family=Urbanist');
+  </style>
+  
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Swami Venkat ANLY501 Website</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+
+
+
+    <!-- Navigation Bar Section -->
+    <nav class="navigation">
+      <div class="navigation__container">
+        <a href="index.html" id="navigation__logo">SWAMI VENKAT</a>
+        <ul class="navigation__menu">
+          <ul class="navigation__item">
+            <a href="about_me.html" class="navigation__links" id="aboutme-page"> About Me</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="introduction.html" class="navigation__links" id="Introduction-page">Introduction</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="data_gathering.html" class="navigation__links" id="datagathering-page"
+              >Data Gathering</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="data_cleaning.html" class="navigation__links" id="datacleaning-page"
+              >Data Cleaning</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="exploring_data.html" class="navigation__links" id="exploring-page"
+              >Exploring Data</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="clustering.html" class="navigation__links" id="clustering-page"
+              >Clustering</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="armnetwork.html" class="navigation__links" id="armandnetworking-page"
+              >ARM and Networking</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="decisiontree.html" class="navigation__links" id="decision-page"
+              >Decision Tree</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="naivebayes.html" class="navigation__links" id="naivebayes-page"
+              >Naïve Bayes</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="svm.html" class="navigation__links" id="svm-page"
+              >SVM</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="conclusion.html" class="navigation__links" id="conclusion-page"
+              >Conclusion</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="infogrpahic.html" class="navigation__links" id="infographic-page"
+              >Infographic</a>
+          </ul>
+        </ul>
+      </div>
+    </nav>
+
+           <!-- DATA EXPLORING Section -->
+           <div class="paragraph" id="exploringdata">
+            <div class="main__container">
+              <div class="main__content">
+                <h1>EXPLORING DATA.</h1>
+    
+                <br>
+                <h2>1. Data Exploring with R - Numeric</h2>
+                <p>
+                  
+                  Upon getting the clean datasets for both India and USA temperatures over the past two hundred years, a simple visualization can be performed by noticing the trends of the high and low temperatures over the years and cross the month. The style of the x axis are the months in alphabetical order. The plots are showcased in different temperatures (Y axis) to showcase that both the datasets work.
+
+                </span></p>
+                <br>
+
+                <img style="max-width: 100%; height: auto;" src="USA_Chart.png" alt="USA_Chart.png" class="center2">
+                <h4>Figure: USA_Chart.png | Note: Temperature in C | Code: Shown in Data Cleaning ("CODE: R Cleaning - Country")</a></h4>
+
+                <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+
+
+                <img style="max-width: 100%; height: auto;" src="India_Chart.png" alt="India_Chart.png" class="center2">
+                <h4>Figure: India_Chart.png | Note: Temperature in F | Code: Shown in Data Cleaning ("CODE: R Cleaning - Country")</a></h4>
+
+                <p>
+                  
+                  These plots was coded in R using the library ggplot. The overall aim of these graphs of showcasing the various trends of USA temperatures over 200 years. Please make a note that the lows are during January (winters) and the highs are during July (summers) and May (only for India).
+                  
+                </span></p>
+
+                <br>
+                <br>
+
+                <h2>2. Data Exploring with Python - Text (CSV)</h2>
+
+                <p> Upon cleaning the data there are many interesting plots that can be plotted to understand the relationship between sentiment and the message of the tweets. </span></p>
+                <br>
+
+
+                <p> First is a pie char depicting the % of positive, negative, neutral, and news tweets. </span></p>
+                <br>
+
+                <img style="max-width: 100%; height: auto;" src="Percent_Sentiment.png" alt="Percent_Sentiment.png" class="center2">
+                <h4>Figure: Percent_Sentiment.png | Code: Shown in Data Cleaning ("CODE: Python Cleaning - Tweets")</a></h4>
+
+
+                <p> The same information above can be showcased in a bargraph. With this, the number of tweets by sentiment category can be shown below.</span></p>
+                <br>
+
+                <img style="max-width: 100%; height: auto;" src="Sentiment_Vaues.png" alt="Sentiment_Vaues.png" class="center2">
+                <h4>Figure: Sentiment_Vaues.png | Code: Shown in Data Cleaning ("CODE: Python Cleaning - Tweets")</a></h4>
+
+
+                <p> Next, a histogram can be produced, showcasing the different length of tweets vs. the sentiment category. The result of this graph showcases any outliers that may be in the dataset. </span></p>
+
+
+                <img style="max-width: 100%; height: auto;" src="Sentiment_Histo.png" alt="Sentiment_Histo.png" class="center2">
+                <h4>Figure: Sentiment_Histo.png | Code: Shown in Data Cleaning ("CODE: Python Cleaning - Tweets")</a></h4>
+
+                <br>
+
+                <p> Finally, with the the twitter text (after cleaning), a word cloud can be implemented with the help of CountVectorization (CV). CV outputs the frequency of the words and using the the wordcloud library, the tweets without stopwords can generate the top most words used in each sentiment category. The code to generate the wordclouds can be viewed below. </span></p>
+
+                <br>
+                <a href="wordcloud.html" class="button2" id="rcode">CODE: Python WordCloud</a>
+
+                <br>
+
+                <img style="max-width: 75%; height: auto;" src="negative_wc.png" alt="negative_wc.png" 
+                class="center2">
+                <h4>Figure: Negative Sentiment Word Cloud</a></h4>
+
+                <img style="max-width: 75%; height: auto;" src="positive_wc.png" alt="positive_wc.png
+                " class="center2">
+                <h4>Figure: Positive Sentiment Word Cloud</a></h4>
+
+
+                <img style="max-width: 75%; height: auto;" src="neutral_wc.png" alt="positive_wc.png"
+                 class="center2">
+                <h4>Figure: Neutral Sentiment Word Cloud</a></h4>
+
+
+                <img style="max-width: 75%; height: auto;" src="news_wc.png" 
+                alt="news_wc.png" 
+                class="center2">
+                <h4>Figure: News Sentiment Word Cloud</a></h4>
+                <br>
+
+                <h2>3. Data Exploring with Python - Text (JSON)</h2>
+
+                <p> Much like the python code used to gather the tweets, similar word clouds can be built for understanding the various News. The wordcloud represents the various weighted frequency within the headlines and first sentence of each headline.</span></p>
+
+
+                <img style="max-width: 80%; height: auto;" src="news_apiwc.png" 
+                alt="news_apiwc.png" 
+                class="center2">
+                <h4>Figure: News API Word Cloud</a></h4>
+              </div>
+              <br>
+              <br>
+              <hr style="height:2px;border-width:0;color:gray;background-color:blue">
+              <br>
+            </div>
+          </div>
+
+        </div>
+
+
+      </section>
+    </div>
+  </body>
+</html>

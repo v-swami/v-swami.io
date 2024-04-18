@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+
+<!-- 
+█▀ █░█░█ ▄▀█ █▀▄▀█ █   █░█ █▀▀ █▄░█ █▄▀ ▄▀█ ▀█▀
+▄█ ▀▄▀▄▀ █▀█ █░▀░█ █   ▀▄▀ ██▄ █░▀█ █░█ █▀█ ░█░
+ -->
+
+ <style>
+  @import url('https://fonts.googleapis.com/css?family=Urbanist');
+  </style>
+  
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Swami Venkat ANLY501 Website</title>
+    <link rel="stylesheet" href="styles_DT.css" />
+  </head>
+  <body>
+
+
+
+    <!-- Navigation Bar Section -->
+    <nav class="navigation">
+      <div class="navigation__container">
+        <a href="index.html" id="navigation__logo">SWAMI VENKAT</a>
+        <ul class="navigation__menu">
+          <ul class="navigation__item">
+            <a href="about_me.html" class="navigation__links" id="aboutme-page"> About Me</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="introduction.html" class="navigation__links" id="Introduction-page">Introduction</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="data_gathering.html" class="navigation__links" id="datagathering-page"
+              >Data Gathering</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="data_cleaning.html" class="navigation__links" id="datacleaning-page"
+              >Data Cleaning</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="exploring_data.html" class="navigation__links" id="exploring-page"
+              >Exploring Data</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="clustering.html" class="navigation__links" id="clustering-page"
+              >Clustering</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="armnetwork.html" class="navigation__links" id="armandnetworking-page"
+              >ARM and Networking</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="decisiontree.html" class="navigation__links" id="decision-page"
+              >Decision Tree</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="naivebayes.html" class="navigation__links" id="naivebayes-page"
+              >Naïve Bayes</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="svm.html" class="navigation__links" id="svm-page"
+              >SVM</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="conclusion.html" class="navigation__links" id="conclusion-page"
+              >Conclusion</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="infogrpahic.html" class="navigation__links" id="infographic-page"
+              >Infographic</a>
+          </ul>
+        </ul>
+      </div>
+    </nav>
+
+        <!-- DECISION TREE Section -->
+        <div class="paragraph" id="decisiontree">
+          <div class="main__container">
+            <div class="main__content">
+              <h1>DECISION TREE.</h1>
+  
+              <br>
+              <h2>Introduction</h2>
+              <p>
+                
+                A decision tree is a tree-like model that illustrates the various decisions and the outcomes of each possibilities. In machine learning, it used as an algorithm to display conditional outcomes based on the nodes (label) and their roots (outcomes of the test). It is a type of supervised machine learning model.
+
+              </span></p>
+              <br>
+
+
+              <h2>Python - Data</h2>
+              <p>
+                
+                The data for creating the decision trees in Python was gathered from NewsAPI. This data will be useful in parsing through various news related to climate change, global warming, and renewable energy; all of which are the key words used to makes the root nodes of the decision tree. 
+              </span></p>
+              <br>
+
+
+              <h2>Python - Code</h2>
+              <p>
+
+                Please find the code below for the creating decision trees in python.
+
+              </span></p>
+              <br>
+              <br>
+
+              <a href="dt_python.html" class="button2" id="rcode">CODE: Python - Decision Trees</a>
+              <br>
+              <br>
+              <br>
+
+
+              <h2>Cleaning NewsAPI Data</h2>
+              <p>
+                
+                The raw data collected can be found below. The news articles are labeled by the key word used to generate the articles (labels).
+
+              </span></p>
+              <br>
+
+              <img style="max-width: 100%; height: auto;" src="python_uncleaned.png" class="center2">
+            
+              <h4>This is a screenshot of the raw data gathered from the NewsAPI.</a></h4>
+
+              <a href="python_uncleaned.csv" class="button2" download="python_uncleaned.csv">Download python_uncleaned.csv</a>
+              <br>
+
+              <p>
+                
+                The cleaning has been done via removing stop words and any meaningless words. Then using Count Vectorizer, a cleaned csv file was created created with relevant words as the variables (columns) and the topics as the labels (first column for each row).
+
+              </span></p>
+              <br>
+
+              <img style="max-width: 100%; height: auto;" src="python_cleaned.png" class="center2">
+            
+              <h4>This is a screenshot of the cleaned NewsAPI data.</a></h4>
+
+              <a href="python_cleaned.csv" class="button2" download="python_cleaned.csv">Download python_cleaned.csv</a>
+              <br>
+              <br>
+
+
+              <p>
+
+                Three word clouds were generated to visualize the data pulled from each topic: climate change, global warming, and renewable energy.
+              </span></p>
+              <br>
+
+              <img style="max-width: 100%; height: auto;" src="climate_wc.png" class="center2">
+            
+              <h4>Wordcloud for climate change.</a></h4>
+
+              <img style="max-width: 100%; height: auto;" src="global_wc.png" class="center2">
+            
+              <h4>Wordcloud for global warming.</a></h4>
+
+              <img style="max-width: 100%; height: auto;" src="energy_wc.png" class="center2">
+            
+              <h4>Wordcloud for renewable energy.</a></h4>
+
+              
+
+
+
+
+
+
+
+
+
+
+              <br>
+
+              <h2>Python: Decision Tree</h2>
+              <p>
+                
+                The decision trees were created via sklearn.tree import DecisionTreeClassifier and plot_tree. Confusion matrixes were also formed from each decision tree. These are used to describe the performance of a classification model. The x axis is the Prediction and the y axis is the Actual value. The Gini and entropy are both criterion for calculating information gain. Gini is the measure how often a randomly chosen element would be incorrectly labeled. And, entropy is to measure the disorder of a grouping by the target variable.
+
+              </span></p>
+              <br>
+
+
+
+              <h2>Python: Decision Tree Results</h2>
+
+              <p>
+                The first decision tree created used criterion equal to entropy and splitter equal to best. The result can be seen below:
+              </span></p>
+
+              <p>
+                Key Parameters: criterion='entropy', splitter='best', min_samples_split = 2, min_samples_leaf = 1
+              </span></p>
+              <br>
+
+
+              <img style="max-width: 100%; height: auto;" src="tree1.png" class="center2">
+              <br>
+
+
+              <img style="max-width: 100%; height: auto;" src="cf_dt1.png" class="center2">
+              <br>
+
+              <img style="max-width: 100%; height: auto;" src="dt_result1.png" class="center2">
+
+              <br>
+              <br>
+
+
+
+
+
+            <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+
+            <p>
+              The second decision tree created used criterion equal to gini and splitter equal to random. The result can be seen below:
+            </span></p>
+
+            <p>
+              Key Parameters: criterion='gini', splitter='random', min_samples_split = 2, min_samples_leaf = 1
+            </span></p>
+            <br>
+
+
+              <img style="max-width: 100%; height: auto;" src="tree2.png" class="center2">
+              <br>
+
+              <img style="max-width: 100%; height: auto;" src="cm_dt2.png" class="center2">
+              <br>
+
+
+              <img style="max-width: 100%; height: auto;" src="dt_result1.png" class="center2">
+
+              <br>
+
+
+              <img style="max-width: 100%; height: auto;" src="fm_dt2.png" class="center2">
+
+
+              <br>
+              <br>
+
+              <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+
+
+              <p>
+                The third decision tree created used criterion equal to gini and splitter equal to best. The result can be seen below:
+              </span></p>
+
+              <p>
+                Key Parameters: criterion='gini', splitter='best', min_samples_split = 2, min_samples_leaf = 1, max_depth = 10
+              </span></p>
+              <br>
+
+              <br>
+              
+
+
+              <img style="max-width: 100%; height: auto;" src="tree3.png" class="center2">
+              <br>
+
+              <img style="max-width: 100%; height: auto;" src="cm_dt3.png" class="center2">
+              <br>>
+
+
+              <img style="max-width: 100%; height: auto;" src="dt_result1.png" class="center2">
+              <br>
+
+
+              <img style="max-width: 100%; height: auto;" src="fm_dt3.png" class="center2">
+
+
+              <br>
+              <br>
+
+
+
+              <h2>Python - Decision Tree Conclusion</h2>
+              <p>
+                In predicting vairous news artciles of key words related to climate change, we can note that the decision tree did a fairly good job, predicting ~86% for each key word. The key parameters in the deicsion tree that were chosen to build the trees were criterion, splitter, and max_depth. Within criterion, we have two impurities: gini and entryop. The gini impurity measures the frequency at which any element of the dataset will be mislabelled when it is randomly labeled. Entropy is a measure of information that indicates the disorder of the features with the target. Similar to the Gini Index, the optimum split is chosen by the feature with less entropy. In the three decision trees, we can note that the differences weren't seen much depending on the type of entropy used. For splitter, we can note that there are two features which decide what threshold to use: best and random. Using best, the model is taking the feature with the highest importance. Using random, the model sf taking the feature randomly but with the same distribution. We can also note that the across the three types of entropy, the various precition rates weren't affected. And, finally for Max-depth, since it controls the depth of decision tree, which is how big a tree is, more difference in the tree was shown.
+              </span></p>
+              <br>
+
+              <p>
+                For Decision Tree 1, according to the classification report and confusion matrix, there are 2 wrong predictions for climate change, 1 wrong prediction for global wamring, and 1 wrong preidciton for renewable energy. The accuracy of Decision Tree 1 is 0.89.
+              </span></p>
+              <br>
+
+              <p>
+                For Decision Tree 2, according to the classification report and confusion matrix, there are 2 wrong predictions for climate change, 1 wrong prediction for global wamring, and 1 wrong preidciton for renewable energy. The accuracy of Decision Tree 2 is 0.89.
+              </span></p>
+              <br>
+
+              <p>
+                For Decision Tree 3, according to the classification report and confusion matrix, there are 2 wrong predictions for climate change, 1 wrong prediction for global wamring, and 1 wrong preidciton for renewable energy. The accuracy of Decision Tree 3 is 0.89.
+              </span></p>
+              <br>
+
+              <p>
+                Looking at the various feature importances of the decision tree, we can note that the most important words are "global", "power", and "energy". This makes sense, as these words would be key in determining if the article is about one of the three topics generated for the NewsAPI.
+              </span></p>
+              <br>
+
+              <p>
+                Looking at the accuracies of the various decision trees genearted, it can infered that all the decision tress make equal sense in predicting if an article is about climate change, global warming, or renenwable energy. This makes sense, as these words are interrelated and are also bleak synonyms of each other. In other words, key words in a global warmining related article will have key words related to an artcile with climate change and renewable energy. A better analysis should be done in the future which showcases three distinct topics of global warming, such as maybe, fossil fuels, etc.
+              </span></p>
+              <br>
+
+              <p>
+                It can be noted that Decision Trees can be used to deal with complex datasets, and can be pruned if necessary to avoid overfitting. It can be also seen that they are popular in data analytics and machine learning, with practical applications across sectors from health, to energy, and clime change.
+
+              </span></p>
+              <br>
+
+
+
+
+
+
+
+
+              <br>
+              <br>
+
+
+
+              <hr style="height:2px;border-width:0;color:gray;background-color:blue">
+
+
+              <br>
+              <br>
+
+
+
+              <h2>R - Data</h2>
+              <p>
+                
+                The data for creating the decision trees in R was gathered from the data cleaining tab, specifically the numeric section. This raw data showcases the global land temperature by country. The dataset spans across over a hundred countries as well as weather points dating back from the 1750's. The temperature data presented here is in Celsius. Feature extraction was performed to get the data of countries USA and India. To accomplish this in R, the data was read in by getting the country code 'USA' and 'India'. Next, the date data was converted to months and years as features in the dataset along with the month number correlating to the abbreviation. Then, applying another feature extraction, the celsius data was converted to fahrenheit (by the formula 9/5*C + 32). Next, using a simple key of very cold to very hot, based on the fahrenheit scale, a feature was made to determine the "sense" of the weather. Finally, this transform was outputted as a csv. The code for cleaning the data can be found below as well as USA specific dataset and the dataset used to create the decision tree.
+
+              </span></p>
+              <br>
+
+              <br>
+              <p>
+
+                Code for cleaning the raw data to country specific data along with feature generation.
+
+              </span></p>
+              <br>
+              <a href="r_clean_country.html" class="button2" id="rcode">CODE: R Cleaning - Country</a>
+
+              <br>
+              <br>
+
+
+              <p>
+
+                USA climate dataset.
+
+              </span></p>
+              <br>
+
+              <img style="max-width: 100%; height: auto;" src="R_Cleaning_Final.png" alt="R Dataset - Not Cleaned" class="center2">
+              <br>
+              <br>
+
+              <a href="USA_Climate.csv" class="button2" download="USA_Climate.csv">Download USA_Climate.csv</a>
+              <br>
+              <br>
+
+              <p>
+
+                Dataset used to generate decision trees in R.
+
+              </span></p>
+              <br>
+
+
+              <img style="max-width: 100%; height: auto;" src="small_sample.png" class="center2">
+              <br>
+              <br>
+
+              <a href="small_sample.csv" class="button2" download="small_sample.csv">Download small_sample.csv</a>
+              <br>
+              <br>
+
+
+
+
+              <h2>R - Code</h2>
+              <p>
+
+                The code for creating the decision trees in R can be found below. The model was generated via the rpart library and where the testing and training were split into 30% and 70% respectively.
+
+              </span></p>
+              <br>
+
+
+              <a href="dt_r.html" class="button2" id="rcode">CODE: R - Decision Trees</a>
+              <br>
+              <br>
+              <br>
+
+
+
+
+
+
+              <h2>R: Decision Tree Results</h2>
+
+              <p>
+                The first decision tree uses the average temperature category as the root node. The category can be broken down into cold, normal, or hot.
+              </span></p>
+
+              <p>
+                rpart(MyTrainingSet$Category ~.,
+                data=MyTrainingSet, cp=0, method="class",
+                parms=list(split="information"), minsplit=2)
+              </span></p>
+              <br>
+
+
+              <img style="max-width: 100%; height: auto;" src="r_dt_1.png" class="center2">
+              <br>
+
+
+              <img style="max-width: 100%; height: auto;" src="r_dt_result1.png" class="center2">
+              <br>
+
+              <br>
+
+
+
+
+
+
+            <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+
+            <p>
+              In this decision tree, the root node is changed to the variable, year. In this dataset, the year are all the years from 1770-1779. The split was information and a cp of 0.           
+             </span></p>
+
+            <p>
+              Key Parameters: criterion='gini', splitter='random', min_samples_split = 2, min_samples_leaf = 1
+            </span></p>
+            <br>
+
+
+            <img style="max-width: 100%; height: auto;" src="r_dt_2.png" class="center2">
+            <br>
+
+
+            <img style="max-width: 100%; height: auto;" src="r_dt_result2.png" class="center2">
+            <br>
+
+            <br>
+
+              <br>
+
+              <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+
+
+              <p>
+                In this decision tree, the root node is changed to the variable, country. In this dataset, the Gender is either India or USA. The split was information and a cp of 0. The decisions are based on the avergaetemperature based in celcius.
+              </span></p>
+
+              <p>
+                Key Parameters: criterion='gini', splitter='best', min_samples_split = 2, min_samples_leaf = 1, max_depth = 10
+              </span></p>
+              <br>
+
+              <br>
+              
+              <img style="max-width: 100%; height: auto;" src="r_dt_3.png" class="center2">
+              <br>
+  
+  
+              <img style="max-width: 100%; height: auto;" src="r_dt_result3.png" class="center2">
+              <br>
+  
+
+              <h2>R - Decision Tree Conclusion</h2>
+              <p>
+                In predicting vairous news artciles of key words related to climate change, we can note that the decision tree did a fairly good job, predicting ~96 for the first decision tree, 90% for the second, and 84% for the third.
+              </span></p>
+
+              <p>
+                For Decision Tree 1, according to the classification report and confusion matrix, there are 8 wrong predictions for cold, 0 wrong prediction for extreme cold, 0 for hot, and 1 for normal. The accuracy of Decision Tree 1 is 0.96.
+              </span></p>
+              <br>
+
+              <p>
+                For Decision Tree 2, according to the classification report and confusion matrix, there are 0 for 1768, 0 for 1796, 0 for 1774, 1 for 1775, 0 for 1776, 1 for 1777, 0 for 1778, 0 for 1779, 2 for 1781, 0 for 1796, and 0 for 1797. The accuracy of Decition Tree 2 is 0.90.
+              </span></p>
+              <br>
+
+              <p>
+                For Decision Tree 3, according to the classification report and confusion matrix, there are 5 wrong for India nd 2 wrong for USA. The accuracy of Decision Tree 3 is 0.84.
+              </span></p>
+              <br>
+
+              <img style="max-width: 100%; height: auto;" src="r_features.png" class="center2">
+              <br>
+
+              <p>
+                Looking at the various feature importances of the decision tree, we can note that the most important features to determining the success of a decision tree is the averagetemperature and the temperature in farenheight.
+              </span></p>
+              <br>
+
+              <p>
+                Looking at the accuracies of the various decision trees genearted, we can note that the most effective and accuracte predictive model is by category. In essense, if given a temperature and asked to predict if the temperature is cold or hot on a scale, the decision tree will predict the results with a 96% accuracy.
+              </span></p>
+              <br>
+
+
+              <p>
+                Based on the confusion matrix for all the matricies, we can see that the prediction results aren't as bad as the ones in resulted in the python section. We can note taht based on the confidence interval for decition tree number 1 and three, that there is a tight upperbound fix for both of them. For decision tree number 2, due to the sheer high number of nodes, it can infered that a low predictive rate can be generated just becasue of the poor correlation of the years to the average temperature. A fix around this would be probably looking at the months instead of the years, and trying to identify a correlation between the seasons and the temperature.
+              </span></p>
+              <br>
+
+              <p>
+                It can be noted that Decision Trees can be used to deal with complex datasets, and can be pruned if necessary to avoid overfitting. It can be also seen that they are popular in data analytics and machine learning, with practical applications across sectors from health, to energy, and clime change.
+
+              </span></p>
+              
+              <br>
+
+              
+
+            </div>
+
+            <br>
+            <br>
+
+            <hr style="height:2px;border-width:0;color:gray;background-color:blue">
+
+
+
+
+
+    <br>
+    <br>
+    <br>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+
+
+
+
+
+
+
+
+      </section>
+    </div>
+  </body>
+</html>

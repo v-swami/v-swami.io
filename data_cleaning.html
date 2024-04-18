@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+
+<!-- 
+█▀ █░█░█ ▄▀█ █▀▄▀█ █   █░█ █▀▀ █▄░█ █▄▀ ▄▀█ ▀█▀
+▄█ ▀▄▀▄▀ █▀█ █░▀░█ █   ▀▄▀ ██▄ █░▀█ █░█ █▀█ ░█░
+ -->
+
+ <style>
+  @import url('https://fonts.googleapis.com/css?family=Urbanist');
+  </style>
+  
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Swami Venkat ANLY501 Website</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+
+
+
+
+    <!-- Navigation Bar Section -->
+    <nav class="navigation">
+      <div class="navigation__container">
+        <a href="index.html" id="navigation__logo">SWAMI VENKAT</a>
+        <ul class="navigation__menu">
+          <ul class="navigation__item">
+            <a href="about_me.html" class="navigation__links" id="aboutme-page"> About Me</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="introduction.html" class="navigation__links" id="Introduction-page">Introduction</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="data_gathering.html" class="navigation__links" id="datagathering-page"
+              >Data Gathering</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="data_cleaning.html" class="navigation__links" id="datacleaning-page"
+              >Data Cleaning</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="exploring_data.html" class="navigation__links" id="exploring-page"
+              >Exploring Data</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="clustering.html" class="navigation__links" id="clustering-page"
+              >Clustering</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="armnetwork.html" class="navigation__links" id="armandnetworking-page"
+              >ARM and Networking</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="decisiontree.html" class="navigation__links" id="decision-page"
+              >Decision Tree</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="naivebayes.html" class="navigation__links" id="naivebayes-page"
+              >Naïve Bayes</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="svm.html" class="navigation__links" id="svm-page"
+              >SVM</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="conclusion.html" class="navigation__links" id="conclusion-page"
+              >Conclusion</a>
+          </ul>
+          <ul class="navigation__item">
+            <a href="infogrpahic.html" class="navigation__links" id="infographic-page"
+              >Infographic</a>
+          </ul>
+        </ul>
+      </div>
+    </nav>
+      <!-- DATA CLEANING Section -->
+      <div class="paragraph" id="datacleaning">
+        <div class="main__container">
+          <div class="main__content">
+            <h1>DATA CLEANING.</h1>
+
+            <br>
+            <h2>1. Cleaning with R - Numeric</h2>
+            <p>The R code demonstrated here cleans numeric data (quantitative data).</span></p>
+  
+            <p>This raw data showcases the global land temperature by country. The dataset spans across over a hundred countries as well as weather points dating back from the 1750's. The temperature data presented here is in Celsius. </span></p>
+            <br>
+            <img style="max-width: 100%; height: auto;" src="R_dataset.png" alt="R Dataset - Not Cleaned" class="center2">
+              
+            <h4>This is a screenshot of the raw country.csv data.</a></h4>
+
+            <a href="Country.csv" class="button2" download="Country.csv">Download Country (Unclean).csv</a>
+
+            <p>
+              The main aim of this dataset is to get the cleaned data of two countries: USA and India. The dataset should compose of the dates (both month and year) and the average temperature of each. This data will be useful to identify overall and holistic trends involving the various temperatures across the years.
+            </span></p>
+
+            <br>
+            <a href="r_clean_country.html" class="button2" id="rcode">CODE: R Cleaning - Country</a>
+
+            <p>
+              To accomplish this in R, the data was read in by getting the country code 'USA' and 'India'. Next, the date data was converted to months and years as features in the dataset along with the month number correlating to the abbreviation. Then, applying another feature extraction, the celsius data was converted to fahrenheit (by the formula 9/5*C + 32). Next, using a simple key of very cold to very hot, based on the fahrenheit scale, a feature was made to determine the "sense" of the weather. Finally, this transform was outputted as a csv. To view the final USA csv, click on the link below.
+            </span></p>
+
+            <img style="max-width: 100%; height: auto;" src="R_Cleaning_Final.png" alt="R Dataset - Not Cleaned" class="center2">
+            <h4>This is a screenshot of the final csv of USA countries. Output generated by library formattable.</a></h4>
+            <a href="USA_Climate.csv" class="button2" download="USA_Climate.csv">Download USA_Climate.csv</a>
+            <br>
+            <br>
+
+
+
+            <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+
+
+
+            <img style="max-width: 100%; height: auto;" src="India_Cleaned.png" alt="R Dataset - Not Cleaned" class="center2">
+            <h4>This is a screenshot of the final csv of India countries. Output generated by library formattable.</a></h4>
+
+            <a href="India_Climate.csv" class="button2" download="India_Climate.csv">Download India_Climate.csv</a>
+
+
+            <p>
+              The cleaning involved with this dataset was all: checking for missing values, N/A values, as well as outlier detection. Both the countries have ~ 2000 data points (from the 577,000 in the total dataset) and upon cleaning only lost less than 5% of the data. This indicates that most of the data was clean.
+            </span></p>
+
+            <p>
+              To speak upon outliers, since the dataset was already the average there wasn't any outliers. This was confirmed by plotting a histogram.
+            </span></p>
+
+            <img style="max-width: 45%; height: auto;" src="Temp_Outlier.png" alt="R Dataset - Not Cleaned" class="center2">
+            <br>
+  
+            <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+
+
+            <br><br>
+            <h2>2. Cleaning with Python - Text (CSV)</h2>
+            <p>The Python code demonstrated here cleans text data (qualitative) via .csv.</span></p>
+
+            <p>The raw data collected for Python data cleaning showcases various unfiltered Tweets, Tweet ID, and sentiment. There are approximately over 40,000 tweets.</span></p>
+            <br>
+            <img style="max-width: 100%; height: auto;" src="Twitter_Unclean.png" alt="Twitter_Unclean.png" class="center2">
+              
+            <h4>This is a screenshot of the raw twitter_sentiment.csv data.</a></h4>
+
+            <a href="twitter_sentiment_data.csv" class="button2" download="twitter_sentiment_data.csv">Download Twitter Data.csv</a>
+
+            <p>
+              The main aim of this dataset is to gather the text data and analyze the contents of the text. The analysis is both understanding the sentiment (how positive or negative the tweet is) as well as figure out how many people believe in climate change. This analysis will be proven vital when looking furthered to modern day solutions to help stop global warming. The code can be seen below.
+            </span></p>
+
+            <br>
+            <a href="py_cleaning.html" class="button2" id="rcode">CODE: Python Cleaning - Tweets</a>
+            
+            <p>
+              The text data was cleaned by first importing all the important libraries, such as numpy, pandas, nltk, etc. Next, the raw data is parsed through the tweet data and remove any unnecessary symbols (such as commas and '@') and strip it of any white space. Upon completion, using NLKT, the tweets are then abstracted by removing stop words such as and, like, etc. This gives a better representation of what the tweets are (i.e the crux of the tweets. Then, we continue to clean it and using PunktSentenceTokenizer, the tweets are broken down into sentences using a previously built in tool using the library NLKT. We then pass the tweets through the Tokenizer to get bite-sized sentences which can be parsed through. The cleaned data can be seen below for all 40,000+ tweets.
+            </span></p>
+            <br>
+
+            <img style="max-width: 100%; height: auto;" src="Cleaned_Twitter.png" alt="Cleaned_Twitter.png" class="center2">
+              
+            <h4>This is a screenshot of the cleaned twitter_sentiment.csv data.</a></h4>
+            
+            <a href="twittercleaned.csv" class="button2" download="twittercleaned.csv">Download Cleaned Twitter Data.csv</a>
+            <br>
+            <br>
+            
+            <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+
+
+
+
+
+
+            <br><br>
+            <h2>3. Cleaning with Python - Text (JSON - extra)</h2>
+            <p>The Python code demonstrated here cleans text data (qualitative) via .JSON.</span></p>
+
+            <p>The raw data collected here for this project is in JSON. The source of this data is from NewsAPI, where news articles are generated around keywords related to climate change. The data gathered can be found in the "Data Gathering" section.</span></p>
+            <br>
+
+            <img style="max-width: 100%; height: auto;" src="news_api_clean.png" alt="news_api_clean.png" class="center2">
+              
+            <h4>This is a screenshot of the cleaned news_API.csv data.</a></h4>
+
+            <a href="ClimateChange_NewsAPI.csv" class="button2" download="ClimateChange_NewsAPI.csv">Climate Change _ NEWS API.csv</a>
+
+            <p>
+              The main aim of this dataset is to gather the text data and analyze the contents of the headlines and the first lines of the text. The news gathered from the NewsAPI can prove vital when looking at current day legislative policies that are being passed to help reduce the drastic effects of climate change.
+            </span></p>
+
+            <br>
+            <a href="newsapi_clean.html" class="button2" id="rcode">CODE: Python Cleaning - NEWS API</a>
+            
+            <p>
+              The text data was cleaned by first importing all the important libraries, such as numpy, pandas, nltk, etc. Next, the data was parsed via JSON and gathered all the key attributes such as title, url, etc. This was then further more cleaned by removing unnecessary stop words. Finally, all the required elements were stored into a dataframe and outputted as a .csv.
+            </span></p>
+            <br>
+
+            <br><br>
+  
+    
+            <hr style="height:2px;border-width:0;color:gray;background-color:blue">
+            
+            
+
+            
+  
+          </div>
+        </div>
+      </div>
+
+
+      </section>
+    </div>
+  </body>
+</html>

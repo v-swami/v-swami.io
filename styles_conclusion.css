@@ -1,0 +1,347 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Urbanist';
+    scroll-behavior: smooth;
+  }
+  
+  /* Adjust the navigation bar settings */
+  .navigation {
+    background: #000000;
+    height: 70px;
+    font-size: 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 1010101010;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+    
+
+  
+  /* Adjust padding around my name (SWAMI VENKAT) */
+  .navigation__container {
+    display: flex;
+    justify-content: space-between;
+    height: 80px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 0px;
+  }
+  
+  /* Change SWAMI VENKAT logo color */
+  #navigation__logo {
+    background-color: #ADD8E6;
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    font-family: "Optima", monospace;
+  }
+  
+  /* Lists the navbar as a "Flex" type */
+  /* Sets containers */
+  .navigation__menu {
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Change navbar links and color */
+  .navigation__links {
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 140px;
+    text-decoration: none;
+    height: 100%;
+    transition: all 0.2s ease;
+  }
+  
+  /* Change MORE TABS button */
+  .navigation__btn {
+    display: flex;
+    justify-content: right;
+    align-items: right;
+    padding: 1 1rem;
+    width: 100%;
+  }
+  
+  /* For the MORE TABS COMING SOON button */
+  .button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    padding: 8px 15px;
+    height: 100%;
+    width: 100%;
+    border: none;
+    outline: none;
+    background: #000C66;
+    color: #fff;
+  }
+
+   /* For the MORE TABS COMING SOON button */
+   .button2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    padding: 8px 20px;
+    width: 40%;
+    border: none;
+    outline: none;
+    background: #000000;
+    color: #fff;
+    width: 300px;
+    height: 40px;
+    margin: auto;
+    margin-bottom: -1rem;
+  }
+  
+  /* Change hover link color */
+  .navigation__links:hover {
+    color: #ADD8E6;
+    transition: all 0.2s ease;
+  }
+  
+
+  
+
+  /* Landing Page Section */
+  /* This is the big name page */
+  /* Background for the  landing page */
+
+  .landing {
+    background: #000000;
+    background: linear-gradient(to right, #161616, #000C66);
+    padding: 200px 0;
+  }
+  
+  /* Change the landing page size */
+  .landing__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 90%;
+    text-align: center;
+    padding: 30px;
+  }
+  
+
+  /* Change font size for landing page */
+  .landing__heading {
+    font-size: 50px;
+    margin-bottom: 24px;
+    color: #fff;
+  }
+  
+  /* Subtitle for landing page */
+  .landing__description {
+    font-size: 30px;
+    background: #808080;    ;
+    background: -webkit-linear-gradient(
+      to right,
+      #fff,
+      #fff
+    );
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+  }
+
+
+
+
+  /* About Section */
+  .main {
+    background-color: #131313;
+    padding: 5rem 0;
+  }
+  
+  /* This is for our website to make it look in the middle --> via grids*/
+  .main__container {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    height: 90%;
+    z-index: 1;
+    width: 100%;
+    max-width: 1300px;
+    padding: 0 50px;
+    text-align: center;
+  }
+
+  .main__container_2{
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    height: 90%;
+    z-index: 1;
+    width: 100%;
+    max-width: 1300px;
+    padding: 0 50px;
+    text-align: center;
+    margin-top: -140rem;
+  }
+  
+  
+  /* This is for the background of all the pages */
+  .main__content {
+    color: #fff;
+    width: 100%;
+    text-align: left;
+    text-align: justify;
+    text-justify: inter-word;
+  }
+  
+   /* Change main big title name, font, and colors */
+  
+   .paragraph h1 {
+    background-color: #7a4844;
+    background-image: linear-gradient(to right, #000000 30%, #0000FF 75%);
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+    margin-bottom: 4rem;
+    font-size: 4rem;
+    text-align: center;
+    position: relative;
+    margin-top: -10rem;
+  }
+
+  /* This is for the subheaders within the file */
+  .main__content h2 {
+    font-size: 2rem;
+    margin-top: 0rem;
+    background: linear-gradient(
+      to right,
+      #000C66,
+      #ADD8E6
+    );
+    /* Firefox CSS */
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+  }
+
+
+  
+  /* Captions */
+  .main__content h3 {
+    font-size: 1.25rem;
+    background: linear-gradient(
+      to right,
+      #000000,
+      #da22ff
+    ); 
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+    text-align: center;
+    padding: 0.7rem;
+    padding-bottom: 1rem;
+  }
+
+  .main__content h4 {
+    font-size: 1rem;
+    text-align: center;
+    padding: 0.7rem;
+    padding-bottom: 1rem;
+    color: #000000;
+    margin-top: 0.5rem;
+  }
+  
+  /* Paragraph details */
+  .main__content p {
+    margin-top: 2rem;
+    font-size: 1.4rem;
+    font-weight: 550;
+    color: #000000;
+  }
+
+    /* List details */
+    .main__content ol {
+      margin-top: 2rem;
+      font-size: 1.4rem;
+      margin-bottom: -4rem;
+      font-weight: 550;
+      color: #000000;
+      list-style-position: inside;
+      font-weight: bold;
+    }
+  
+  
+
+  /* Section Headers Section */
+  .paragraph {
+    background: #fff;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 3rem 0;
+  }
+
+
+  .center {
+    margin-top: 0.75rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    margin-bottom: 1rem;
+  }
+
+  .center2 {
+
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 65%;
+  }
+
+  .center3 {
+
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+  }
+
+
+
+/* Three image containers (use 25% for four, and 50% for two, etc) */
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 5px;
+  margin-bottom: 1rem;
+}
+
+/* Clear floats after image containers */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
